@@ -1,0 +1,14 @@
+{
+  "name": "Seven.fitt Viewer",
+  "short_name": "Seven.fitt",
+  "description": "بازکننده آفلاین برنامه‌های تمرینی Seven.fitt برای iPhone و Android",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#071d35",
+  "theme_color": "#0b2b50",
+  "categories": ["health", "fitness"]
+}
