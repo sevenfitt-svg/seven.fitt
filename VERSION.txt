@@ -1,0 +1,2 @@
+Seven.fitt V5
+Coach Panel + Student Panel foundation added.
