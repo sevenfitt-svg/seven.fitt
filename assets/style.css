@@ -1,0 +1,12 @@
+
+body{margin:0;font-family:tahoma,Arial;direction:rtl;background:#f7f8fb;color:#1b2430}
+.dark{background:#07182d;color:#fff}
+.container{max-width:1200px;margin:auto;padding:30px}
+.header{background:#07182d;color:white;padding:25px}
+.nav a{color:white;margin:12px;text-decoration:none}
+.card{background:white;border-radius:22px;padding:25px;margin:20px 0;box-shadow:0 8px 25px #ddd}
+.darkcard{background:#102c49;color:white;border-radius:22px;padding:25px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.item{padding:20px;border-radius:18px;background:#edf2f7}
+.title{font-size:34px;font-weight:bold}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
