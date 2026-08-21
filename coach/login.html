@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven.fitt Coach Login</title>
+
+<style>
+body{
+    margin:0;
+    background:#111827;
+    color:white;
+    font-family:tahoma,Arial;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.box{
+    width:350px;
+    background:#1e293b;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+}
+
+h1{
+    color:#38bdf8;
+}
+
+input{
+    width:90%;
+    padding:12px;
+    margin:10px;
+    border-radius:10px;
+    border:none;
+    background:#334155;
+    color:white;
+}
+
+button{
+    width:95%;
+    padding:13px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#0284c7;
+    color:white;
+    cursor:pointer;
+}
+
+#error{
+    color:#f87171;
+    margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>SEVEN.FITT</h1>
+
+<h3>ورود مربی</h3>
+
+<input id="user" placeholder="نام کاربری">
+
+<input id="pass" type="password" placeholder="رمز عبور">
+
+<button onclick="login()">
+ورود
+</button>
+
+<p id="error"></p>
+
+</div>
+
+
+<script>
+
+function login(){
+
+let user=document.getElementById("user").value;
+let pass=document.getElementById("pass").value;
+
+
+if(user==="coach" && pass==="seven2026"){
+
+localStorage.setItem("sevenCoachLogin","true");
+
+window.location.href="index.html";
+
+}
+
+else{
+
+document.getElementById("error").innerHTML=
+"نام کاربری یا رمز اشتباه است";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
