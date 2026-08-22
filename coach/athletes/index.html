@@ -27,14 +27,12 @@ padding:25px;
 }
 
 .header{
-
 background:#102b50;
 padding:25px;
 border-radius:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 }
 
 .logo{
@@ -53,25 +51,18 @@ text-decoration:none;
 
 
 .card{
-
 background:#102b50;
 border:1px solid #244b7a;
 border-radius:18px;
 padding:25px;
 margin-top:25px;
-
 }
 
 
-button{
-
-background:#0098df;
-border:0;
-color:white;
-padding:12px 25px;
-border-radius:10px;
-cursor:pointer;
-
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 
 
@@ -88,11 +79,14 @@ color:white;
 }
 
 
-.grid{
+button{
 
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
+background:#0098df;
+border:0;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
 
 }
 
@@ -155,7 +149,7 @@ SEVEN.FITT
 </h2>
 
 <p>
-افزودن و مدیریت پروفایل ورزشکاران
+ایجاد و مدیریت پروفایل ورزشکاران
 </p>
 
 
@@ -163,27 +157,36 @@ SEVEN.FITT
 
 
 <div>
-
-<label>
-نام ورزشکار
-</label>
-
+<label>نام ورزشکار</label>
 <input id="name">
-
-
 </div>
 
 
 <div>
-
-<label>
-سن
-</label>
-
+<label>سن</label>
 <input id="age">
+</div>
 
+
+<div>
+<label>رشته ورزشی</label>
+
+<select id="sport">
+
+<option>بدون رشته تخصصی</option>
+<option>فوتبال</option>
+<option>بدنسازی</option>
+<option>رزمی</option>
+<option>بسکتبال</option>
+<option>والیبال</option>
+<option>شنا</option>
+<option>دو و میدانی</option>
+<option>سایر</option>
+
+</select>
 
 </div>
+
 
 
 <div>
@@ -192,26 +195,17 @@ SEVEN.FITT
 هدف تمرینی
 </label>
 
+
 <select id="goal">
 
-<option>
-عضله سازی
-</option>
-
-<option>
-چربی سوزی
-</option>
-
-<option>
-فوتبال
-</option>
-
-<option>
-آمادگی جسمانی
-</option>
+<option>عضله سازی</option>
+<option>چربی سوزی</option>
+<option>افزایش قدرت</option>
+<option>افزایش استقامت</option>
+<option>بازگشت به ورزش بعد از آسیب</option>
+<option>آمادگی جسمانی</option>
 
 </select>
-
 
 </div>
 
@@ -221,13 +215,13 @@ SEVEN.FITT
 
 <br>
 
-
 <button onclick="addAthlete()">
 + افزودن ورزشکار
 </button>
 
 
 </div>
+
 
 
 
@@ -245,21 +239,11 @@ SEVEN.FITT
 
 <tr>
 
-<th>
-نام
-</th>
-
-<th>
-سن
-</th>
-
-<th>
-هدف
-</th>
-
-<th>
-عملیات
-</th>
+<th>نام</th>
+<th>سن</th>
+<th>رشته ورزشی</th>
+<th>هدف</th>
+<th>عملیات</th>
 
 </tr>
 
@@ -268,7 +252,6 @@ SEVEN.FITT
 
 <tbody id="list">
 
-
 </tbody>
 
 
@@ -276,7 +259,6 @@ SEVEN.FITT
 
 
 </div>
-
 
 
 </div>
@@ -294,9 +276,8 @@ function addAthlete(){
 
 
 let name=document.getElementById("name").value;
-
 let age=document.getElementById("age").value;
-
+let sport=document.getElementById("sport").value;
 let goal=document.getElementById("goal").value;
 
 
@@ -308,6 +289,7 @@ athletes.push({
 
 name,
 age,
+sport,
 goal
 
 });
@@ -337,6 +319,8 @@ html+=`
 
 <td>${a.age}</td>
 
+<td>${a.sport}</td>
+
 <td>${a.goal}</td>
 
 <td>
@@ -349,7 +333,6 @@ html+=`
 
 
 </tr>
-
 
 `;
 
