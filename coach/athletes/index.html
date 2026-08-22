@@ -1,3 +1,381 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head><meta charset="UTF-8"><title>ورزشکاران</title><style>body{background:#111827;color:white;font-family:tahoma;padding:30px}a{color:#38bdf8}</style></head>
-<body><h1>ورزشکاران Seven.fitt</h1><p>مدیریت ورزشکاران در این بخش قرار می‌گیرد.</p><a href="../index.html">بازگشت به داشبورد</a></body></html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مدیریت ورزشکاران Seven.fitt</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:tahoma,Arial;
+}
+
+body{
+margin:0;
+background:#081426;
+color:white;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:25px;
+}
+
+.header{
+
+background:#102b50;
+padding:25px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#22b8ff;
+}
+
+.back{
+background:#ff4d5a;
+padding:10px 20px;
+border-radius:10px;
+color:white;
+text-decoration:none;
+}
+
+
+.card{
+
+background:#102b50;
+border:1px solid #244b7a;
+border-radius:18px;
+padding:25px;
+margin-top:25px;
+
+}
+
+
+button{
+
+background:#0098df;
+border:0;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+
+input,select{
+
+width:100%;
+padding:12px;
+margin-top:10px;
+background:#172d4d;
+border:1px solid #315784;
+border-radius:10px;
+color:white;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+
+}
+
+
+table{
+
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+
+}
+
+
+td,th{
+
+padding:15px;
+border-bottom:1px solid #315784;
+text-align:center;
+
+}
+
+
+@media(max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<div class="logo">
+SEVEN.FITT
+</div>
+
+<a class="back" href="../index.html">
+بازگشت
+</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+مدیریت ورزشکاران
+</h2>
+
+<p>
+افزودن و مدیریت پروفایل ورزشکاران
+</p>
+
+
+<div class="grid">
+
+
+<div>
+
+<label>
+نام ورزشکار
+</label>
+
+<input id="name">
+
+
+</div>
+
+
+<div>
+
+<label>
+سن
+</label>
+
+<input id="age">
+
+
+</div>
+
+
+<div>
+
+<label>
+هدف تمرینی
+</label>
+
+<select id="goal">
+
+<option>
+عضله سازی
+</option>
+
+<option>
+چربی سوزی
+</option>
+
+<option>
+فوتبال
+</option>
+
+<option>
+آمادگی جسمانی
+</option>
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="addAthlete()">
++ افزودن ورزشکار
+</button>
+
+
+</div>
+
+
+
+<div class="card">
+
+
+<h2>
+لیست ورزشکاران
+</h2>
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+نام
+</th>
+
+<th>
+سن
+</th>
+
+<th>
+هدف
+</th>
+
+<th>
+عملیات
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="list">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+let athletes=[];
+
+
+
+function addAthlete(){
+
+
+let name=document.getElementById("name").value;
+
+let age=document.getElementById("age").value;
+
+let goal=document.getElementById("goal").value;
+
+
+if(!name)
+return;
+
+
+athletes.push({
+
+name,
+age,
+goal
+
+});
+
+
+render();
+
+
+}
+
+
+
+function render(){
+
+
+let html="";
+
+
+athletes.forEach((a,i)=>{
+
+
+html+=`
+
+<tr>
+
+<td>${a.name}</td>
+
+<td>${a.age}</td>
+
+<td>${a.goal}</td>
+
+<td>
+
+<button onclick="removeAthlete(${i})">
+حذف
+</button>
+
+</td>
+
+
+</tr>
+
+
+`;
+
+
+});
+
+
+document.getElementById("list").innerHTML=html;
+
+
+}
+
+
+
+function removeAthlete(i){
+
+athletes.splice(i,1);
+
+render();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
