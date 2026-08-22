@@ -1,1 +1,550 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ساخت برنامه | Seven.fitt</title>
+
+
+<style>
+
+body{
+background:#07182d;
+color:white;
+font-family:tahoma;
+padding:30px;
+}
+
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+
+.header{
+background:#102d52;
+padding:25px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+
+.logo{
+color:#19b7ff;
+font-size:28px;
+font-weight:bold;
+}
+
+
+.card{
+
+background:#12345d;
+margin-top:20px;
+padding:25px;
+border-radius:20px;
+
+}
+
+
+h2{
+color:#19b7ff;
+}
+
+
+
+input,select,textarea{
+
+width:100%;
+padding:12px;
+background:#102d52;
+border:1px solid #315b8a;
+color:white;
+border-radius:10px;
+margin-top:8px;
+
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+
+}
+
+
+.day{
+
+background:#183d68;
+padding:20px;
+border-radius:15px;
+margin-top:15px;
+
+}
+
+
+
+.exercise{
+
+background:#102d52;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+
+}
+
+
+
+button{
+
+background:#0099dd;
+border:0;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+
+.save{
+
+background:#00b875;
+
+}
+
+
+.remove{
+
+background:#ff5865;
+
+}
+
+
+
+@media(max-width:700px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<a href="../athletes/index.html">
+بازگشت
+</a>
+
+
+<div class="logo">
+SEVEN.FITT
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+
+<h2>
+ساخت برنامه جدید
+</h2>
+
+
+<p>
+ورزشکار:
+<b id="athleteName">-</b>
+</p>
+
+
+
+<div class="grid">
+
+
+<div>
+
+<label>
+نام برنامه
+</label>
+
+<input id="programName">
+
+</div>
+
+
+
+<div>
+
+<label>
+هدف برنامه
+</label>
+
+<input id="programGoal">
+
+</div>
+
+
+
+<div>
+
+<label>
+مدت برنامه (هفته)
+</label>
+
+<input id="duration" type="number">
+
+</div>
+
+
+
+</div>
+
+
+
+<div>
+
+<label>
+تاریخ شروع
+</label>
+
+<input id="startDate" type="date">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+روزهای تمرین
+</h2>
+
+
+<div id="days">
+
+
+</div>
+
+
+<button onclick="addDay()">
+
++ افزودن روز تمرین
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<button class="save" onclick="saveProgram()">
+
+ذخیره برنامه
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+let athleteId =
+new URLSearchParams(location.search).get("id");
+
+
+
+let athletes =
+JSON.parse(localStorage.getItem("athletes")) || [];
+
+
+
+let athlete =
+athletes.find((item,index)=>index==athleteId);
+
+
+
+if(athlete){
+
+document.getElementById("athleteName").innerText =
+athlete.name;
+
+}
+
+
+
+
+
+let days=[];
+
+
+
+function addDay(){
+
+
+let index=days.length;
+
+
+days.push({
+
+name:"روز جدید",
+
+exercises:[]
+
+});
+
+
+
+renderDays();
+
+
+}
+
+
+
+
+
+function addExercise(dayIndex){
+
+
+
+days[dayIndex].exercises.push({
+
+name:"",
+
+sets:"",
+
+reps:"",
+
+rest:""
+
+});
+
+
+renderDays();
+
+
+}
+
+
+
+
+
+function renderDays(){
+
+
+
+let box =
+document.getElementById("days");
+
+
+
+box.innerHTML="";
+
+
+
+days.forEach((day,i)=>{
+
+
+let html=`
+
+
+<div class="day">
+
+
+<input value="${day.name}"
+onchange="days[${i}].name=this.value">
+
+
+
+<h3>
+حرکات
+</h3>
+
+
+
+${day.exercises.map((ex,j)=>`
+
+
+<div class="exercise">
+
+
+<input placeholder="نام حرکت"
+value="${ex.name}"
+onchange="days[${i}].exercises[${j}].name=this.value">
+
+
+
+<div class="grid">
+
+
+<input placeholder="ست"
+value="${ex.sets}"
+onchange="days[${i}].exercises[${j}].sets=this.value">
+
+
+
+<input placeholder="تکرار"
+value="${ex.reps}"
+onchange="days[${i}].exercises[${j}].reps=this.value">
+
+
+
+<input placeholder="استراحت"
+value="${ex.rest}"
+onchange="days[${i}].exercises[${j}].rest=this.value">
+
+
+</div>
+
+
+
+</div>
+
+
+`).join("")}
+
+
+
+<br>
+
+
+<button onclick="addExercise(${i})">
+
++ افزودن حرکت
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+
+box.innerHTML+=html;
+
+
+});
+
+
+}
+
+
+
+
+
+function saveProgram(){
+
+
+
+let programs =
+JSON.parse(localStorage.getItem("programs")) || [];
+
+
+
+let program={
+
+
+athleteId:athleteId,
+
+athleteName:athlete ? athlete.name : "",
+
+
+name:
+document.getElementById("programName").value,
+
+
+goal:
+document.getElementById("programGoal").value,
+
+
+duration:
+document.getElementById("duration").value,
+
+
+start:
+document.getElementById("startDate").value,
+
+
+days:days,
+
+
+created:
+new Date().toISOString()
+
+
+};
+
+
+
+programs.push(program);
+
+
+
+localStorage.setItem(
+"programs",
+JSON.stringify(programs)
+);
+
+
+
+alert("برنامه ذخیره شد");
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
