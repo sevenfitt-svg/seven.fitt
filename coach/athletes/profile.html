@@ -283,19 +283,18 @@ SEVEN.FITT
 <script>
 
 
-let id=new URLSearchParams(location.search).get("id");
+let id = new URLSearchParams(location.search).get("id");
 
 
 // دکمه ویرایش
-document.getElementById("editBtn").href="edit.html?id="+id;
+document.getElementById("editBtn").href = "edit.html?id=" + id;
 
 
+let athletes = JSON.parse(localStorage.getItem("athletes")) || [];
 
-let athletes=JSON.parse(localStorage.getItem("athletes")) || [];
 
-
-let athlete=athletes[id];
-
+// پیدا کردن ورزشکار بر اساس id
+let athlete = athletes.find((item,index)=> index == id);
 
 
 if(athlete){
