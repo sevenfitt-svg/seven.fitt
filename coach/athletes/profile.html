@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>پروفایل ورزشکار Seven.fitt</title>
+<title>پروفایل ورزشکار | Seven.fitt</title>
 
 
 <style>
@@ -28,11 +28,12 @@ color:white;
 
 .container{
 
-max-width:1200px;
+max-width:1000px;
 margin:auto;
 padding:25px;
 
 }
+
 
 
 .header{
@@ -40,6 +41,7 @@ padding:25px;
 background:#102b50;
 padding:25px;
 border-radius:20px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -72,7 +74,7 @@ text-decoration:none;
 
 background:#102b50;
 border:1px solid #244b7a;
-border-radius:18px;
+border-radius:20px;
 padding:25px;
 margin-top:25px;
 
@@ -80,11 +82,11 @@ margin-top:25px;
 
 
 
-.grid{
+.info{
 
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
+gap:15px;
 
 }
 
@@ -93,39 +95,28 @@ gap:20px;
 .box{
 
 background:#172d4d;
-padding:15px;
-border-radius:12px;
-border:1px solid #315784;
+padding:20px;
+border-radius:15px;
+text-align:center;
 
 }
 
 
-label{
 
-display:block;
-color:#9ccfff;
-margin-bottom:8px;
+.title{
 
-}
-
-
-input,select,textarea{
-
-width:100%;
-padding:12px;
-background:#081426;
-border:1px solid #315784;
-border-radius:10px;
-color:white;
+color:#22b8ff;
+font-size:18px;
 
 }
+
 
 
 button{
 
 background:#0098df;
-border:0;
 color:white;
+border:0;
 padding:12px 25px;
 border-radius:10px;
 cursor:pointer;
@@ -134,9 +125,26 @@ cursor:pointer;
 
 
 
-@media(max-width:800px){
+textarea{
 
-.grid{
+width:100%;
+height:120px;
+
+background:#172d4d;
+color:white;
+
+border:1px solid #315784;
+
+border-radius:10px;
+
+padding:15px;
+
+}
+
+
+@media(max-width:700px){
+
+.info{
 
 grid-template-columns:1fr;
 
@@ -151,6 +159,7 @@ grid-template-columns:1fr;
 </head>
 
 
+
 <body>
 
 
@@ -158,7 +167,6 @@ grid-template-columns:1fr;
 
 
 <div class="header">
-
 
 <div class="logo">
 SEVEN.FITT
@@ -183,16 +191,19 @@ SEVEN.FITT
 </h2>
 
 
-<div class="grid">
+
+<div class="info">
 
 
 <div class="box">
 
-<label>
+<div class="title">
 نام ورزشکار
-</label>
+</div>
 
-<input placeholder="نام و نام خانوادگی">
+<h3 id="name">
+-
+</h3>
 
 </div>
 
@@ -200,112 +211,13 @@ SEVEN.FITT
 
 <div class="box">
 
-<label>
-سن
-</label>
-
-<input placeholder="سن">
-
-</div>
-
-
-
-<div class="box">
-
-<label>
-جنسیت
-</label>
-
-<select>
-
-<option>مرد</option>
-
-<option>زن</option>
-
-</select>
-
-</div>
-
-
-
-<div class="box">
-
-<label>
-قد (cm)
-</label>
-
-<input placeholder="قد">
-
-</div>
-
-
-
-<div class="box">
-
-<label>
-وزن (kg)
-</label>
-
-<input placeholder="وزن">
-
-</div>
-
-
-
-<div class="box">
-
-<label>
-درصد چربی
-</label>
-
-<input placeholder="درصد چربی">
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>
-اطلاعات ورزشی
-</h2>
-
-
-<div class="grid">
-
-
-<div class="box">
-
-<label>
+<div class="title">
 رشته ورزشی
-</label>
+</div>
 
-<select>
-
-<option>فوتبال</option>
-
-<option>بدنسازی</option>
-
-<option>رزمی</option>
-
-<option>بسکتبال</option>
-
-<option>والیبال</option>
-
-<option>شنا</option>
-
-<option>دو و میدانی</option>
-
-</select>
+<h3 id="sport">
+-
+</h3>
 
 </div>
 
@@ -313,31 +225,13 @@ SEVEN.FITT
 
 <div class="box">
 
-<label>
-سطح ورزشکار
-</label>
-
-<select>
-
-<option>مبتدی</option>
-
-<option>متوسط</option>
-
-<option>حرفه‌ای</option>
-
-</select>
-
+<div class="title">
+هدف تمرینی
 </div>
 
-
-
-<div class="box">
-
-<label>
-سابقه تمرینی
-</label>
-
-<input placeholder="مثلا ۳ سال">
+<h3 id="goal">
+-
+</h3>
 
 </div>
 
@@ -357,74 +251,55 @@ SEVEN.FITT
 
 
 <h2>
-آسیب‌ها و محدودیت‌ها
+اطلاعات تکمیلی ورزشکار
 </h2>
 
 
-<textarea rows="5"
-placeholder="آسیب قبلی، دردها، محدودیت حرکتی...">
-</textarea>
 
-
-</div>
-
+<p>
+وضعیت جسمانی، سابقه تمرینی، آسیب‌ها و توضیحات مربی
+</p>
 
 
 
+<textarea placeholder="اطلاعات ورزشکار را وارد کنید..."></textarea>
 
 
-<div class="card">
-
-
-<h2>
-ارزیابی عملکرد
-</h2>
-
-
-<div class="grid">
-
-
-<div class="box">
-
-قدرت
-
-<input placeholder="رکورد">
-
-</div>
-
-
-<div class="box">
-
-سرعت
-
-<input placeholder="زمان">
-
-</div>
-
-
-<div class="box">
-
-استقامت
-
-<input placeholder="نتیجه تست">
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="card">
+<br><br>
 
 
 <button>
-ذخیره پروفایل
+ذخیره اطلاعات
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+برنامه تخصصی رشته ورزشی
+</h2>
+
+
+<p>
+
+ساخت برنامه تمرینی بر اساس رشته ورزشی، هدف و شرایط ورزشکار
+
+</p>
+
+
+
+<button>
+
+ساخت برنامه جدید
+
 </button>
 
 
@@ -434,6 +309,32 @@ placeholder="آسیب قبلی، دردها، محدودیت حرکتی...">
 
 
 </div>
+
+
+
+
+<script>
+
+
+let params=new URLSearchParams(window.location.search);
+
+
+
+document.getElementById("name").innerHTML =
+params.get("name") || "-";
+
+
+document.getElementById("sport").innerHTML =
+params.get("sport") || "-";
+
+
+document.getElementById("goal").innerHTML =
+params.get("goal") || "-";
+
+
+
+</script>
+
 
 
 </body>
