@@ -37,19 +37,12 @@ font-size:28px;
 font-weight:bold;
 }
 
-.actions{
-display:flex;
-gap:10px;
-}
-
-.back,
-.edit{
-
+.btn{
 padding:10px 20px;
 border-radius:10px;
 color:white;
 text-decoration:none;
-
+margin-left:10px;
 }
 
 .back{
@@ -57,7 +50,7 @@ background:#ff5865;
 }
 
 .edit{
-background:#0794d2;
+background:#0099dd;
 }
 
 
@@ -75,36 +68,28 @@ color:#19b7ff;
 
 
 .grid{
-
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:15px;
-
 }
 
 
 .item{
-
 background:#183d68;
 padding:20px;
 border-radius:15px;
-
 }
 
 
 .label{
-
 color:#8fdcff;
 font-size:14px;
-
 }
 
 
 .value{
-
 font-size:22px;
 margin-top:10px;
-
 }
 
 
@@ -130,19 +115,18 @@ grid-template-columns:1fr;
 
 <div class="header">
 
-
-<div class="actions">
-
-<a class="back" href="index.html">
-بازگشت
+<div>
+<a id="createProgramBtn" class="btn edit">
+ساخت برنامه جدید
 </a>
 
-
-<a class="edit" id="editBtn">
+<a id="editBtn" class="btn edit">
 ویرایش اطلاعات
 </a>
 
-
+<a href="index.html" class="btn back">
+بازگشت
+</a>
 </div>
 
 
@@ -150,15 +134,14 @@ grid-template-columns:1fr;
 SEVEN.FITT
 </div>
 
-
 </div>
-
 
 
 
 <div class="card">
 
 <h2>پروفایل ورزشکار</h2>
+
 
 <div class="grid">
 
@@ -206,7 +189,6 @@ SEVEN.FITT
 
 
 
-
 <div class="card">
 
 <h2>مشخصات بدنی</h2>
@@ -239,17 +221,13 @@ SEVEN.FITT
 
 
 
-
-
 <div class="card">
 
 <h2>سابقه تمرینی</h2>
 
-<p id="history">-</p>
+<div id="history">-</div>
 
 </div>
-
-
 
 
 
@@ -257,11 +235,9 @@ SEVEN.FITT
 
 <h2>وضعیت سلامت و آسیب</h2>
 
-<p id="health">-</p>
+<div id="health">-</div>
 
 </div>
-
-
 
 
 
@@ -269,10 +245,9 @@ SEVEN.FITT
 
 <h2>یادداشت مربی</h2>
 
-<p id="note">-</p>
+<div id="note">-</div>
 
 </div>
-
 
 
 
@@ -286,55 +261,84 @@ SEVEN.FITT
 let id = new URLSearchParams(location.search).get("id");
 
 
-// دکمه ویرایش
-document.getElementById("editBtn").href = "edit.html?id=" + id;
-
-
 let athletes = JSON.parse(localStorage.getItem("athletes")) || [];
 
 
-// پیدا کردن ورزشکار بر اساس id
-let athlete = athletes.find((item,index)=> index == id);
+let athlete = athletes.find((item,index)=>index == id);
+
+
+
+document.getElementById("editBtn").href =
+"edit.html?id=" + id;
+
+
+document.getElementById("createProgramBtn").href =
+"../programs/create.html?id=" + id;
+
 
 
 if(athlete){
 
 
-document.getElementById("name").innerHTML=athlete.name || "-";
-
-document.getElementById("age").innerHTML=athlete.age || "-";
-
-document.getElementById("sport").innerHTML=athlete.sport || "-";
-
-document.getElementById("level").innerHTML=athlete.level || "-";
-
-document.getElementById("goal").innerHTML=athlete.goal || "-";
-
-document.getElementById("gender").innerHTML=athlete.gender || "-";
+document.getElementById("name").innerText =
+athlete.name || "-";
 
 
-document.getElementById("height").innerHTML=(athlete.height || "-")+" cm";
+document.getElementById("age").innerText =
+athlete.age || "-";
 
-document.getElementById("weight").innerHTML=(athlete.weight || "-")+" kg";
+
+document.getElementById("sport").innerText =
+athlete.sport || "-";
+
+
+document.getElementById("level").innerText =
+athlete.level || "-";
+
+
+document.getElementById("goal").innerText =
+athlete.goal || "-";
+
+
+document.getElementById("gender").innerText =
+athlete.gender || "-";
+
+
+
+document.getElementById("height").innerText =
+(athlete.height || "-") + " cm";
+
+
+document.getElementById("weight").innerText =
+(athlete.weight || "-") + " kg";
+
 
 
 if(athlete.height && athlete.weight){
 
-let h=athlete.height/100;
+let h = athlete.height / 100;
 
-document.getElementById("bmi").innerHTML=(athlete.weight/(h*h)).toFixed(1);
+document.getElementById("bmi").innerText =
+(athlete.weight/(h*h)).toFixed(1);
+
+}
+
+
+
+document.getElementById("history").innerText =
+athlete.history || "-";
+
+
+document.getElementById("health").innerText =
+athlete.health || "-";
+
+
+document.getElementById("note").innerText =
+athlete.note || "-";
+
 
 }
 
-
-document.getElementById("history").innerHTML=athlete.history || "-";
-
-document.getElementById("health").innerHTML=athlete.health || "-";
-
-document.getElementById("note").innerHTML=athlete.note || "-";
-
-
-}
 
 
 </script>
