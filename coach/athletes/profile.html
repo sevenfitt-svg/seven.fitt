@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پروفایل ورزشکار Seven.fitt</title>
+
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:tahoma,Arial;
+}
+
+
+body{
+
+margin:0;
+background:#081426;
+color:white;
+
+}
+
+
+.container{
+
+max-width:1200px;
+margin:auto;
+padding:25px;
+
+}
+
+
+.header{
+
+background:#102b50;
+padding:25px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+
+.logo{
+
+font-size:28px;
+font-weight:bold;
+color:#22b8ff;
+
+}
+
+
+.back{
+
+background:#ff4d5a;
+padding:10px 20px;
+border-radius:10px;
+color:white;
+text-decoration:none;
+
+}
+
+
+
+.card{
+
+background:#102b50;
+border:1px solid #244b7a;
+border-radius:18px;
+padding:25px;
+margin-top:25px;
+
+}
+
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+
+}
+
+
+
+.box{
+
+background:#172d4d;
+padding:15px;
+border-radius:12px;
+border:1px solid #315784;
+
+}
+
+
+label{
+
+display:block;
+color:#9ccfff;
+margin-bottom:8px;
+
+}
+
+
+input,select,textarea{
+
+width:100%;
+padding:12px;
+background:#081426;
+border:1px solid #315784;
+border-radius:10px;
+color:white;
+
+}
+
+
+button{
+
+background:#0098df;
+border:0;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+
+
+@media(max-width:800px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+
+<div class="logo">
+SEVEN.FITT
+</div>
+
+
+<a class="back" href="index.html">
+بازگشت
+</a>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+پروفایل ورزشکار
+</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+
+<label>
+نام ورزشکار
+</label>
+
+<input placeholder="نام و نام خانوادگی">
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+سن
+</label>
+
+<input placeholder="سن">
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+جنسیت
+</label>
+
+<select>
+
+<option>مرد</option>
+
+<option>زن</option>
+
+</select>
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+قد (cm)
+</label>
+
+<input placeholder="قد">
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+وزن (kg)
+</label>
+
+<input placeholder="وزن">
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+درصد چربی
+</label>
+
+<input placeholder="درصد چربی">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+اطلاعات ورزشی
+</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+
+<label>
+رشته ورزشی
+</label>
+
+<select>
+
+<option>فوتبال</option>
+
+<option>بدنسازی</option>
+
+<option>رزمی</option>
+
+<option>بسکتبال</option>
+
+<option>والیبال</option>
+
+<option>شنا</option>
+
+<option>دو و میدانی</option>
+
+</select>
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+سطح ورزشکار
+</label>
+
+<select>
+
+<option>مبتدی</option>
+
+<option>متوسط</option>
+
+<option>حرفه‌ای</option>
+
+</select>
+
+</div>
+
+
+
+<div class="box">
+
+<label>
+سابقه تمرینی
+</label>
+
+<input placeholder="مثلا ۳ سال">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+آسیب‌ها و محدودیت‌ها
+</h2>
+
+
+<textarea rows="5"
+placeholder="آسیب قبلی، دردها، محدودیت حرکتی...">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+ارزیابی عملکرد
+</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+
+قدرت
+
+<input placeholder="رکورد">
+
+</div>
+
+
+<div class="box">
+
+سرعت
+
+<input placeholder="زمان">
+
+</div>
+
+
+<div class="box">
+
+استقامت
+
+<input placeholder="نتیجه تست">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<button>
+ذخیره پروفایل
+</button>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
