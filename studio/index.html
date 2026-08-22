@@ -1883,6 +1883,15 @@ $('#load').onchange=async e=>{
 (function(){
 'use strict';
 var V41_DRAFT='sevenfit-studio-draft-v4.1', V41_UNDO=[], V41_SAVE_T=null, V41_DRAG=null;
+  function loadV41Draft(){
+  try{
+    const data = JSON.parse(localStorage.getItem(V41_DRAFT));
+
+    if(data && data.days){
+      DAYS = data.days;
+    }
+  }catch(e){}
+}
 var V41_ORD=['اول','دوم','سوم','چهارم','پنجم','ششم','هفتم','هشتم','نهم','دهم'];
 function v41clone(x){return JSON.parse(JSON.stringify(x));}
 function v41toast(t){var e=document.getElementById('v41toast');if(!e)return;e.textContent=t;e.classList.add('on');setTimeout(function(){e.classList.remove('on');},1300);}
@@ -2231,7 +2240,7 @@ if(v42tpl&&v42tpl.innerHTML.indexOf('v42-student-runtime')<0){
 
 /* وضعیت هنگام بازکردن فایل شاگرد/پروژه */
 var load=document.getElementById('load');if(load)load.addEventListener('change',function(){setTimeout(function(){v42normalizeDays();render();var n=document.getElementById('c_name');v42status(n&&n.value?'در حال ویرایش: '+n.value:'پروژه بازشده');},500);});
-
+  
 loadV41Draft();
 v42normalizeDays();
 render();
