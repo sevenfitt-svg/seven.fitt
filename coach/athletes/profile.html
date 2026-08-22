@@ -37,12 +37,27 @@ font-size:28px;
 font-weight:bold;
 }
 
-.back{
-background:#ff5865;
+.actions{
+display:flex;
+gap:10px;
+}
+
+.back,
+.edit{
+
 padding:10px 20px;
 border-radius:10px;
 color:white;
 text-decoration:none;
+
+}
+
+.back{
+background:#ff5865;
+}
+
+.edit{
+background:#0794d2;
 }
 
 
@@ -93,19 +108,6 @@ margin-top:10px;
 }
 
 
-textarea{
-
-width:100%;
-height:100px;
-background:#102d52;
-border:1px solid #24568b;
-color:white;
-border-radius:10px;
-padding:10px;
-
-}
-
-
 @media(max-width:700px){
 
 .grid{
@@ -128,9 +130,21 @@ grid-template-columns:1fr;
 
 <div class="header">
 
+
+<div class="actions">
+
 <a class="back" href="index.html">
 بازگشت
 </a>
+
+
+<a class="edit" id="editBtn">
+ویرایش اطلاعات
+</a>
+
+
+</div>
+
 
 <div class="logo">
 SEVEN.FITT
@@ -138,6 +152,8 @@ SEVEN.FITT
 
 
 </div>
+
+
 
 
 <div class="card">
@@ -189,9 +205,12 @@ SEVEN.FITT
 
 
 
+
+
 <div class="card">
 
 <h2>مشخصات بدنی</h2>
+
 
 <div class="grid">
 
@@ -216,8 +235,8 @@ SEVEN.FITT
 
 </div>
 
-
 </div>
+
 
 
 
@@ -233,6 +252,7 @@ SEVEN.FITT
 
 
 
+
 <div class="card">
 
 <h2>وضعیت سلامت و آسیب</h2>
@@ -240,6 +260,7 @@ SEVEN.FITT
 <p id="health">-</p>
 
 </div>
+
 
 
 
@@ -254,6 +275,7 @@ SEVEN.FITT
 
 
 
+
 </div>
 
 
@@ -262,6 +284,11 @@ SEVEN.FITT
 
 
 let id=new URLSearchParams(location.search).get("id");
+
+
+// دکمه ویرایش
+document.getElementById("editBtn").href="edit.html?id="+id;
+
 
 
 let athletes=JSON.parse(localStorage.getItem("athletes")) || [];
