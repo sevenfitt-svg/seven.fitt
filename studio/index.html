@@ -2223,8 +2223,23 @@ if(pr&&!document.getElementById('v42NewStudent')){
 
   function loadV41Draft(){
  try{
-  const key = V41_DRAFT + "_" + (new URLSearchParams(location.search).get("id") || "default");
-  const data = JSON.parse(localStorage.getItem(key));
+ const id = new URLSearchParams(location.search).get("id");
+
+const keys = [
+  "sevenfit-studio-draft-v4.1_" + id,
+  "sevenfit-studio-draft-v4.1",
+  "sevenfit-studio-draft-v4.1_1"
+];
+
+let data = null;
+
+for (const k of keys) {
+  const saved = localStorage.getItem(k);
+  if (saved) {
+    data = JSON.parse(saved);
+    break;
+  }
+}
 
   if(data && data.days){
     DAYS = data.days;
