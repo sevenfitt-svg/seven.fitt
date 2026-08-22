@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 
 <meta charset="UTF-8">
@@ -10,25 +9,21 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-font-family:tahoma,Arial;
-}
-
 body{
-margin:0;
-background:#081426;
+background:#07182d;
 color:white;
+font-family:tahoma;
+margin:0;
+padding:30px;
 }
 
 .container{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
-padding:25px;
 }
 
 .header{
-background:#102b50;
+background:#102d52;
 padding:25px;
 border-radius:20px;
 display:flex;
@@ -37,81 +32,88 @@ align-items:center;
 }
 
 .logo{
+color:#18b7ff;
 font-size:28px;
 font-weight:bold;
-color:#22b8ff;
 }
 
 .back{
-background:#ff5260;
+background:#ff5865;
 padding:10px 20px;
 border-radius:10px;
 color:white;
 text-decoration:none;
 }
 
+
 .card{
-background:#102b50;
-border:1px solid #244b7a;
-border-radius:20px;
+background:#12345d;
+margin-top:20px;
 padding:25px;
-margin-top:25px;
+border-radius:20px;
 }
+
+
+h2{
+color:#19b7ff;
+}
+
 
 .grid{
+
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
+gap:15px;
+
 }
 
-.box{
-background:#172f52;
+
+.item{
+
+background:#183d68;
 padding:20px;
 border-radius:15px;
+
 }
 
-.title{
-color:#22b8ff;
+
+.label{
+
+color:#8fdcff;
 font-size:14px;
-margin-bottom:10px;
+
 }
+
 
 .value{
-font-size:20px;
-font-weight:bold;
+
+font-size:22px;
+margin-top:10px;
+
 }
 
-button{
-background:#0098df;
-color:white;
-border:0;
-padding:12px 25px;
-border-radius:10px;
-cursor:pointer;
-margin-left:10px;
-}
-
-.delete{
-background:#ff5260;
-}
 
 textarea{
+
 width:100%;
-height:120px;
-background:#172f52;
+height:100px;
+background:#102d52;
+border:1px solid #24568b;
 color:white;
-border:1px solid #315784;
 border-radius:10px;
-padding:15px;
+padding:10px;
+
 }
 
-@media(max-width:800px){
+
+@media(max-width:700px){
 
 .grid{
 grid-template-columns:1fr;
 }
 
 }
+
 
 </style>
 
@@ -126,284 +128,190 @@ grid-template-columns:1fr;
 
 <div class="header">
 
-<div class="logo">
-SEVEN.FITT
-</div>
-
 <a class="back" href="index.html">
 بازگشت
 </a>
 
+<div class="logo">
+SEVEN.FITT
 </div>
 
 
+</div>
 
 
 <div class="card">
 
-<h2>
-پروفایل ورزشکار
-</h2>
-
+<h2>پروفایل ورزشکار</h2>
 
 <div class="grid">
 
 
-<div class="box">
-<div class="title">نام</div>
+<div class="item">
+<div class="label">نام</div>
 <div class="value" id="name">-</div>
 </div>
 
 
-<div class="box">
-<div class="title">سن</div>
+<div class="item">
+<div class="label">سن</div>
 <div class="value" id="age">-</div>
 </div>
 
 
-<div class="box">
-<div class="title">جنسیت</div>
-<div class="value" id="gender">-</div>
-</div>
-
-
-<div class="box">
-<div class="title">رشته ورزشی</div>
+<div class="item">
+<div class="label">رشته ورزشی</div>
 <div class="value" id="sport">-</div>
 </div>
 
 
-<div class="box">
-<div class="title">سطح ورزشکار</div>
+<div class="item">
+<div class="label">سطح ورزشکار</div>
 <div class="value" id="level">-</div>
 </div>
 
 
-<div class="box">
-<div class="title">هدف تمرینی</div>
+<div class="item">
+<div class="label">هدف تمرینی</div>
 <div class="value" id="goal">-</div>
 </div>
 
 
+<div class="item">
+<div class="label">جنسیت</div>
+<div class="value" id="gender">-</div>
+</div>
+
+
 </div>
 
 </div>
-
-
-
 
 
 
 <div class="card">
 
-<h2>
-مشخصات بدنی
-</h2>
-
+<h2>مشخصات بدنی</h2>
 
 <div class="grid">
 
 
-<div class="box">
-<div class="title">قد</div>
+<div class="item">
+<div class="label">قد</div>
 <div class="value" id="height">-</div>
 </div>
 
 
-<div class="box">
-<div class="title">وزن</div>
+<div class="item">
+<div class="label">وزن</div>
 <div class="value" id="weight">-</div>
 </div>
 
 
-<div class="box">
-<div class="title">BMI</div>
+<div class="item">
+<div class="label">BMI</div>
 <div class="value" id="bmi">-</div>
 </div>
 
 
 </div>
 
+
 </div>
-
-
-
 
 
 
 
 <div class="card">
 
-<h2>
-سابقه تمرینی
-</h2>
+<h2>سابقه تمرینی</h2>
 
-<p id="history">
--
-</p>
+<p id="history">-</p>
 
 </div>
-
-
-
 
 
 
 
 <div class="card">
 
-<h2>
-وضعیت سلامت و آسیب
-</h2>
+<h2>وضعیت سلامت و آسیب</h2>
 
-<p id="health">
--
-</p>
+<p id="health">-</p>
 
 </div>
-
-
-
 
 
 
 
 <div class="card">
 
-<h2>
-یادداشت مربی
-</h2>
+<h2>یادداشت مربی</h2>
 
-<p id="note">
--
-</p>
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<button onclick="alert('در نسخه بعد اضافه می‌شود')">
-ویرایش ورزشکار
-</button>
-
-
-<button class="delete" onclick="deleteAthlete()">
-حذف ورزشکار
-</button>
-
-
-<button onclick="location.href='../../studio/'">
-ساخت برنامه تمرینی
-</button>
-
+<p id="note">-</p>
 
 </div>
 
 
 
 </div>
-
-
 
 
 
 <script>
 
 
-let id =
-new URLSearchParams(window.location.search).get("id");
+let id=new URLSearchParams(location.search).get("id");
 
 
-let athletes =
-JSON.parse(localStorage.getItem("athletes")) || [];
+let athletes=JSON.parse(localStorage.getItem("athletes")) || [];
 
 
-let athlete =
-athletes[id];
+let athlete=athletes[id];
 
 
 
 if(athlete){
 
 
-document.getElementById("name").innerHTML=athlete.name;
+document.getElementById("name").innerHTML=athlete.name || "-";
 
-document.getElementById("age").innerHTML=athlete.age;
+document.getElementById("age").innerHTML=athlete.age || "-";
 
-document.getElementById("gender").innerHTML=athlete.gender;
+document.getElementById("sport").innerHTML=athlete.sport || "-";
 
-document.getElementById("sport").innerHTML=athlete.sport;
+document.getElementById("level").innerHTML=athlete.level || "-";
 
-document.getElementById("level").innerHTML=athlete.level;
+document.getElementById("goal").innerHTML=athlete.goal || "-";
 
-document.getElementById("goal").innerHTML=athlete.goal;
-
-
-document.getElementById("height").innerHTML=
-athlete.height+" cm";
+document.getElementById("gender").innerHTML=athlete.gender || "-";
 
 
-document.getElementById("weight").innerHTML=
-athlete.weight+" kg";
+document.getElementById("height").innerHTML=(athlete.height || "-")+" cm";
 
+document.getElementById("weight").innerHTML=(athlete.weight || "-")+" kg";
 
 
 if(athlete.height && athlete.weight){
 
 let h=athlete.height/100;
 
-let bmi=(athlete.weight/(h*h)).toFixed(1);
-
-document.getElementById("bmi").innerHTML=bmi;
+document.getElementById("bmi").innerHTML=(athlete.weight/(h*h)).toFixed(1);
 
 }
 
 
+document.getElementById("history").innerHTML=athlete.history || "-";
 
-document.getElementById("history").innerHTML=
-athlete.history || "-";
+document.getElementById("health").innerHTML=athlete.health || "-";
 
+document.getElementById("note").innerHTML=athlete.note || "-";
 
-document.getElementById("health").innerHTML=
-athlete.health || "-";
-
-
-document.getElementById("note").innerHTML=
-athlete.note || "-";
-
-
-}
-
-
-
-function deleteAthlete(){
-
-if(confirm("حذف شود؟")){
-
-athletes.splice(id,1);
-
-localStorage.setItem(
-"athletes",
-JSON.stringify(athletes)
-);
-
-
-location.href="index.html";
-
-
-}
 
 }
 
 
 </script>
-
 
 
 </body>
