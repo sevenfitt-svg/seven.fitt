@@ -2,13 +2,18 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>مدیریت ورزشکاران Seven.fitt</title>
+<title>مدیریت ورزشکاران | Seven.fitt</title>
 
 <style>
-*{box-sizing:border-box;font-family:tahoma,Arial}
+
+*{
+box-sizing:border-box;
+font-family:tahoma;
+}
 
 body{
 margin:0;
@@ -16,94 +21,150 @@ background:#081426;
 color:white;
 }
 
+
 .container{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
 padding:25px;
 }
 
+
 .header{
 background:#102b50;
-padding:25px;
+padding:20px;
 border-radius:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
+
 .logo{
+color:#20b8ff;
 font-size:28px;
 font-weight:bold;
-color:#22b8ff;
 }
 
+
 .back{
-background:#ff4d5a;
+background:#ff5260;
 padding:10px 20px;
 border-radius:10px;
 color:white;
 text-decoration:none;
 }
 
+
+
 .card{
+
 background:#102b50;
-border:1px solid #244b7a;
-border-radius:18px;
+border-radius:20px;
 padding:25px;
 margin-top:25px;
+
 }
+
+
 
 .grid{
+
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:15px;
+
 }
 
-input,select{
-width:100%;
-padding:12px;
-background:#172d4d;
-border:1px solid #315784;
-border-radius:10px;
-color:white;
+
+
+label{
+
+font-size:13px;
+color:#9cc8ff;
+
 }
+
+
+input,select,textarea{
+
+width:100%;
+margin-top:8px;
+padding:12px;
+
+background:#172f52;
+color:white;
+
+border:1px solid #315784;
+
+border-radius:10px;
+
+}
+
+
+
+textarea{
+
+height:100px;
+
+}
+
 
 button{
+
 background:#0098df;
-border:0;
 color:white;
-padding:12px 25px;
+border:0;
+
+padding:14px 30px;
+
 border-radius:10px;
+
 cursor:pointer;
+
+margin-top:20px;
+
 }
 
+
+
 table{
+
 width:100%;
 margin-top:20px;
 border-collapse:collapse;
+
 }
+
 
 td,th{
-padding:15px;
+
+padding:12px;
 border-bottom:1px solid #315784;
-text-align:center;
+
 }
 
-a{
-color:#22b8ff;
-text-decoration:none;
+
+
+@media(max-width:700px){
+
+.grid{
+
+grid-template-columns:1fr;
+
 }
 
-@media(max-width:800px){
-.grid{grid-template-columns:1fr}
 }
+
 
 </style>
+
 
 </head>
 
 
+
 <body>
+
 
 <div class="container">
 
@@ -114,70 +175,173 @@ text-decoration:none;
 SEVEN.FITT
 </div>
 
+
 <a class="back" href="../index.html">
 بازگشت
 </a>
 
+
 </div>
 
 
 
 <div class="card">
 
-<h2>مدیریت ورزشکاران</h2>
+
+<h2>
+ثبت ورزشکار جدید
+</h2>
+
 
 <div class="grid">
 
 
-<input id="name" placeholder="نام ورزشکار">
+<div>
+<label>نام و نام خانوادگی</label>
+<input id="name">
+</div>
 
-<input id="age" placeholder="سن">
 
+<div>
+<label>سن</label>
+<input id="age">
+</div>
+
+
+<div>
+<label>جنسیت</label>
+
+<select id="gender">
+
+<option>مرد</option>
+<option>زن</option>
+
+</select>
+
+</div>
+
+
+<div>
+<label>شماره تماس</label>
+<input id="phone">
+
+</div>
+
+
+<div>
+<label>رشته ورزشی</label>
 
 <select id="sport">
 
-<option>بدون رشته تخصصی</option>
 <option>فوتبال</option>
 <option>بدنسازی</option>
 <option>رزمی</option>
-<option>بسکتبال</option>
+<option>کشتی</option>
 <option>والیبال</option>
+<option>بسکتبال</option>
+<option>دوومیدانی</option>
 <option>شنا</option>
-<option>دو و میدانی</option>
+<option>سایر</option>
 
 </select>
 
+</div>
 
+
+
+<div>
+<label>سطح ورزشکار</label>
+
+<select id="level">
+
+<option>مبتدی</option>
+<option>متوسط</option>
+<option>پیشرفته</option>
+<option>حرفه‌ای</option>
+
+</select>
+
+</div>
+
+
+
+<div>
+<label>هدف تمرینی</label>
 
 <select id="goal">
 
-<option>عضله سازی</option>
-<option>چربی سوزی</option>
+<option>افزایش حجم</option>
+<option>کاهش چربی</option>
 <option>افزایش قدرت</option>
-<option>افزایش استقامت</option>
-<option>آمادگی جسمانی</option>
+<option>افزایش سرعت و توان</option>
+<option>آمادگی مسابقه</option>
+<option>بازتوانی</option>
 
 </select>
 
+</div>
+
+
+
+<div>
+<label>قد (سانتی متر)</label>
+<input id="height">
 
 </div>
 
 
-<br>
+<div>
+<label>وزن (کیلوگرم)</label>
+<input id="weight">
+
+</div>
+
+
+
+</div>
+
+
+
+<h3>سابقه تمرینی</h3>
+
+<textarea id="history"
+placeholder="سال‌های تمرین، رشته‌های قبلی، مسابقات..."></textarea>
+
+
+
+<h3>وضعیت سلامت و آسیب</h3>
+
+<textarea id="health"
+placeholder="بیماری، دارو، محدودیت پزشکی، آسیب فعلی یا قبلی..."></textarea>
+
+
+
+<h3>یادداشت مربی</h3>
+
+<textarea id="note"></textarea>
+
+
 
 <button onclick="addAthlete()">
+
 + افزودن ورزشکار
+
 </button>
 
 
+
 </div>
+
 
 
 
 
 <div class="card">
 
-<h2>لیست ورزشکاران</h2>
+
+<h2>
+لیست ورزشکاران
+</h2>
 
 
 <table>
@@ -187,9 +351,9 @@ SEVEN.FITT
 <tr>
 
 <th>نام</th>
-<th>سن</th>
 <th>رشته</th>
 <th>هدف</th>
+<th>پروفایل</th>
 
 </tr>
 
@@ -207,69 +371,95 @@ SEVEN.FITT
 </div>
 
 
+
 </div>
+
+
+
 
 
 
 <script>
 
 
-let athletes=[];
+let athletes =
+JSON.parse(localStorage.getItem("athletes")) || [];
+
 
 
 function addAthlete(){
 
-let name=document.getElementById("name").value;
-let age=document.getElementById("age").value;
-let sport=document.getElementById("sport").value;
-let goal=document.getElementById("goal").value;
+
+let athlete={
+
+name:name.value,
+age:age.value,
+gender:gender.value,
+phone:phone.value,
+
+sport:sport.value,
+level:level.value,
+goal:goal.value,
+
+height:height.value,
+weight:weight.value,
+
+history:history.value,
+health:health.value,
+
+note:note.value
+
+};
 
 
-if(!name)return;
+
+athletes.push(athlete);
 
 
-athletes.push({
-name,
-age,
-sport,
-goal
-});
+localStorage.setItem(
+"athletes",
+JSON.stringify(athletes)
+);
 
 
-render();
+
+showAthletes();
+
 
 }
 
 
 
-function render(){
-
-let html="";
 
 
-athletes.forEach((a)=>{
+function showAthletes(){
 
 
-html+=`
+list.innerHTML="";
+
+
+athletes.forEach((a,i)=>{
+
+
+list.innerHTML += `
 
 <tr>
 
-<td>
-
-<a href="profile.html?name=${a.name}&sport=${a.sport}&goal=${a.goal}">
-
-${a.name}
-
-</a>
-
-</td>
-
-
-<td>${a.age}</td>
+<td>${a.name}</td>
 
 <td>${a.sport}</td>
 
 <td>${a.goal}</td>
+
+
+<td>
+
+<a style="color:#20b8ff"
+href="profile.html?id=${i}">
+مشاهده
+</a>
+
+</td>
 
 
 </tr>
@@ -280,14 +470,16 @@ ${a.name}
 });
 
 
-document.getElementById("list").innerHTML=html;
-
-
 }
+
+
+showAthletes();
 
 
 </script>
 
 
+
 </body>
+
 </html>
