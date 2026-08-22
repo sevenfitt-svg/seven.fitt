@@ -2222,15 +2222,16 @@ if(pr&&!document.getElementById('v42NewStudent')){
 }
 
   function loadV41Draft(){
-  try{
-    const key = V41_DRAFT + "_" + (new URLSearchParams(location.search).get("id") || "default");
-    const data = JSON.parse(localStorage.getItem(key));
+ try{
+  const key = V41_DRAFT + "_" + (new URLSearchParams(location.search).get("id") || "default");
+  const data = JSON.parse(localStorage.getItem(key));
 
-    if(data && data.days){
-      DAYS = data.days;
-    }
-  }catch(e){}
+  if(data && data.days){
+    DAYS = data.days;
+  }
+ }catch(e){}
 }
+
 /* افزودن منطق جدید به فایل شاگرد */
 var v42tpl=document.getElementById('tpl');
 if(v42tpl&&v42tpl.innerHTML.indexOf('v42-student-runtime')<0){
