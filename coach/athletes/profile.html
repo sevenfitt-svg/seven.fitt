@@ -8,7 +8,6 @@
 
 <title>پروفایل ورزشکار | Seven.fitt</title>
 
-
 <style>
 
 *{
@@ -16,148 +15,107 @@ box-sizing:border-box;
 font-family:tahoma,Arial;
 }
 
-
 body{
-
 margin:0;
 background:#081426;
 color:white;
-
 }
-
 
 .container{
-
-max-width:1000px;
+max-width:1200px;
 margin:auto;
 padding:25px;
-
 }
 
-
-
 .header{
-
 background:#102b50;
 padding:25px;
 border-radius:20px;
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 }
 
-
 .logo{
-
 font-size:28px;
 font-weight:bold;
 color:#22b8ff;
-
 }
 
-
 .back{
-
-background:#ff4d5a;
+background:#ff5260;
 padding:10px 20px;
 border-radius:10px;
 color:white;
 text-decoration:none;
-
 }
 
-
-
 .card{
-
 background:#102b50;
 border:1px solid #244b7a;
 border-radius:20px;
 padding:25px;
 margin-top:25px;
-
 }
 
-
-
-.info{
-
+.grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px;
-
+gap:20px;
 }
-
-
 
 .box{
-
-background:#172d4d;
+background:#172f52;
 padding:20px;
 border-radius:15px;
-text-align:center;
-
 }
-
-
 
 .title{
-
 color:#22b8ff;
-font-size:18px;
-
+font-size:14px;
+margin-bottom:10px;
 }
 
-
+.value{
+font-size:20px;
+font-weight:bold;
+}
 
 button{
-
 background:#0098df;
 color:white;
 border:0;
 padding:12px 25px;
 border-radius:10px;
 cursor:pointer;
-
+margin-left:10px;
 }
 
-
+.delete{
+background:#ff5260;
+}
 
 textarea{
-
 width:100%;
 height:120px;
-
-background:#172d4d;
+background:#172f52;
 color:white;
-
 border:1px solid #315784;
-
 border-radius:10px;
-
 padding:15px;
-
 }
 
+@media(max-width:800px){
 
-@media(max-width:700px){
-
-.info{
-
+.grid{
 grid-template-columns:1fr;
-
 }
 
 }
-
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -172,11 +130,9 @@ grid-template-columns:1fr;
 SEVEN.FITT
 </div>
 
-
 <a class="back" href="index.html">
 بازگشت
 </a>
-
 
 </div>
 
@@ -184,61 +140,52 @@ SEVEN.FITT
 
 
 <div class="card">
-
 
 <h2>
 پروفایل ورزشکار
 </h2>
 
 
-
-<div class="info">
-
-
-<div class="box">
-
-<div class="title">
-نام ورزشکار
-</div>
-
-<h3 id="name">
--
-</h3>
-
-</div>
-
+<div class="grid">
 
 
 <div class="box">
-
-<div class="title">
-رشته ورزشی
+<div class="title">نام</div>
+<div class="value" id="name">-</div>
 </div>
-
-<h3 id="sport">
--
-</h3>
-
-</div>
-
 
 
 <div class="box">
-
-<div class="title">
-هدف تمرینی
-</div>
-
-<h3 id="goal">
--
-</h3>
-
+<div class="title">سن</div>
+<div class="value" id="age">-</div>
 </div>
 
 
-
+<div class="box">
+<div class="title">جنسیت</div>
+<div class="value" id="gender">-</div>
 </div>
 
+
+<div class="box">
+<div class="title">رشته ورزشی</div>
+<div class="value" id="sport">-</div>
+</div>
+
+
+<div class="box">
+<div class="title">سطح ورزشکار</div>
+<div class="value" id="level">-</div>
+</div>
+
+
+<div class="box">
+<div class="title">هدف تمرینی</div>
+<div class="value" id="goal">-</div>
+</div>
+
+
+</div>
 
 </div>
 
@@ -249,31 +196,36 @@ SEVEN.FITT
 
 <div class="card">
 
-
 <h2>
-اطلاعات تکمیلی ورزشکار
+مشخصات بدنی
 </h2>
 
 
-
-<p>
-وضعیت جسمانی، سابقه تمرینی، آسیب‌ها و توضیحات مربی
-</p>
+<div class="grid">
 
 
+<div class="box">
+<div class="title">قد</div>
+<div class="value" id="height">-</div>
+</div>
 
-<textarea placeholder="اطلاعات ورزشکار را وارد کنید..."></textarea>
+
+<div class="box">
+<div class="title">وزن</div>
+<div class="value" id="weight">-</div>
+</div>
 
 
-<br><br>
-
-
-<button>
-ذخیره اطلاعات
-</button>
+<div class="box">
+<div class="title">BMI</div>
+<div class="value" id="bmi">-</div>
+</div>
 
 
 </div>
+
+</div>
+
 
 
 
@@ -282,24 +234,72 @@ SEVEN.FITT
 
 <div class="card">
 
-
 <h2>
-برنامه تخصصی رشته ورزشی
+سابقه تمرینی
 </h2>
 
-
-<p>
-
-ساخت برنامه تمرینی بر اساس رشته ورزشی، هدف و شرایط ورزشکار
-
+<p id="history">
+-
 </p>
 
+</div>
 
 
-<button>
 
-ساخت برنامه جدید
 
+
+
+
+<div class="card">
+
+<h2>
+وضعیت سلامت و آسیب
+</h2>
+
+<p id="health">
+-
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>
+یادداشت مربی
+</h2>
+
+<p id="note">
+-
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<button onclick="alert('در نسخه بعد اضافه می‌شود')">
+ویرایش ورزشکار
+</button>
+
+
+<button class="delete" onclick="deleteAthlete()">
+حذف ورزشکار
+</button>
+
+
+<button onclick="location.href='../../studio/'">
+ساخت برنامه تمرینی
 </button>
 
 
@@ -307,8 +307,8 @@ SEVEN.FITT
 
 
 
-
 </div>
+
 
 
 
@@ -316,21 +316,90 @@ SEVEN.FITT
 <script>
 
 
-let params=new URLSearchParams(window.location.search);
+let id =
+new URLSearchParams(window.location.search).get("id");
+
+
+let athletes =
+JSON.parse(localStorage.getItem("athletes")) || [];
+
+
+let athlete =
+athletes[id];
 
 
 
-document.getElementById("name").innerHTML =
-params.get("name") || "-";
+if(athlete){
 
 
-document.getElementById("sport").innerHTML =
-params.get("sport") || "-";
+document.getElementById("name").innerHTML=athlete.name;
+
+document.getElementById("age").innerHTML=athlete.age;
+
+document.getElementById("gender").innerHTML=athlete.gender;
+
+document.getElementById("sport").innerHTML=athlete.sport;
+
+document.getElementById("level").innerHTML=athlete.level;
+
+document.getElementById("goal").innerHTML=athlete.goal;
 
 
-document.getElementById("goal").innerHTML =
-params.get("goal") || "-";
+document.getElementById("height").innerHTML=
+athlete.height+" cm";
 
+
+document.getElementById("weight").innerHTML=
+athlete.weight+" kg";
+
+
+
+if(athlete.height && athlete.weight){
+
+let h=athlete.height/100;
+
+let bmi=(athlete.weight/(h*h)).toFixed(1);
+
+document.getElementById("bmi").innerHTML=bmi;
+
+}
+
+
+
+document.getElementById("history").innerHTML=
+athlete.history || "-";
+
+
+document.getElementById("health").innerHTML=
+athlete.health || "-";
+
+
+document.getElementById("note").innerHTML=
+athlete.note || "-";
+
+
+}
+
+
+
+function deleteAthlete(){
+
+if(confirm("حذف شود؟")){
+
+athletes.splice(id,1);
+
+localStorage.setItem(
+"athletes",
+JSON.stringify(athletes)
+);
+
+
+location.href="index.html";
+
+
+}
+
+}
 
 
 </script>
