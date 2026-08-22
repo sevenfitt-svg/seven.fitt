@@ -8,11 +8,12 @@
 
 <title>مدیریت ورزشکاران | Seven.fitt</title>
 
+
 <style>
 
 *{
 box-sizing:border-box;
-font-family:tahoma;
+font-family:tahoma,Arial;
 }
 
 body{
@@ -40,7 +41,7 @@ align-items:center;
 
 
 .logo{
-color:#20b8ff;
+color:#22b8ff;
 font-size:28px;
 font-weight:bold;
 }
@@ -55,12 +56,11 @@ text-decoration:none;
 }
 
 
-
 .card{
 
 background:#102b50;
-border-radius:20px;
 padding:25px;
+border-radius:20px;
 margin-top:25px;
 
 }
@@ -79,27 +79,26 @@ gap:15px;
 
 label{
 
-font-size:13px;
 color:#9cc8ff;
+font-size:13px;
 
 }
+
 
 
 input,select,textarea{
 
 width:100%;
-margin-top:8px;
 padding:12px;
+margin-top:8px;
 
 background:#172f52;
 color:white;
 
 border:1px solid #315784;
-
 border-radius:10px;
 
 }
-
 
 
 textarea{
@@ -109,13 +108,14 @@ height:100px;
 }
 
 
+
 button{
 
 background:#0098df;
 color:white;
-border:0;
 
-padding:14px 30px;
+border:0;
+padding:13px 25px;
 
 border-radius:10px;
 
@@ -136,6 +136,7 @@ border-collapse:collapse;
 }
 
 
+
 td,th{
 
 padding:12px;
@@ -145,15 +146,22 @@ border-bottom:1px solid #315784;
 
 
 
+a{
+
+color:#22b8ff;
+
+}
+
+
+
 @media(max-width:700px){
 
 .grid{
-
 grid-template-columns:1fr;
-
 }
 
 }
+
 
 
 </style>
@@ -169,7 +177,9 @@ grid-template-columns:1fr;
 <div class="container">
 
 
+
 <div class="header">
+
 
 <div class="logo">
 SEVEN.FITT
@@ -182,6 +192,9 @@ SEVEN.FITT
 
 
 </div>
+
+
+
 
 
 
@@ -202,10 +215,12 @@ SEVEN.FITT
 </div>
 
 
+
 <div>
 <label>سن</label>
 <input id="age">
 </div>
+
 
 
 <div>
@@ -221,11 +236,14 @@ SEVEN.FITT
 </div>
 
 
+
+
 <div>
 <label>شماره تماس</label>
 <input id="phone">
-
 </div>
+
+
 
 
 <div>
@@ -235,8 +253,8 @@ SEVEN.FITT
 
 <option>فوتبال</option>
 <option>بدنسازی</option>
-<option>رزمی</option>
 <option>کشتی</option>
+<option>رزمی</option>
 <option>والیبال</option>
 <option>بسکتبال</option>
 <option>دوومیدانی</option>
@@ -265,6 +283,7 @@ SEVEN.FITT
 
 
 
+
 <div>
 <label>هدف تمرینی</label>
 
@@ -284,41 +303,48 @@ SEVEN.FITT
 
 
 <div>
-<label>قد (سانتی متر)</label>
+<label>قد (cm)</label>
 <input id="height">
-
 </div>
+
 
 
 <div>
-<label>وزن (کیلوگرم)</label>
+<label>وزن (kg)</label>
 <input id="weight">
+</div>
+
 
 </div>
 
 
 
-</div>
+
+
+<h3>
+سابقه تمرینی
+</h3>
+
+<textarea id="history"></textarea>
 
 
 
-<h3>سابقه تمرینی</h3>
 
-<textarea id="history"
-placeholder="سال‌های تمرین، رشته‌های قبلی، مسابقات..."></textarea>
+<h3>
+وضعیت سلامت و آسیب
+</h3>
 
-
-
-<h3>وضعیت سلامت و آسیب</h3>
-
-<textarea id="health"
-placeholder="بیماری، دارو، محدودیت پزشکی، آسیب فعلی یا قبلی..."></textarea>
+<textarea id="health"></textarea>
 
 
 
-<h3>یادداشت مربی</h3>
+
+<h3>
+یادداشت مربی
+</h3>
 
 <textarea id="note"></textarea>
+
 
 
 
@@ -336,6 +362,9 @@ placeholder="بیماری، دارو، محدودیت پزشکی، آسیب فع
 
 
 
+
+
+
 <div class="card">
 
 
@@ -345,6 +374,7 @@ placeholder="بیماری، دارو، محدودیت پزشکی، آسیب فع
 
 
 <table>
+
 
 <thead>
 
@@ -360,6 +390,7 @@ placeholder="بیماری، دارو، محدودیت پزشکی، آسیب فع
 </thead>
 
 
+
 <tbody id="list">
 
 </tbody>
@@ -369,6 +400,7 @@ placeholder="بیماری، دارو، محدودیت پزشکی، آسیب فع
 
 
 </div>
+
 
 
 
@@ -387,33 +419,66 @@ JSON.parse(localStorage.getItem("athletes")) || [];
 
 
 
+
+
 function addAthlete(){
 
 
 let athlete={
 
-name:name.value,
-age:age.value,
-gender:gender.value,
-phone:phone.value,
 
-sport:sport.value,
-level:level.value,
-goal:goal.value,
+name:document.getElementById("name").value,
 
-height:height.value,
-weight:weight.value,
+age:document.getElementById("age").value,
 
-history:history.value,
-health:health.value,
+gender:document.getElementById("gender").value,
 
-note:note.value
+
+phone:document.getElementById("phone").value,
+
+
+sport:document.getElementById("sport").value,
+
+
+level:document.getElementById("level").value,
+
+
+goal:document.getElementById("goal").value,
+
+
+height:document.getElementById("height").value,
+
+
+weight:document.getElementById("weight").value,
+
+
+history:document.getElementById("history").value,
+
+
+health:document.getElementById("health").value,
+
+
+note:document.getElementById("note").value
+
 
 };
 
 
 
+
+if(!athlete.name){
+
+alert("نام ورزشکار را وارد کنید");
+
+return;
+
+}
+
+
+
+
 athletes.push(athlete);
+
 
 
 localStorage.setItem(
@@ -426,6 +491,7 @@ JSON.stringify(athletes)
 showAthletes();
 
 
+
 }
 
 
@@ -435,36 +501,49 @@ showAthletes();
 function showAthletes(){
 
 
-list.innerHTML="";
+let table =
+document.getElementById("list");
 
 
-athletes.forEach((a,i)=>{
+table.innerHTML="";
 
 
-list.innerHTML += `
+
+athletes.forEach((a,index)=>{
+
+
+table.innerHTML += `
+
 
 <tr>
 
+
 <td>${a.name}</td>
 
+
 <td>${a.sport}</td>
+
 
 <td>${a.goal}</td>
 
 
+
 <td>
 
-<a style="color:#20b8ff"
-href="profile.html?id=${i}">
+<a href="profile.html?id=${index}">
 مشاهده
 </a>
+
 
 </td>
 
 
+
 </tr>
 
+
 `;
+
 
 
 });
@@ -473,7 +552,9 @@ href="profile.html?id=${i}">
 }
 
 
+
 showAthletes();
+
 
 
 </script>
