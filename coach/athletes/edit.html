@@ -23,29 +23,31 @@ max-width:900px;
 margin:auto;
 }
 
-
 .card{
 background:#12345d;
 padding:25px;
 border-radius:20px;
 }
 
-
 h2{
 color:#19b7ff;
 }
 
-
 .grid{
-
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:15px;
-
 }
 
+label{
+display:block;
+color:#8fdcff;
+margin-bottom:5px;
+}
 
-input,select,textarea{
+input,
+select,
+textarea{
 
 width:100%;
 padding:12px;
@@ -57,45 +59,37 @@ box-sizing:border-box;
 
 }
 
+textarea{
+height:100px;
+}
 
-label{
-
-color:#8fdcff;
-display:block;
-margin-bottom:5px;
-
+.full{
+grid-column:1/-1;
 }
 
 
 button{
 
 background:#0794d2;
+border:0;
 color:white;
-border:none;
-padding:14px 25px;
+padding:14px 30px;
 border-radius:10px;
-cursor:pointer;
 margin-top:20px;
+cursor:pointer;
 
 }
 
 
 .back{
 
+display:inline-block;
 background:#ff5865;
+color:white;
 padding:12px 20px;
 border-radius:10px;
-color:white;
 text-decoration:none;
-display:inline-block;
 margin-bottom:20px;
-
-}
-
-
-.full{
-
-grid-column:1/-1;
 
 }
 
@@ -109,7 +103,6 @@ grid-template-columns:1fr;
 }
 
 </style>
-
 
 </head>
 
@@ -164,36 +157,32 @@ grid-template-columns:1fr;
 <div>
 <label>رشته ورزشی</label>
 <input id="sport">
-
 </div>
 
 
 <div>
 <label>سطح ورزشکار</label>
 <input id="level">
-
 </div>
 
 
 <div>
 <label>هدف تمرینی</label>
 <input id="goal">
-
 </div>
 
 
 <div>
 <label>قد (سانتی متر)</label>
 <input id="height">
-
 </div>
 
 
 <div>
 <label>وزن (کیلوگرم)</label>
 <input id="weight">
-
 </div>
+
 
 
 <div class="full">
@@ -205,6 +194,7 @@ grid-template-columns:1fr;
 <textarea id="history"></textarea>
 
 </div>
+
 
 
 <div class="full">
@@ -234,10 +224,9 @@ grid-template-columns:1fr;
 </div>
 
 
-<button onclick="save()">
+<button onclick="saveData()">
 ذخیره تغییرات
 </button>
-
 
 
 </div>
@@ -250,74 +239,64 @@ grid-template-columns:1fr;
 <script>
 
 
-let id=new URLSearchParams(location.search).get("id");
+const id = new URLSearchParams(window.location.search).get("id");
 
 
-let athletes=JSON.parse(localStorage.getItem("athletes")) || [];
+let athletes = JSON.parse(localStorage.getItem("athletes")) || [];
 
 
-let athlete=athletes[id];
+let athlete = athletes[id];
+
+
+
+const fields = [
+
+"name",
+"age",
+"gender",
+"sport",
+"level",
+"goal",
+"height",
+"weight",
+"history",
+"health",
+"note"
+
+];
 
 
 
 if(athlete){
 
 
-name.value=athlete.name || "";
+fields.forEach(function(field){
 
-age.value=athlete.age || "";
+document.getElementById(field).value = athlete[field] || "";
 
-gender.value=athlete.gender || "";
-
-sport.value=athlete.sport || "";
-
-level.value=athlete.level || "";
-
-goal.value=athlete.goal || "";
-
-height.value=athlete.height || "";
-
-weight.value=athlete.weight || "";
-
-history.value=athlete.history || "";
-
-health.value=athlete.health || "";
-
-note.value=athlete.note || "";
+});
 
 
 }
 
 
 
-function save(){
+function saveData(){
 
 
-athletes[id]={
+let updatedAthlete={};
 
-name:name.value,
 
-age:age.value,
+fields.forEach(function(field){
 
-gender:gender.value,
+updatedAthlete[field] =
+document.getElementById(field).value;
 
-sport:sport.value,
+});
 
-level:level.value,
 
-goal:goal.value,
 
-height:height.value,
-
-weight:weight.value,
-
-history:history.value,
-
-health:health.value,
-
-note:note.value
-
-};
+athletes[id]=updatedAthlete;
 
 
 
@@ -328,10 +307,12 @@ JSON.stringify(athletes)
 
 
 
-location.href="profile.html?id="+id;
+window.location.href =
+"profile.html?id="+id;
 
 
 }
+
 
 
 </script>
