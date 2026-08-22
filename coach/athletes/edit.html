@@ -1,1 +1,342 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ویرایش ورزشکار | Seven.fitt</title>
+
+<style>
+
+body{
+background:#07182d;
+color:white;
+font-family:tahoma;
+margin:0;
+padding:30px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+
+.card{
+background:#12345d;
+padding:25px;
+border-radius:20px;
+}
+
+
+h2{
+color:#19b7ff;
+}
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+
+}
+
+
+input,select,textarea{
+
+width:100%;
+padding:12px;
+background:#102d52;
+border:1px solid #24568b;
+border-radius:10px;
+color:white;
+box-sizing:border-box;
+
+}
+
+
+label{
+
+color:#8fdcff;
+display:block;
+margin-bottom:5px;
+
+}
+
+
+button{
+
+background:#0794d2;
+color:white;
+border:none;
+padding:14px 25px;
+border-radius:10px;
+cursor:pointer;
+margin-top:20px;
+
+}
+
+
+.back{
+
+background:#ff5865;
+padding:12px 20px;
+border-radius:10px;
+color:white;
+text-decoration:none;
+display:inline-block;
+margin-bottom:20px;
+
+}
+
+
+.full{
+
+grid-column:1/-1;
+
+}
+
+
+@media(max-width:700px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<a class="back" href="javascript:history.back()">
+بازگشت
+</a>
+
+
+<div class="card">
+
+
+<h2>
+ویرایش اطلاعات ورزشکار
+</h2>
+
+
+<div class="grid">
+
+
+<div>
+<label>نام</label>
+<input id="name">
+</div>
+
+
+<div>
+<label>سن</label>
+<input id="age">
+</div>
+
+
+<div>
+<label>جنسیت</label>
+
+<select id="gender">
+
+<option value="مرد">مرد</option>
+<option value="زن">زن</option>
+
+</select>
+
+</div>
+
+
+<div>
+<label>رشته ورزشی</label>
+<input id="sport">
+
+</div>
+
+
+<div>
+<label>سطح ورزشکار</label>
+<input id="level">
+
+</div>
+
+
+<div>
+<label>هدف تمرینی</label>
+<input id="goal">
+
+</div>
+
+
+<div>
+<label>قد (سانتی متر)</label>
+<input id="height">
+
+</div>
+
+
+<div>
+<label>وزن (کیلوگرم)</label>
+<input id="weight">
+
+</div>
+
+
+<div class="full">
+
+<label>
+سابقه تمرینی
+</label>
+
+<textarea id="history"></textarea>
+
+</div>
+
+
+<div class="full">
+
+<label>
+وضعیت سلامت و آسیب
+</label>
+
+<textarea id="health"></textarea>
+
+</div>
+
+
+
+<div class="full">
+
+<label>
+یادداشت مربی
+</label>
+
+<textarea id="note"></textarea>
+
+</div>
+
+
+
+</div>
+
+
+<button onclick="save()">
+ذخیره تغییرات
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+let id=new URLSearchParams(location.search).get("id");
+
+
+let athletes=JSON.parse(localStorage.getItem("athletes")) || [];
+
+
+let athlete=athletes[id];
+
+
+
+if(athlete){
+
+
+name.value=athlete.name || "";
+
+age.value=athlete.age || "";
+
+gender.value=athlete.gender || "";
+
+sport.value=athlete.sport || "";
+
+level.value=athlete.level || "";
+
+goal.value=athlete.goal || "";
+
+height.value=athlete.height || "";
+
+weight.value=athlete.weight || "";
+
+history.value=athlete.history || "";
+
+health.value=athlete.health || "";
+
+note.value=athlete.note || "";
+
+
+}
+
+
+
+function save(){
+
+
+athletes[id]={
+
+name:name.value,
+
+age:age.value,
+
+gender:gender.value,
+
+sport:sport.value,
+
+level:level.value,
+
+goal:goal.value,
+
+height:height.value,
+
+weight:weight.value,
+
+history:history.value,
+
+health:health.value,
+
+note:note.value
+
+};
+
+
+
+localStorage.setItem(
+"athletes",
+JSON.stringify(athletes)
+);
+
+
+
+location.href="profile.html?id="+id;
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
