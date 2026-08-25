@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  COACH
+  ATHLETE
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(uuid())
+  phone     String   @unique
+  firstName String?
+  lastName  String?
+  role      Role
+  createdAt DateTime @default(now())
+
+  coachProfile   CoachProfile?
+  athleteProfile AthleteProfile?
+}
+
+model CoachProfile {
+  id        String @id @default(uuid())
+  userId    String @unique
+  user      User @relation(fields:[userId], references:[id])
+}
+
+model AthleteProfile {
+  id        String @id @default(uuid())
+  userId    String @unique
+  user      User @relation(fields:[userId], references:[id])
+  height    Float?
+  weight    Float?
+  goal      String?
+}
+
+model Exercise {
+  id          String @id @default(uuid())
+  name        String
+  muscleGroup String?
+  videoUrl    String?
+}
+
+model Program {
+  id          String @id @default(uuid())
+  athleteId   String
+  coachId     String
+  title       String
+  createdAt   DateTime @default(now())
+  days        ProgramDay[]
+}
+
+model ProgramDay {
+  id        String @id @default(uuid())
+  programId String
+  title     String
+  exercises ProgramExercise[]
+}
+
+model ProgramExercise {
+  id          String @id @default(uuid())
+  dayId       String
+  exerciseId  String
+  sets        Int?
+  reps        Int?
+}

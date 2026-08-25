@@ -1,0 +1,15 @@
+{
+  "name": "sevenfit-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nest start --watch",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@prisma/client": "^5.0.0",
+    "prisma": "^5.0.0"
+  }
+}
