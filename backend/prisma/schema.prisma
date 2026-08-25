@@ -13,6 +13,7 @@ enum Role {
   ADMIN
 }
 
+
 model User {
   id        String   @id @default(uuid())
   phone     String   @unique
@@ -23,50 +24,85 @@ model User {
 
   coachProfile   CoachProfile?
   athleteProfile AthleteProfile?
+
+  coachPrograms   Program[] @relation("CoachPrograms")
+  athletePrograms Program[] @relation("AthletePrograms")
 }
+
 
 model CoachProfile {
-  id        String @id @default(uuid())
-  userId    String @unique
-  user      User @relation(fields:[userId], references:[id])
+  id     String @id @default(uuid())
+  userId String @unique
+
+  user User @relation(fields: [userId], references: [id])
 }
 
+
 model AthleteProfile {
-  id        String @id @default(uuid())
-  userId    String @unique
-  user      User @relation(fields:[userId], references:[id])
-  height    Float?
-  weight    Float?
-  goal      String?
+  id     String @id @default(uuid())
+  userId String @unique
+
+  height Float?
+  weight Float?
+  goal   String?
+
+  user User @relation(fields: [userId], references: [id])
 }
+
 
 model Exercise {
   id          String @id @default(uuid())
   name        String
   muscleGroup String?
   videoUrl    String?
+
+  programExercises ProgramExercise[]
 }
+
 
 model Program {
-  id          String @id @default(uuid())
-  athleteId   String
-  coachId     String
-  title       String
-  createdAt   DateTime @default(now())
-  days        ProgramDay[]
+  id        String @id @default(uuid())
+
+  coachId   String
+  athleteId String
+
+  title     String
+
+  createdAt DateTime @default(now())
+
+  coach   User @relation("CoachPrograms", fields: [coachId], references: [id])
+  athlete User @relation("AthletePrograms", fields: [athleteId], references: [id])
+
+  days ProgramDay[]
 }
 
+
 model ProgramDay {
-  id        String @id @default(uuid())
+  id String @id @default(uuid())
+
   programId String
-  title     String
+
+  title String
+
+  program Program @relation(fields: [programId], references: [id])
+
   exercises ProgramExercise[]
 }
 
+
 model ProgramExercise {
-  id          String @id @default(uuid())
-  dayId       String
-  exerciseId  String
-  sets        Int?
-  reps        Int?
+  id String @id @default(uuid())
+
+  dayId String
+
+  exerciseId String
+
+  day ProgramDay @relation(fields: [dayId], references: [id])
+
+  exercise Exercise @relation(fields: [exerciseId], references: [id])
+
+  sets Int?
+  reps Int?
+  weight Float?
+  restTime Int?
 }
