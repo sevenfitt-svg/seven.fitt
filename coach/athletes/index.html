@@ -1,566 +1,313 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>مدیریت ورزشکاران | Seven.fitt</title>
-
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ورزشکاران | Seven.fitt</title>
 <style>
+*{box-sizing:border-box}body{margin:0;background:#081426;color:#fff;font-family:tahoma,Arial}.container{max-width:1150px;margin:auto;padding:25px}.header{background:#102b50;padding:20px;border-radius:20px;display:flex;justify-content:space-between;align-items:center;gap:15px;border:1px solid #214b7d}.logo{color:#22b8ff;font-size:28px;font-weight:bold}.back,.mini{background:#ff5260;padding:10px 18px;border-radius:10px;color:#fff;text-decoration:none;border:0;cursor:pointer}.mini{background:#24527d;padding:8px 12px;font-size:12px}.card{background:#102b50;padding:25px;border-radius:20px;margin-top:25px;border:1px solid #214b7d}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}label{color:#9cc8ff;font-size:13px}input,select,textarea{width:100%;padding:12px;margin-top:8px;background:#172f52;color:#fff;border:1px solid #315784;border-radius:10px}textarea{height:100px}button.primary{background:#0098df;color:#fff;border:0;padding:13px 25px;border-radius:10px;cursor:pointer;margin-top:20px}button:disabled{opacity:.55}table{width:100%;margin-top:20px;border-collapse:collapse}td,th{padding:12px;border-bottom:1px solid #315784;text-align:right}a{color:#7ed3ff}.actions{display:flex;gap:7px;flex-wrap:wrap}.actions a{padding:6px 9px;border:1px solid #315784;border-radius:8px;text-decoration:none;font-size:12px}.actions .program{background:#0b7fad;color:#fff}.status{padding:11px 13px;border:1px solid #315784;border-radius:10px;color:#a9c9e3;margin-top:15px;font-size:13px}.status.bad{color:#ffaaaa;border-color:#773c48}.badge{display:inline-block;padding:4px 7px;border-radius:999px;font-size:10px;background:#173b67;color:#9edcff}.tools{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.legacy{display:none;background:#674f17!important}.empty{color:#8faac0;padding:20px 0}@media(max-width:760px){.grid{grid-template-columns:1fr}.tablewrap{overflow:auto}table{min-width:720px}}
+</style>
+<script src="../../assets/platform.js"></script>
 
-*{
-box-sizing:border-box;
-font-family:tahoma,Arial;
+<style id="sevenfitt-phase36-white-blue">
+:root{--sf36-blue:#5faeff;--sf36-blue-hover:#489ff5;--sf36-deep:#184a7c;--sf36-ink:#10243b;--sf36-muted:#5e738a;--sf36-line:#d7e8f8;--sf36-soft:#eef7ff}
+html,body{background:#fff!important;color:var(--sf36-ink)!important}
+body{min-height:100vh}
+.header,.head,.hero,.card,.box,.req,.day,.exercise,.item,.note{
+ background:var(--sf36-blue)!important;color:#fff!important;border-color:var(--sf36-blue)!important;box-shadow:0 10px 26px rgba(42,126,205,.14)!important
+}
+.header h1,.header h2,.head h1,.head h2,.hero h1,.hero h2,.card h1,.card h2,.card h3,.box h1,.box h2,.box h3,.req h1,.req h2,.req h3,.day h1,.day h2,.day h3,.exercise h1,.exercise h2,.exercise h3,.item h1,.item h2,.item h3,
+.logo,.title,.number,.value,.brand{color:#fff!important}
+p,.desc,.muted,.status,.empty,.label,.head,.role,.badge,.msg,.card small,.box small,.req small,.day small,.exercise small,.item small{color:#fff!important}
+.role,.badge{background:var(--sf36-deep)!important;border-color:rgba(255,255,255,.18)!important;color:#fff!important}
+.status{background:var(--sf36-soft)!important;color:var(--sf36-ink)!important;border-color:var(--sf36-line)!important}.status.bad,.err{color:#b42318!important}
+input,select,textarea,.field input,.field select,.field textarea{background:#fff!important;color:var(--sf36-ink)!important;border:1px solid #beddf7!important}
+input::placeholder,textarea::placeholder{color:#8198ad!important}input:focus,select:focus,textarea:focus{outline:none!important;border-color:var(--sf36-blue)!important;box-shadow:0 0 0 3px rgba(95,174,255,.16)!important}
+label,.field label{color:var(--sf36-ink)!important}
+.card label,.box label,.req label,.day label,.exercise label,.item label,.header label,.hero label{color:#fff!important}
+table{color:#fff!important}td,th,.row{border-color:rgba(255,255,255,.22)!important}.head.row{color:#fff!important}
+a{color:var(--sf36-blue)!important}.card a,.box a,.header a,.head a,.hero a,.req a,.day a,.exercise a,.item a{color:#fff!important}
+button,.btn,.primary,.soft,.lime,.save,.remove,.back,.mini,.open,.edit,.program,.logout,.actions a,.nav a{
+ background:var(--sf36-blue)!important;color:#fff!important;border:1px solid var(--sf36-blue)!important;box-shadow:none!important
+}
+.header button,.header .back,.header .mini,.head button,.head .back,.head .btn,.card button,.box button,.req button,.hero button{background:var(--sf36-deep)!important;border-color:var(--sf36-deep)!important;color:#fff!important}
+button:hover,.btn:hover,.primary:hover,.back:hover,.mini:hover,.open:hover,.edit:hover,.program:hover,.actions a:hover{background:var(--sf36-blue-hover)!important;border-color:var(--sf36-blue-hover)!important;color:#fff!important}
+.danger,.status.bad{border-color:#e7a6a6!important}.danger{background:#d64545!important;color:#fff!important}
+.tools{color:#fff!important}
+@media(max-width:760px){body{padding:0!important}.container,.wrap{padding-left:16px!important;padding-right:16px!important}}
+</style>
+<style id="sevenfitt-phase38-inline">
+/* Seven.fitt Phase 3.8 — CLEAN FINAL THEME
+   White canvas + dark header + filled blue cards + white text inside cards */
+:root{
+  --sf-bg:#ffffff;
+  --sf-bg-soft:#f7fbff;
+  --sf-header:#081f35;
+  --sf-blue:#2f80ff;
+  --sf-blue-hover:#2474eb;
+  --sf-blue-deep:#0e4f9b;
+  --sf-ink:#10243b;
+  --sf-muted:#60758c;
+  --sf-line:#d8e8f7;
+}
+html,body{background:var(--sf-bg)!important;color:var(--sf-ink)!important}
+body{min-height:100vh}
+
+/* PUBLIC + HOME CANVAS */
+body.home-clean,body.public-page,body.shop-page,
+body.home-clean main,body.public-page main,body.shop-page main,
+body.home-clean .home-hero-clean,body.home-clean .home-section-clean,
+body.home-clean .clean-why,body.home-clean .clean-tests,body.home-clean .clean-coach,
+body.home-clean .clean-journey,body.home-clean .clean-journal,body.home-clean .clean-final-cta,
+body.public-page .public-hero,body.public-page .public-section,body.public-page .public-section.white,body.public-page .public-section.dark,
+body.shop-page .public-hero,body.shop-page .public-section,body.shop-page .public-section.white,body.shop-page .public-section.dark{
+  background:#fff!important;color:var(--sf-ink)!important;
 }
 
-body{
-margin:0;
-background:#081426;
-color:white;
+/* HEADER */
+body.home-clean .site-header,body.public-page .site-header,body.shop-page .site-header{
+  background:var(--sf-header)!important;border-bottom:1px solid rgba(255,255,255,.10)!important;
+  box-shadow:0 4px 14px rgba(5,25,43,.10)!important;
+}
+body.home-clean .brand-word,body.public-page .brand-word,body.shop-page .brand-word,
+body.home-clean .main-nav a,body.public-page .main-nav a,body.shop-page .main-nav a,
+body.home-clean .header-login,body.public-page .header-login,body.shop-page .header-login,
+body.home-clean .mobile-toggle,body.public-page .mobile-toggle,body.shop-page .mobile-toggle{
+  color:#fff!important;opacity:1!important;
+}
+body.home-clean .main-nav a:hover,body.home-clean .main-nav a.active,
+body.public-page .main-nav a:hover,body.public-page .main-nav a.active,
+body.shop-page .main-nav a:hover,body.shop-page .main-nav a.active{color:#78baff!important}
+body.home-clean .main-nav a:after,body.public-page .main-nav a:after,body.shop-page .main-nav a:after{background:#78baff!important}
+
+/* HERO */
+body.home-clean .home-hero-clean,body.public-page .public-hero,body.shop-page .public-hero{
+  background:#fff!important;color:var(--sf-ink)!important;border-bottom:1px solid #edf4fb!important;
+}
+body.home-clean .home-hero-clean:before,body.public-page .public-hero:before,body.shop-page .public-hero:before{
+  background-image:linear-gradient(rgba(47,128,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(47,128,255,.045) 1px,transparent 1px)!important;
+  opacity:.65!important;
+}
+body.home-clean .home-hero-clean:after,body.public-page .public-hero:after,body.shop-page .public-hero:after{
+  background:radial-gradient(circle,rgba(47,128,255,.10),transparent 68%)!important;
+}
+body.home-clean .clean-hero-copy,body.home-clean .clean-hero-copy h1,
+body.public-page .public-hero h1,body.shop-page .public-hero h1,
+body.public-page .public-hero-copy h1,body.shop-page .public-hero-copy h1,
+body.home-clean .clean-section-head h2,body.home-clean .clean-why-copy h2,body.home-clean .clean-coach-copy h2,
+body.public-page .public-heading h2,body.shop-page .public-heading h2{
+  color:var(--sf-ink)!important;opacity:1!important;text-shadow:none!important;
+}
+body.home-clean .clean-hero-copy p,body.public-page .public-hero-copy>p,body.shop-page .public-hero-copy>p,
+body.home-clean .clean-section-head p,body.home-clean .clean-why-copy p,body.home-clean .clean-coach-copy p,
+body.public-page .public-heading>p,body.shop-page .public-heading>p{color:var(--sf-muted)!important;opacity:1!important}
+body.home-clean .clean-kicker,body.public-page .public-kicker,body.shop-page .public-kicker,
+body.home-clean .section-mini,body.public-page .section-label,body.shop-page .section-label,
+body.public-page .public-hero h1 em,body.shop-page .public-hero h1 em{color:var(--sf-blue)!important}
+
+/* ALL MAIN PUBLIC/HOME CARDS = BLUE */
+body.home-clean .clean-service-card,
+body.home-clean .why-point-card,
+body.home-clean .clean-test-card,
+body.home-clean .clean-journey-card,
+body.home-clean .clean-article-card,
+body.home-clean .clean-article-card.featured,
+body.home-clean .clean-hero-points>div,
+body.home-clean .clean-final-box,
+body.home-clean .coach-panel-shell,
+body.home-clean .visual-shell,
+body.public-page .feature-card,
+body.public-page .catalog-card,
+body.public-page .article-card,
+body.public-page .flow-step,
+body.public-page .form-shell,
+body.public-page .contact-shell,
+body.public-page .contact-side,
+body.public-page .premium-card,
+body.public-page .dark-info-card,
+body.public-page .order-preview,
+body.public-page .order-summary,
+body.public-page .selector-row,
+body.public-page .feature-article,
+body.public-page .test-card,
+body.public-page .content-card,
+body.public-page .product-card,
+body.public-page .exercise-public-card,
+body.public-page .exercise-empty,
+body.public-page .bank-preview-grid>div,
+body.shop-page .catalog-card,
+body.shop-page .shop-visual{
+  background:var(--sf-blue)!important;border:1px solid var(--sf-blue)!important;color:#fff!important;
+  box-shadow:0 10px 26px rgba(47,128,255,.14)!important;
+}
+body.home-clean .clean-service-card:hover,body.home-clean .clean-test-card:hover,body.home-clean .clean-article-card:hover,
+body.public-page .feature-card:hover,body.public-page .catalog-card:hover,body.public-page .article-card:hover,
+body.public-page .test-card:hover,body.public-page .exercise-public-card:hover,body.shop-page .catalog-card:hover{
+  background:var(--sf-blue-hover)!important;border-color:var(--sf-blue-hover)!important;
+}
+/* WHITE TEXT INSIDE BLUE CARDS */
+body.home-clean .clean-service-card *,body.home-clean .why-point-card *,body.home-clean .clean-test-card *,body.home-clean .clean-journey-card *,body.home-clean .clean-article-card *,body.home-clean .clean-hero-points>div *,body.home-clean .clean-final-box *,body.home-clean .coach-panel-shell *,body.home-clean .visual-shell *,
+body.public-page .feature-card *,body.public-page .catalog-card *,body.public-page .article-card *,body.public-page .flow-step *,body.public-page .form-shell>*,body.public-page .contact-shell>*,body.public-page .contact-side *,body.public-page .premium-card *,body.public-page .dark-info-card *,body.public-page .order-preview *,body.public-page .order-summary *,body.public-page .selector-row *,body.public-page .feature-article *,body.public-page .test-card *,body.public-page .content-card *,body.public-page .product-card *,body.public-page .exercise-public-card *,body.public-page .exercise-empty *,body.shop-page .catalog-card *,body.shop-page .shop-visual *{color:#fff!important;opacity:1!important}
+
+/* MEDIA INSIDE CARDS */
+body.home-clean .visual-summary-card,body.home-clean .visual-list-row,body.home-clean .visual-pill,body.home-clean .coach-athlete-item,
+body.public-page .public-visual,body.public-page .feature-article-media,body.public-page .catalog-media,body.public-page .exercise-media,
+body.public-page .visual-row,body.public-page .visual-metric,
+body.shop-page .catalog-media,body.shop-page .shop-visual .visual-row,body.shop-page .shop-visual .visual-metric{
+  background:var(--sf-blue-deep)!important;border-color:rgba(255,255,255,.18)!important;color:#fff!important;
+}
+body.home-clean .visual-summary-card *,body.home-clean .visual-list-row *,body.home-clean .visual-pill *,body.home-clean .coach-athlete-item *,
+body.public-page .public-visual *,body.public-page .feature-article-media *,body.public-page .catalog-media *,body.public-page .exercise-media *,body.public-page .visual-row *,body.public-page .visual-metric *,body.shop-page .catalog-media *,body.shop-page .shop-visual .visual-row *,body.shop-page .shop-visual .visual-metric *{color:#fff!important}
+
+/* FORMS */
+body.public-page .form-shell label,body.public-page .contact-shell label{color:#fff!important}
+body.public-page .field input,body.public-page .field select,body.public-page .field textarea,
+body.public-page .program-login.modern input,body.shop-page .field input,body.shop-page .field select,body.shop-page .field textarea{
+  background:#fff!important;color:var(--sf-ink)!important;border:1px solid #c8def3!important;
+}
+body.public-page .field input::placeholder,body.public-page .field textarea::placeholder,body.public-page .program-login.modern input::placeholder,
+body.shop-page .field input::placeholder,body.shop-page .field textarea::placeholder{color:#8097ad!important}
+body.public-page .field input:focus,body.public-page .field select:focus,body.public-page .field textarea:focus,
+body.public-page .program-login.modern input:focus,body.shop-page .field input:focus,body.shop-page .field select:focus,body.shop-page .field textarea:focus{
+  border-color:#fff!important;box-shadow:0 0 0 3px rgba(255,255,255,.24)!important;
 }
 
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:25px;
+/* BUTTONS / TABS */
+body.home-clean .btn-brand,body.public-page .btn-brand,body.shop-page .btn-brand,
+body.home-clean .btn-primary,body.public-page .btn-primary,body.shop-page .btn-primary,
+body.public-page .exercise-filters button,body.shop-page .exercise-filters button,
+body.public-page .tabs a,body.public-page .tabs button,body.shop-page .tabs a,body.shop-page .tabs button{
+  background:var(--sf-blue)!important;color:#fff!important;border:1px solid var(--sf-blue)!important;box-shadow:none!important;
+}
+body.home-clean .btn-outline-clean,body.home-clean .btn-outline-dark,
+body.public-page .btn-glass,body.shop-page .btn-glass,body.public-page .btn-outline,body.shop-page .btn-outline{
+  background:#fff!important;color:var(--sf-blue)!important;border:1px solid var(--sf-blue)!important;
+}
+body.public-page .exercise-filters button:hover,body.public-page .exercise-filters button.active,
+body.shop-page .exercise-filters button:hover,body.shop-page .exercise-filters button.active,
+body.public-page .tabs a:hover,body.public-page .tabs .active,body.public-page .tabs button:hover,body.public-page .tabs button.active,
+body.shop-page .tabs a:hover,body.shop-page .tabs .active,body.shop-page .tabs button:hover,body.shop-page .tabs button.active,
+body.home-clean .btn-brand:hover,body.public-page .btn-brand:hover,body.shop-page .btn-brand:hover{
+  background:var(--sf-blue-hover)!important;border-color:var(--sf-blue-hover)!important;color:#fff!important;
 }
 
+/* FOOTER: readable */
+body.home-clean .public-footer,body.home-clean .site-footer,body.public-page .public-footer,body.public-page .site-footer,body.shop-page .public-footer,body.shop-page .site-footer{
+  background:#f7fbff!important;border-top:1px solid var(--sf-line)!important;color:var(--sf-muted)!important;margin-top:0!important;
+}
+body.home-clean .public-footer h4,body.home-clean .site-footer h3,body.home-clean .site-footer h4,
+body.public-page .public-footer h4,body.public-page .site-footer h3,body.public-page .site-footer h4,
+body.shop-page .public-footer h4,body.shop-page .site-footer h3,body.shop-page .site-footer h4,
+body.home-clean .public-footer .brand-word,body.public-page .public-footer .brand-word,body.shop-page .public-footer .brand-word{color:var(--sf-ink)!important}
+body.home-clean .public-footer a,body.home-clean .site-footer a,body.public-page .public-footer a,body.public-page .site-footer a,
+body.shop-page .public-footer a,body.shop-page .site-footer a,body.home-clean .public-footer p,body.public-page .public-footer p,body.shop-page .public-footer p,
+body.home-clean .public-footer-note,body.public-page .public-footer-note,body.shop-page .public-footer-note{color:#48627a!important;opacity:1!important}
 
-.header{
-background:#102b50;
-padding:20px;
-border-radius:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* AUTH */
+body.auth-page{background:#fff!important;color:var(--sf-ink)!important}
+body.auth-page .auth-brand-side{background:#fff!important;color:var(--sf-ink)!important;border-left:1px solid var(--sf-line)!important}
+body.auth-page .auth-logo,body.auth-page .auth-copy h1{color:var(--sf-ink)!important}
+body.auth-page .auth-copy p,body.auth-page .auth-points span{color:var(--sf-muted)!important}
+body.auth-page .auth-form-side{background:#fff!important;border-color:var(--sf-line)!important}
+body.auth-page .auth-box{background:var(--sf-blue)!important;border-color:var(--sf-blue)!important;color:#fff!important}
+body.auth-page .auth-box *{color:#fff!important}
+body.auth-page .auth-box input{background:#fff!important;color:var(--sf-ink)!important;border-color:#d5e7f7!important}
+
+/* COACH / ADMIN CUSTOM PAGES */
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page){background:#fff!important;color:var(--sf-ink)!important}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .header,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .head,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .top{
+  background:var(--sf-header)!important;color:#fff!important;border-color:var(--sf-header)!important;
+}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .header *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .head *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .top *{color:#fff!important}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .card,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .box,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .req,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .day,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .exercise,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .item,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .result,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .empty,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .note{
+  background:var(--sf-blue)!important;color:#fff!important;border-color:var(--sf-blue)!important;
+}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .card *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .box *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .req *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .day *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .exercise *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .item *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .result *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .empty *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .note *{color:#fff!important}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) button,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .btn,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .primary,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .soft,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .save,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .open,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .edit,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .program,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .logout{
+  background:var(--sf-blue)!important;color:#fff!important;border-color:var(--sf-blue)!important;
+}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) input,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) select,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) textarea{
+  background:#fff!important;color:var(--sf-ink)!important;border-color:#c8def3!important;
 }
 
-
-.logo{
-color:#22b8ff;
-font-size:28px;
-font-weight:bold;
+/* STUDENT */
+body:has(.student-head){background:#fff!important;color:var(--sf-ink)!important}
+body:has(.student-head) .student-head{background:var(--sf-header)!important;color:#fff!important;border-bottom:1px solid rgba(255,255,255,.10)!important}
+body:has(.student-head) .student-head *{color:#fff!important}
+body:has(.student-head) .tabs .btn,body:has(.student-head) .result,body:has(.student-head) .empty,body:has(.student-head) .notice{
+  background:var(--sf-blue)!important;color:#fff!important;border-color:var(--sf-blue)!important;
 }
+body:has(.student-head) .result *,body:has(.student-head) .empty *,body:has(.student-head) .notice *{color:#fff!important}
 
-
-.back{
-background:#ff5260;
-padding:10px 20px;
-border-radius:10px;
-color:white;
-text-decoration:none;
+@media(max-width:980px){
+ body.home-clean .main-nav.open,body.public-page .main-nav.open,body.shop-page .main-nav.open{background:var(--sf-header)!important;border:1px solid rgba(255,255,255,.12)!important}
+ body.home-clean .main-nav.open a,body.public-page .main-nav.open a,body.shop-page .main-nav.open a{color:#fff!important}
 }
-
-
-.card{
-
-background:#102b50;
-padding:25px;
-border-radius:20px;
-margin-top:25px;
-
-}
-
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-
-}
-
-
-
-label{
-
-color:#9cc8ff;
-font-size:13px;
-
-}
-
-
-
-input,select,textarea{
-
-width:100%;
-padding:12px;
-margin-top:8px;
-
-background:#172f52;
-color:white;
-
-border:1px solid #315784;
-border-radius:10px;
-
-}
-
-
-textarea{
-
-height:100px;
-
-}
-
-
-
-button{
-
-background:#0098df;
-color:white;
-
-border:0;
-padding:13px 25px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-margin-top:20px;
-
-}
-
-
-
-table{
-
-width:100%;
-margin-top:20px;
-border-collapse:collapse;
-
-}
-
-
-
-td,th{
-
-padding:12px;
-border-bottom:1px solid #315784;
-
-}
-
-
-
-a{
-
-color:#22b8ff;
-
-}
-
-
-
-@media(max-width:700px){
-
-.grid{
-grid-template-columns:1fr;
-}
-
-}
-
-
 
 </style>
-
-
 </head>
-
-
-
 <body>
-
-
 <div class="container">
-
-
-
-<div class="header">
-
-
-<div class="logo">
-SEVEN.FITT
+  <div class="header"><div class="logo">SEVEN.FITT</div><div class="tools"><button id="legacyBtn" class="mini legacy">انتقال ورزشکارهای قدیمی این مرورگر</button><a class="back" href="../index.html">بازگشت</a></div></div>
+  <div id="status" class="status">در حال بررسی دسترسی...</div>
+  <div class="card">
+    <h2>ثبت ورزشکار جدید</h2>
+    <div class="grid">
+      <div><label>نام و نام خانوادگی</label><input id="name"></div><div><label>سن</label><input id="age" inputmode="numeric"></div>
+      <div><label>جنسیت</label><select id="gender"><option>مرد</option><option>زن</option></select></div>
+      <div><label>شماره تماس</label><input id="phone" inputmode="tel"></div>
+      <div><label>رشته ورزشی</label><select id="sport"><option>فوتبال</option><option>بدنسازی</option><option>کشتی</option><option>رزمی</option><option>والیبال</option><option>بسکتبال</option><option>دوومیدانی</option><option>شنا</option><option>سایر</option></select></div>
+      <div><label>سطح ورزشکار</label><select id="level"><option>مبتدی</option><option>متوسط</option><option>پیشرفته</option><option>حرفه‌ای</option></select></div>
+      <div><label>هدف تمرینی</label><select id="goal"><option>افزایش حجم</option><option>کاهش چربی</option><option>افزایش قدرت</option><option>افزایش سرعت و توان</option><option>آمادگی مسابقه</option><option>بازتوانی</option></select></div>
+      <div><label>قد (cm)</label><input id="height" inputmode="decimal"></div><div><label>وزن (kg)</label><input id="weight" inputmode="decimal"></div>
+    </div>
+    <h3>سابقه تمرینی</h3><textarea id="history"></textarea><h3>وضعیت سلامت و آسیب</h3><textarea id="health"></textarea><h3>یادداشت مربی</h3><textarea id="note"></textarea>
+    <button class="primary" id="addBtn">+ افزودن ورزشکار</button>
+  </div>
+  <div class="card"><h2 id="listTitle">لیست ورزشکاران</h2><div class="tablewrap"><table><thead><tr><th>نام</th><th>رشته</th><th>هدف</th><th>نوع</th><th>عملیات</th></tr></thead><tbody id="list"></tbody></table></div><div id="empty" class="empty"></div></div>
 </div>
-
-
-<a class="back" href="../index.html">
-بازگشت
-</a>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-ثبت ورزشکار جدید
-</h2>
-
-
-<div class="grid">
-
-
-<div>
-<label>نام و نام خانوادگی</label>
-<input id="name">
-</div>
-
-
-
-<div>
-<label>سن</label>
-<input id="age">
-</div>
-
-
-
-<div>
-<label>جنسیت</label>
-
-<select id="gender">
-
-<option>مرد</option>
-<option>زن</option>
-
-</select>
-
-</div>
-
-
-
-
-<div>
-<label>شماره تماس</label>
-<input id="phone">
-</div>
-
-
-
-
-<div>
-<label>رشته ورزشی</label>
-
-<select id="sport">
-
-<option>فوتبال</option>
-<option>بدنسازی</option>
-<option>کشتی</option>
-<option>رزمی</option>
-<option>والیبال</option>
-<option>بسکتبال</option>
-<option>دوومیدانی</option>
-<option>شنا</option>
-<option>سایر</option>
-
-</select>
-
-</div>
-
-
-
-<div>
-<label>سطح ورزشکار</label>
-
-<select id="level">
-
-<option>مبتدی</option>
-<option>متوسط</option>
-<option>پیشرفته</option>
-<option>حرفه‌ای</option>
-
-</select>
-
-</div>
-
-
-
-
-<div>
-<label>هدف تمرینی</label>
-
-<select id="goal">
-
-<option>افزایش حجم</option>
-<option>کاهش چربی</option>
-<option>افزایش قدرت</option>
-<option>افزایش سرعت و توان</option>
-<option>آمادگی مسابقه</option>
-<option>بازتوانی</option>
-
-</select>
-
-</div>
-
-
-
-<div>
-<label>قد (cm)</label>
-<input id="height">
-</div>
-
-
-
-<div>
-<label>وزن (kg)</label>
-<input id="weight">
-</div>
-
-
-</div>
-
-
-
-
-
-<h3>
-سابقه تمرینی
-</h3>
-
-<textarea id="history"></textarea>
-
-
-
-
-<h3>
-وضعیت سلامت و آسیب
-</h3>
-
-<textarea id="health"></textarea>
-
-
-
-
-<h3>
-یادداشت مربی
-</h3>
-
-<textarea id="note"></textarea>
-
-
-
-
-<button onclick="addAthlete()">
-
-+ افزودن ورزشکار
-
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-لیست ورزشکاران
-</h2>
-
-
-<table>
-
-
-<thead>
-
-<tr>
-
-<th>نام</th>
-<th>رشته</th>
-<th>هدف</th>
-<th>پروفایل</th>
-
-</tr>
-
-</thead>
-
-
-
-<tbody id="list">
-
-</tbody>
-
-
-</table>
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
 <script>
-
-
-let athletes =
-JSON.parse(localStorage.getItem("athletes")) || [];
-
-
-
-
-
-function addAthlete(){
-
-
-let athlete={
-
-
-name:document.getElementById("name").value,
-
-age:document.getElementById("age").value,
-
-gender:document.getElementById("gender").value,
-
-
-phone:document.getElementById("phone").value,
-
-
-sport:document.getElementById("sport").value,
-
-
-level:document.getElementById("level").value,
-
-
-goal:document.getElementById("goal").value,
-
-
-height:document.getElementById("height").value,
-
-
-weight:document.getElementById("weight").value,
-
-
-history:document.getElementById("history").value,
-
-
-health:document.getElementById("health").value,
-
-
-note:document.getElementById("note").value
-
-
-};
-
-
-
-
-if(!athlete.name){
-
-alert("نام ورزشکار را وارد کنید");
-
-return;
-
-}
-
-
-
-
-athletes.push(athlete);
-
-
-
-localStorage.setItem(
-"athletes",
-JSON.stringify(athletes)
-);
-
-
-
-showAthletes();
-
-
-
-}
-
-
-
-
-
-function showAthletes(){
-
-
-let table =
-document.getElementById("list");
-
-
-table.innerHTML="";
-
-
-
-athletes.forEach((a,index)=>{
-
-
-table.innerHTML += `
-
-
-<tr>
-
-
-<td>${a.name}</td>
-
-
-<td>${a.sport}</td>
-
-
-<td>${a.goal}</td>
-
-
-
-<td>
-
-<a href="profile.html?id=${index}">
-مشاهده
-</a>
-
-
-</td>
-
-
-
-</tr>
-
-
-`;
-
-
-
-});
-
-
-}
-
-
-
-showAthletes();
-
-
-
+const fields=['name','age','gender','phone','sport','level','goal','height','weight','history','health','note'];let currentUser=null, athletes=[];
+const action=new URLSearchParams(location.search).get('action');if(action==='program')document.getElementById('listTitle').textContent='یک ورزشکار برای ساخت برنامه انتخاب کن';
+function status(t,bad){const e=document.getElementById('status');e.textContent=t;e.classList.toggle('bad',!!bad)}
+function data(){const o={};fields.forEach(k=>o[k]=document.getElementById(k).value);return o}
+function clearForm(){['name','age','phone','height','weight','history','health','note'].forEach(k=>document.getElementById(k).value='')}
+function sourceLabel(s){return s==='DIRECT'?'Seven.fitt Direct':s==='MARKETPLACE'?'سفارش سایت':'شاگرد مربی'}
+function render(){const tb=document.getElementById('list');tb.innerHTML='';document.getElementById('empty').textContent=athletes.length?'':'هنوز ورزشکاری ثبت نشده است.';athletes.forEach(a=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${esc(a.name)}</td><td>${esc(a.sport||'-')}</td><td>${esc(a.goal||'-')}</td><td><span class="badge">${sourceLabel(a.source)}</span></td><td><div class="actions"><a href="profile.html?id=${encodeURIComponent(a.id)}">پروفایل</a><a class="program" href="../../studio/index.html?athlete=${encodeURIComponent(a.id)}">ساخت برنامه</a></div></td>`;tb.appendChild(tr)});}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function load(){athletes=await SevenFitt.api('/athletes');render()}
+document.getElementById('addBtn').onclick=async()=>{const btn=document.getElementById('addBtn');if(!document.getElementById('name').value.trim())return alert('نام ورزشکار را وارد کنید');btn.disabled=true;try{await SevenFitt.api('/athletes',{method:'POST',body:data()});clearForm();await load();status('ورزشکار در Backend Seven.fitt ثبت شد.');}catch(e){status('ثبت انجام نشد: '+e.message,true)}finally{btn.disabled=false}};
+const legacy=(()=>{try{return JSON.parse(localStorage.getItem('athletes')||'[]')}catch{return[]}})();if(legacy.length&&!localStorage.getItem('sevenfitt_legacy_athletes_migrated'))document.getElementById('legacyBtn').style.display='inline-block';
+document.getElementById('legacyBtn').onclick=async()=>{if(!confirm(`${legacy.length} ورزشکار قدیمی از localStorage به حساب فعلی منتقل شود؟`))return;const b=document.getElementById('legacyBtn');b.disabled=true;let ok=0;for(const a of legacy){try{if(a&&a.name){await SevenFitt.api('/athletes',{method:'POST',body:a});ok++}}catch(e){}}await load();if(ok===legacy.length){localStorage.setItem('sevenfitt_legacy_athletes_migrated','1');b.style.display='none';}else{b.disabled=false;}status(`${ok} از ${legacy.length} ورزشکار قدیمی منتقل شد. نسخه localStorage برای اطمینان حذف نشد.`)};
+(async()=>{try{currentUser=await SevenFitt.auth.requireCoach('../login.html');if(!currentUser)return;await load();status('داده‌ها از حساب '+SevenFitt.auth.roleLabel(currentUser.role)+' خوانده شد.');}catch(e){status(e.message==='API_UNREACHABLE'?'Backend در دسترس نیست.':'خطا: '+e.message,true)}})();
 </script>
-
-
-
-</body>
-
-</html>
+</body></html>

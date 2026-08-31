@@ -1,53 +1,207 @@
-<!doctype html><html lang="fa" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="برنامه‌های تمرینی | Seven.fitt"><title>برنامه‌های تمرینی | Seven.fitt</title>
-<link rel="stylesheet" href="assets/css/site.css"></head><body>
-<div class="topbar"><div class="container"><span>Seven.fitt | تمرین، ارزیابی و سبک زندگی ورزشی</span><span>پلتفرم تحت وب</span></div></div>
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="برنامه تمرینی اختصاصی Seven.fitt">
+<title>برنامه تمرینی | Seven.fitt</title>
+<style>
+:root{
+  --header:#071f35;
+  --blue:#2f80ff;
+  --blue-dark:#1768d6;
+  --blue-soft:#eaf4ff;
+  --ink:#10243b;
+  --muted:#5d7188;
+  --line:#dce9f6;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:50;background:var(--header);border-bottom:1px solid rgba(255,255,255,.1)}
+.header-row{min-height:82px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;margin-left:auto;color:#fff;font-weight:900;font-size:20px}
+.brand img{width:50px;height:50px;border-radius:14px;background:#fff;object-fit:cover}
+.nav{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:800}
+.nav a{color:#fff;opacity:.92;padding:28px 0;position:relative;white-space:nowrap}
+.nav a:hover,.nav a.active{color:#80bfff}
+.nav a.active:after{content:"";position:absolute;right:0;left:0;bottom:16px;height:3px;border-radius:3px;background:#80bfff}
+.header-actions{display:flex;gap:10px;align-items:center;margin-right:auto}
+.login-link{color:#fff;font-size:13px;font-weight:800;padding:10px}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:13px;padding:12px 20px;border:1px solid transparent;font:inherit;font-weight:900;cursor:pointer;transition:.18s}
+.btn-blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-blue:hover{background:var(--blue-dark);border-color:var(--blue-dark);transform:translateY(-1px)}
+.btn-outline{background:#fff;color:var(--ink);border-color:#c9dff5}
+.btn-outline:hover{background:var(--blue-soft);border-color:#a8cff5}
+
+/* HERO */
+.hero{background:#fff;padding:72px 0 64px;border-bottom:1px solid #edf3f8}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.kicker{color:var(--blue);font:900 11px Arial;letter-spacing:1.8px;margin-bottom:15px}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(40px,4.5vw,64px);line-height:1.28;margin-bottom:18px;letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--blue)}
+.hero-copy>p{font-size:16px;color:var(--muted);max-width:650px;margin-bottom:24px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.trust-item{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}
+.trust-item b{display:block;font-size:14px;margin-bottom:4px}.trust-item span{font-size:12px;color:var(--muted)}
+
+/* BLUE PREVIEW CARD */
+.preview{background:var(--blue);color:#fff;border-radius:28px;padding:26px;box-shadow:0 22px 55px rgba(47,128,255,.2)}
+.preview-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.22)}
+.preview-top small{font:900 10px Arial;letter-spacing:1.5px;color:#dcecff}.preview-top b{font-size:20px}
+.preview-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.metric{background:rgba(0,0,0,.10);border:1px solid rgba(255,255,255,.18);border-radius:15px;padding:15px}
+.metric small{display:block;font-size:10px;color:#dcecff;margin-bottom:7px}.metric b{font-size:18px;color:#fff}
+.preview-list{display:grid;gap:9px}.preview-row{display:grid;grid-template-columns:45px 1fr auto;gap:12px;align-items:center;background:rgba(0,0,0,.10);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:13px}
+.preview-row i{font-style:normal;width:45px;height:45px;border-radius:12px;background:rgba(0,0,0,.18);display:grid;place-items:center;font:900 12px Arial}
+.preview-row b{display:block;font-size:14px}.preview-row small{display:block;color:#d9e9fb;font-size:11px}.preview-row span{font-size:11px;font-weight:900;color:#fff}
+
+/* SECTIONS */
+.section{padding:70px 0;background:#fff}
+.section+.section{border-top:1px solid #edf3f8}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+.section-head>div{max-width:720px}.section-label{display:block;color:var(--blue);font:900 11px Arial;letter-spacing:1.5px;margin-bottom:10px}
+.section-head h2{font-size:clamp(30px,3.3vw,44px);line-height:1.4;margin:0}.section-head p{max-width:480px;color:var(--muted);font-size:14px;margin:0}
+
+/* ALL MAJOR CARDS BLUE */
+.blue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.blue-card{background:var(--blue);color:#fff;border-radius:22px;padding:24px;min-height:235px;display:flex;flex-direction:column;box-shadow:0 12px 32px rgba(47,128,255,.12)}
+.blue-card .num{font:900 11px Arial;color:#dcecff;margin-bottom:32px}
+.blue-card h3{font-size:21px;line-height:1.55;margin-bottom:9px;color:#fff}.blue-card p{color:#fff;font-size:13px;line-height:2;margin-bottom:0}.blue-card .more{margin-top:auto;padding-top:20px;font-size:12px;font-weight:900;color:#fff;border-top:1px solid rgba(255,255,255,.25)}
+
+/* ORDER */
+.order-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.order-box,.summary-box{background:var(--blue);color:#fff;border-radius:24px;padding:28px;box-shadow:0 12px 32px rgba(47,128,255,.12)}
+.order-box h2,.summary-box h3{color:#fff}.order-box>p{color:#fff;font-size:13px}
+.option-stack{display:grid;gap:10px;margin-top:20px}.option{display:flex;justify-content:space-between;align-items:center;gap:20px;background:rgba(0,0,0,.10);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:14px 16px}.option span{color:#fff;font-size:13px}.option b{color:#fff;font-size:13px}
+.summary-box small{color:#dcecff;font:900 10px Arial}.summary-box h3{font-size:24px;margin:7px 0 18px}.summary-line{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.22);font-size:13px}.summary-line span,.summary-line b{color:#fff}.summary-box .btn{width:100%;margin-top:20px;background:#fff;color:var(--blue);border-color:#fff}
+
+/* LEGACY */
+.legacy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.legacy-card{background:var(--blue);color:#fff;border-radius:22px;padding:25px}.legacy-card h3,.legacy-card p{color:#fff}.legacy-card p{font-size:13px}.program-code{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:16px}.program-code input{min-width:0;padding:13px;border-radius:12px;border:1px solid rgba(255,255,255,.5);background:#fff;color:var(--ink);font:inherit;outline:none}.program-code input:focus{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.2)}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);background:#fff;padding:45px 0 25px}.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:35px}.footer h4{margin:0 0 14px;color:var(--ink)}.footer a{display:block;color:var(--muted);font-size:12px;margin:8px 0}.footer a:hover{color:var(--blue)}.footer-brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink);font-size:18px}.footer-brand img{width:46px;height:46px;border-radius:12px}.footer p{color:var(--muted);font-size:12px;max-width:320px}.copyright{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#8aa0b6;font:700 10px Arial}
+
+@media(max-width:980px){
+ .hero-grid,.order-wrap{grid-template-columns:1fr}.blue-grid{grid-template-columns:1fr 1fr}.nav{display:none}.menu-btn{display:block}.nav.open{display:flex;position:absolute;top:82px;right:18px;left:18px;flex-direction:column;align-items:stretch;background:var(--header);padding:15px;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.25)}.nav.open a{padding:10px 12px}.nav.open a:after{display:none}.header-actions .login-link{display:none}
+}
+@media(max-width:680px){
+ .container{width:min(100% - 26px,1180px)}.header-row{min-height:72px}.brand span{display:none}.brand img{width:44px;height:44px}.hero{padding:44px 0}.hero-grid{gap:30px}h1{font-size:38px}.trust-row,.blue-grid,.legacy-grid,.footer-grid,.preview-metrics{grid-template-columns:1fr}.section{padding:48px 0}.section-head{display:block}.section-head p{margin-top:10px}.hero-actions .btn{width:100%}.program-code{grid-template-columns:1fr}.preview{padding:18px}.preview-row{grid-template-columns:40px 1fr}.preview-row span{display:none}.copyright{display:block;text-align:center}.copyright span{display:block;margin:5px}
+}
+</style>
+
+<style id="sevenfitt-final-footer-navy">
+/* FINAL: all public page footers match the navy header */
+footer, .public-footer, .site-footer, .footer {
+  background:#071f35 !important;
+  color:#ffffff !important;
+  border-top:1px solid rgba(255,255,255,.10) !important;
+}
+footer h2, footer h3, footer h4, footer .brand, footer .brand-word, footer .footer-brand,
+.public-footer h2, .public-footer h3, .public-footer h4, .public-footer .brand, .public-footer .brand-word,
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .brand, .site-footer .brand-word,
+.footer h2, .footer h3, .footer h4, .footer .footer-brand {
+  color:#ffffff !important; opacity:1 !important;
+}
+footer p, .public-footer p, .site-footer p, .footer p {color:#b9cbdb !important; opacity:1 !important;}
+footer a:not(.brand), .public-footer a:not(.brand), .site-footer a:not(.brand), .footer a:not(.brand) {color:#dce8f3 !important; opacity:1 !important;}
+footer a:hover, .public-footer a:hover, .site-footer a:hover, .footer a:hover {color:#66b4ff !important;}
+.public-footer-note, .footer-note, .copyright {color:#8eabc3 !important; border-color:rgba(255,255,255,.10) !important; opacity:1 !important;}
+</style>
+
+</head>
+<body>
 <header class="site-header">
   <div class="container header-row">
-    <a class="brand" href="index.html"><span class="brand-mark">7</span><span>Seven.fitt</span></a>
-    <button class="mobile-toggle" aria-label="منو">☰</button>
-    <nav class="main-nav">
+    <a class="brand" href="index.html"><img src="assets/images/sevenfitt-logo-ui.png" alt="Seven.fitt"><span>Seven.fitt</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="منو">☰</button>
+    <nav class="nav" id="mainNav">
       <a href="index.html">خانه</a>
-      <a href="programs.html">برنامه تمرینی</a>
-      <a href="assessment.html">ارزیابی</a>
+      <a class="active" href="programs.html">برنامه تمرینی</a>
+      <a href="exercises.html">بانک حرکات</a>
+      <a href="assessment.html">ارزیابی عملکرد</a>
+      <a href="articles.html">مقالات علمی</a>
       <a href="shop.html">فروشگاه</a>
       <a href="education.html">آموزش</a>
-      <a href="articles.html">مقالات علمی</a>
-      <a href="contact.html">ارتباط با ما</a>
+      <a href="contact.html">ارتباط</a>
     </nav>
-    <div class="nav-actions"><a class="btn btn-outline" href="programs.html#my-program">برنامه من</a></div>
+    <div class="header-actions"><a class="login-link" href="student/login.html">ورود</a><a class="btn btn-blue" href="#order">سفارش برنامه</a></div>
   </div>
 </header>
 
-<main><section class="subhero"><div class="container"><div class="subhero-box"><div class="breadcrumb">خانه / برنامه تمرینی</div><h1>برنامه‌های تمرینی</h1><p>برنامه‌ساز فعلی HTML به جای لینک خارجی، داخل ساختار Seven.fitt قرار می‌گیرد و شاگرد از خود سایت وارد برنامه شخصی خود می‌شود.</p></div></div></section>
-<section class="section"><div class="container">
- <div class="cards-3"><div class="card"><div class="icon">1</div><h3>برنامه اختصاصی</h3><p>طراحی بر اساس هدف، سطح، سابقه و ارزیابی ورزشکار.</p></div><div class="card"><div class="icon">2</div><h3>برنامه‌های تخصصی</h3><p>مقاومتی، توان، سرعت، چابکی، SAQ، هوازی و اینتروال.</p></div><div class="card"><div class="icon">3</div><h3>اجرای تحت وب</h3><p>باز شدن مستقیم برنامه HTML شاگرد در مرورگر.</p></div></div>
-</div></section>
-<section id="my-program" class="section dark-section"><div class="container">
- <div class="section-head"><div><div class="eyebrow">دسترسی شاگرد</div><h2>ورود به برنامه من</h2></div><p>برای نسخه اولیه، فایل برنامه هر شاگرد در پوشه student-programs قرار می‌گیرد و با کد فایل قابل دسترسی است.</p></div>
- <form id="program-code-form" class="program-login"><input id="program-code" placeholder="کد برنامه؛ مثال: ali-1405" autocomplete="off"><button class="btn btn-lime" type="submit">باز کردن برنامه</button></form>
- <p style="color:#9fb4c9;font-size:12px;margin-top:12px">نمونه مسیر: sevenfitt.com/student-programs/ali-1405.html</p>
-</div></section>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="kicker">TRAINING PROGRAM</div>
+      <h1>برنامه‌ای برای <em>پیشرفت واقعی</em>، نه فقط یک لیست حرکت</h1>
+      <p>ساختار تمرین بر اساس هدف، سطح، سابقه و نیاز ورزشکار طراحی می‌شود و اجرای برنامه داخل حساب Seven.fitt در دسترس خواهد بود.</p>
+      <div class="hero-actions"><a class="btn btn-blue" href="#order">شروع سفارش برنامه</a><a class="btn btn-outline" href="student/login.html">ورود ورزشکار</a></div>
+      <div class="trust-row">
+        <div class="trust-item"><b>اختصاصی</b><span>متناسب با هدف و سطح ورزشکار</span></div>
+        <div class="trust-item"><b>قابل پیگیری</b><span>داخل پلتفرم Seven.fitt</span></div>
+        <div class="trust-item"><b>علمی</b><span>بر پایه اصول تمرین</span></div>
+      </div>
+    </div>
+    <div class="preview">
+      <div class="preview-top"><small>PROGRAM BUILDER</small><b>برنامه هفتگی</b></div>
+      <div class="preview-metrics"><div class="metric"><small>WEEKLY</small><b>4 DAYS</b></div><div class="metric"><small>INTENSITY</small><b>RPE + %1RM</b></div><div class="metric"><small>PROGRESS</small><b>TRACKED</b></div></div>
+      <div class="preview-list">
+        <div class="preview-row"><i>A1</i><div><b>تمرین مقاومتی</b><small>Strength · Hypertrophy</small></div><span>03 DAY</span></div>
+        <div class="preview-row"><i>C</i><div><b>تمرین هوازی</b><small>Cardio · Conditioning</small></div><span>01 DAY</span></div>
+        <div class="preview-row"><i>HI</i><div><b>اینتروال</b><small>Intervals · Performance</small></div><span>01 BLOCK</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
-<div class="container">
-<div class="cards-3">
-<a class="card" href="coach/index.html"><h3>ورود مربی</h3><p>ساخت و مدیریت برنامه تمرینی</p></a>
-<a class="card" href="student/index.html"><h3>ورود شاگرد</h3><p>اجرای برنامه و ثبت عملکرد</p></a>
-</div>
-</div>
+  <div class="container">
+    <div class="section-head"><div><span class="section-label">PROGRAM DESIGN</span><h2>تمرین باید با ورزشکار هماهنگ شود</h2></div><p>هدف، سطح، محدودیت‌ها و ساختار زندگی ورزشکار باید در طراحی برنامه لحاظ شوند.</p></div>
+    <div class="blue-grid">
+      <div class="blue-card"><span class="num">01 / PROFILE</span><h3>برنامه اختصاصی</h3><p>هدف، سابقه تمرینی، تعداد روزهای قابل اجرا و اطلاعات پایه ورزشکار در طراحی برنامه لحاظ می‌شود.</p><span class="more">متناسب با پروفایل ورزشکار</span></div>
+      <div class="blue-card"><span class="num">02 / PERFORMANCE</span><h3>قدرت، توان و استقامت</h3><p>تمرین مقاومتی، هوازی، اینتروال، سرعت و چابکی می‌توانند در یک ساختار منسجم کنار هم قرار بگیرند.</p><span class="more">ساختار یکپارچه تمرین</span></div>
+      <div class="blue-card"><span class="num">03 / DELIVERY</span><h3>اجرای آنلاین برنامه</h3><p>ورزشکار برنامه خود را از داخل Seven.fitt می‌بیند و نیاز به فایل‌های پراکنده و لینک‌های نامطمئن ندارد.</p><span class="more">دسترسی از حساب ورزشکار</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="order">
+  <div class="container">
+    <div class="section-head"><div><span class="section-label">ORDER FLOW</span><h2>ساختار سفارش برنامه</h2></div><p>ورزشکار اجزای موردنیاز را انتخاب می‌کند و قیمت بر اساس قوانین تنظیم‌شده در پنل مدیریت محاسبه خواهد شد.</p></div>
+    <div class="order-wrap">
+      <div class="order-box"><h2>اجزای برنامه</h2><p>نمونه ساختار انتخاب خدمات برنامه تمرینی:</p><div class="option-stack"><div class="option"><span>تمرین مقاومتی</span><b>3 روز / هفته</b></div><div class="option"><span>تمرین هوازی</span><b>1 روز / هفته</b></div><div class="option"><span>اینتروال</span><b>1 بخش</b></div></div></div>
+      <div class="summary-box"><small>PROGRAM SUMMARY</small><h3>برنامه شخصی Seven.fitt</h3><div class="summary-line"><span>مدت پیشنهادی</span><b>4 هفته</b></div><div class="summary-line"><span>سطح</span><b>بر اساس پروفایل</b></div><div class="summary-line"><span>تحویل</span><b>داخل حساب ورزشکار</b></div><a class="btn" href="contact.html">درخواست مشاوره</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><div><span class="section-label">ACCESS</span><h2>برنامه قبلی داری؟</h2></div><p>ورود اصلی ورزشکار از حساب Seven.fitt انجام می‌شود؛ دسترسی برنامه‌های قدیمی نیز حفظ شده است.</p></div>
+    <div class="legacy-grid">
+      <div class="legacy-card"><h3>ورود به حساب ورزشکار</h3><p>برنامه‌ها و نتایج ارزیابی در حساب شخصی ورزشکار قرار می‌گیرند.</p><a class="btn" style="background:#fff;color:#2f80ff" href="student/login.html">ورود ورزشکار</a></div>
+      <div class="legacy-card"><h3>برنامه‌های قدیمی</h3><p>اگر برنامه‌ای با کد فایل دریافت کرده‌ای، کد را اینجا وارد کن.</p><form class="program-code" id="programCodeForm"><input id="programCode" autocomplete="off" placeholder="مثال: ali-1405"><button class="btn" style="background:#fff;color:#2f80ff" type="submit">باز کردن</button></form></div>
+    </div>
+  </div>
 </section>
 </main>
 
-<footer class="site-footer">
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>Seven.fitt</h3><p>پلتفرم علمی تمرین، ارزیابی عملکرد و خدمات ورزشی.</p></div>
-   <div><h4>دسترسی سریع</h4><a href="programs.html">برنامه‌های تمرینی</a><a href="assessment.html">ارزیابی علمی</a><a href="shop.html">فروشگاه</a></div>
-   <div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط با ما</a></div>
-  </div>
-  <div class="footer-note">© Seven.fitt — نسخه وب اولیه. رنگ‌ها و محتوای نهایی بدون تغییر ساختار قابل ویرایش‌اند.</div>
- </div>
-</footer>
-<script src="assets/js/site.js"></script>
-</body></html>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><a class="footer-brand" href="index.html"><img src="assets/images/sevenfitt-logo-ui.png" alt="Seven.fitt">Seven.fitt</a><p>پلتفرم تخصصی تمرین، ارزیابی عملکرد و مربیگری دیجیتال.</p></div><div><h4>خدمات</h4><a href="programs.html">برنامه تمرینی</a><a href="assessment.html">ارزیابی عملکرد</a><a href="exercises.html">بانک حرکات</a></div><div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط</a></div><div><h4>ورود</h4><a href="student/login.html">پنل ورزشکار</a><a href="coach/login.html">پنل مربی</a></div></div><div class="copyright"><span>© 2026 SEVEN.FITT</span><span>SCIENCE × TRAINING × PERFORMANCE</span></div></div></footer>
+
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('mainNav');
+menuBtn?.addEventListener('click',()=>nav.classList.toggle('open'));
+document.getElementById('programCodeForm')?.addEventListener('submit',e=>{e.preventDefault();const v=document.getElementById('programCode').value.trim();if(v) location.href='student-programs/'+encodeURIComponent(v)+'.html';});
+</script>
+</body>
+</html>

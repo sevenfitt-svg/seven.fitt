@@ -1,45 +1,202 @@
-<!doctype html><html lang="fa" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ارزیابی علمی | Seven.fitt"><title>ارزیابی علمی | Seven.fitt</title>
-<link rel="stylesheet" href="assets/css/site.css"></head><body>
-<div class="topbar"><div class="container"><span>Seven.fitt | تمرین، ارزیابی و سبک زندگی ورزشی</span><span>پلتفرم تحت وب</span></div></div>
-<header class="site-header">
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ارزیابی عملکرد Seven.fitt | درخواست و هماهنگی تست‌های فیزیولوژی و عملکرد">
+<title>ارزیابی عملکرد | Seven.fitt</title>
+<style>
+:root{
+  --navy:#081f35;
+  --blue:#2f80ff;
+  --blue2:#2474eb;
+  --blueDeep:#1767ca;
+  --ink:#10243b;
+  --muted:#60758c;
+  --line:#dbe8f6;
+  --soft:#f7fbff;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1240px,calc(100% - 40px));margin:auto}
+.header{position:sticky;top:0;z-index:30;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.09)}
+.header-row{min-height:82px;display:flex;align-items:center;gap:26px}
+.brand{display:flex;align-items:center;gap:10px;margin-left:auto;color:#fff;font:900 21px Arial}
+.brand img{width:48px;height:48px;border-radius:15px;background:#fff;object-fit:cover}
+.nav{display:flex;gap:24px;align-items:center;color:#fff;font-size:13px;font-weight:800}
+.nav a{padding:29px 0;position:relative;color:#fff}
+.nav a:hover,.nav a.active{color:#79baff}
+.nav a.active:after{content:"";position:absolute;right:0;left:0;bottom:18px;height:2px;background:#79baff;border-radius:3px}
+.actions{display:flex;gap:10px;align-items:center;margin-right:auto}
+.login{color:#fff;font-weight:800;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:13px;padding:11px 18px;font-weight:900;font-size:13px;border:1px solid transparent;cursor:pointer;transition:.18s}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue2)}
+.btn-outline{background:#fff;color:var(--ink);border-color:#cfe0f2}.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.hero{background:#fff;position:relative;overflow:hidden;border-bottom:1px solid #edf4fa;padding:74px 0 62px}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(47,128,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(47,128,255,.045) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font:900 11px Arial;letter-spacing:1.5px;margin-bottom:15px}
+.kicker:before{content:"";width:28px;height:2px;background:var(--blue)}
+h1{font-size:clamp(42px,4.5vw,64px);line-height:1.3;margin:0 0 18px;letter-spacing:-1.6px}
+h1 em{font-style:normal;color:var(--blue)}
+.hero p{font-size:15px;color:var(--muted);max-width:650px;margin:0 0 24px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;border-top:1px solid #e8f0f8}
+.trust b{display:block;font-size:13px;margin-bottom:3px;color:var(--ink)}
+.trust span{font-size:11px;color:#70859a}
+.preview{background:var(--blue);color:#fff;border-radius:26px;padding:24px;box-shadow:0 18px 42px rgba(47,128,255,.18)}
+.preview-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.18)}
+.preview-top small{font:900 10px Arial;letter-spacing:1.4px;color:#ddecff}.preview-top b{font-size:14px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.metric{background:var(--blueDeep);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:15px}
+.metric small{display:block;font:900 9px Arial;color:#ddecff;letter-spacing:.7px}.metric b{display:block;font-size:18px;margin-top:8px}
+.preview-list{display:grid;gap:9px}
+.preview-row{display:grid;grid-template-columns:42px 1fr auto;gap:11px;align-items:center;background:var(--blueDeep);border:1px solid rgba(255,255,255,.16);border-radius:15px;padding:12px}
+.preview-row i{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.11);display:grid;place-items:center;font-style:normal;font-weight:900}
+.preview-row b{display:block;font-size:13px}.preview-row small{display:block;color:#e7f2ff;font-size:10px}.preview-row span{font:900 9px Arial;color:#ddecff}
+.section{padding:70px 0;background:#fff}.section.alt{background:#fbfdff}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:28px}
+.section-head h2{font-size:clamp(30px,3vw,44px);line-height:1.4;margin:8px 0 0}
+.section-head p{max-width:530px;color:var(--muted);font-size:13px;margin:0}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.test-card{background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:21px;padding:23px;min-height:210px;display:flex;flex-direction:column;cursor:pointer;box-shadow:0 12px 28px rgba(47,128,255,.12);transition:.18s}
+.test-card:hover,.test-card.selected{background:var(--blue2);transform:translateY(-2px)}
+.test-card small{font:900 10px Arial;color:#ddecff;letter-spacing:.8px}.test-card h3{font-size:20px;line-height:1.55;margin:20px 0 8px}.test-card p{font-size:12px;color:#eff6ff;margin:0}.test-card span{margin-top:auto;padding-top:17px;font-size:12px;font-weight:900;color:#fff}
+.request-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:22px;align-items:start}
+.request-info{background:var(--blue);color:#fff;border-radius:23px;padding:28px;box-shadow:0 12px 28px rgba(47,128,255,.12)}
+.request-info small{font:900 10px Arial;color:#ddecff;letter-spacing:1px}.request-info h3{font-size:27px;line-height:1.5;margin:14px 0}.request-info p{font-size:12px;color:#eef6ff;margin:0 0 22px}
+.info-row{display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.16)}
+.info-row i{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-style:normal;font-weight:900}.info-row b{display:block;font-size:13px}.info-row span{font-size:10px;color:#dcecff}
+.form-shell{background:#fff;border:1px solid var(--line);border-radius:23px;padding:28px;box-shadow:0 12px 32px rgba(18,55,91,.06)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}.field label{display:block;font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;border:1px solid #cfe0f2;background:#fff;color:var(--ink);border-radius:12px;padding:12px 13px;outline:0}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,128,255,.10)}
+.field textarea{min-height:110px;resize:vertical}.form-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.msg{font-size:12px}.msg.ok{color:#19743f}.msg.bad{color:#b42318}
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.flow-card{background:var(--blue);color:#fff;border-radius:20px;padding:22px;min-height:180px;box-shadow:0 10px 24px rgba(47,128,255,.10)}
+.flow-card span{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.12);font:900 11px Arial;color:#fff}.flow-card h3{font-size:18px;margin:17px 0 7px}.flow-card p{font-size:11px;color:#edf6ff;margin:0}
+.footer{background:var(--navy);color:#fff;padding:46px 0 24px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.7fr repeat(3,1fr);gap:38px}
+.footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font:900 20px Arial;margin-bottom:12px}.footer-brand img{width:46px;height:46px;border-radius:14px;background:#fff}
+.footer p{color:#b9cbdb;font-size:12px;max-width:350px}.footer h4{font-size:12px;margin:0 0 14px}.footer a{display:block;color:#dce8f3;font-size:11px;margin:8px 0}.footer a:hover{color:#79baff}
+.footer-note{border-top:1px solid rgba(255,255,255,.10);margin-top:32px;padding-top:17px;display:flex;justify-content:space-between;color:#8fa9c0;font:700 9px Arial;letter-spacing:1px}
+@media(max-width:1000px){.hero-grid,.request-layout{grid-template-columns:1fr}.test-grid{grid-template-columns:repeat(2,1fr)}.flow-grid{grid-template-columns:repeat(2,1fr)}.nav{display:none}.footer-grid{grid-template-columns:1.5fr 1fr 1fr}.footer-grid>div:last-child{display:none}}
+@media(max-width:680px){.container{width:min(100% - 28px,1240px)}.hero{padding:48px 0}.trust,.metrics,.test-grid,.flow-grid,.form-grid,.footer-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:10px}.actions .login{display:none}.brand span{display:none}.footer-grid>div{display:block!important}.footer-note{display:block;text-align:center}.footer-note span{display:block;margin:5px 0}}
+</style>
+
+<style id="sevenfitt-final-footer-navy">
+/* FINAL: all public page footers match the navy header */
+footer, .public-footer, .site-footer, .footer {
+  background:#071f35 !important;
+  color:#ffffff !important;
+  border-top:1px solid rgba(255,255,255,.10) !important;
+}
+footer h2, footer h3, footer h4, footer .brand, footer .brand-word, footer .footer-brand,
+.public-footer h2, .public-footer h3, .public-footer h4, .public-footer .brand, .public-footer .brand-word,
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .brand, .site-footer .brand-word,
+.footer h2, .footer h3, .footer h4, .footer .footer-brand {
+  color:#ffffff !important; opacity:1 !important;
+}
+footer p, .public-footer p, .site-footer p, .footer p {color:#b9cbdb !important; opacity:1 !important;}
+footer a:not(.brand), .public-footer a:not(.brand), .site-footer a:not(.brand), .footer a:not(.brand) {color:#dce8f3 !important; opacity:1 !important;}
+footer a:hover, .public-footer a:hover, .site-footer a:hover, .footer a:hover {color:#66b4ff !important;}
+.public-footer-note, .footer-note, .copyright {color:#8eabc3 !important; border-color:rgba(255,255,255,.10) !important; opacity:1 !important;}
+</style>
+
+</head>
+<body>
+<header class="header">
   <div class="container header-row">
-    <a class="brand" href="index.html"><span class="brand-mark">7</span><span>Seven.fitt</span></a>
-    <button class="mobile-toggle" aria-label="منو">☰</button>
-    <nav class="main-nav">
-      <a href="index.html">خانه</a>
-      <a href="programs.html">برنامه تمرینی</a>
-      <a href="assessment.html">ارزیابی</a>
-      <a href="shop.html">فروشگاه</a>
-      <a href="education.html">آموزش</a>
-      <a href="articles.html">مقالات علمی</a>
-      <a href="contact.html">ارتباط با ما</a>
-    </nav>
-    <div class="nav-actions"><a class="btn btn-outline" href="programs.html#my-program">برنامه من</a></div>
+    <a class="brand" href="index.html"><img src="assets/images/sevenfitt-logo-ui.png" alt="Seven.fitt"><span>Seven.fitt</span></a>
+    <nav class="nav"><a href="index.html">خانه</a><a href="programs.html">برنامه تمرینی</a><a href="exercises.html">بانک حرکات</a><a class="active" href="assessment.html">ارزیابی عملکرد</a><a href="articles.html">مقالات علمی</a><a href="shop.html">فروشگاه</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط</a></nav>
+    <div class="actions"><a class="login" href="student/login.html">ورود</a><a class="btn btn-blue" href="programs.html">سفارش برنامه</a></div>
   </div>
 </header>
-
-<main><section class="subhero"><div class="container"><div class="subhero-box"><div class="breadcrumb">خانه / ارزیابی</div><h1>ارزیابی علمی عملکرد</h1><p>ساختار ارزیابی Seven.fitt برای آزمون‌های آزمایشگاهی و میدانی؛ گزارش نهایی و رزرو بعداً به سیستم داده متصل می‌شوند.</p></div></div></section>
-<section class="section"><div class="container"><div class="page-grid">
- <div class="content-card"><span class="tag">توان بی‌هوازی</span><h3>تست Wingate</h3><p>Peak Power، Mean Power و Fatigue Index.</p></div>
- <div class="content-card"><span class="tag">قلبی‌تنفسی</span><h3>آنالیز گازهای تنفسی</h3><p>VO₂ و شاخص‌های متابولیک و قلبی‌تنفسی.</p></div>
- <div class="content-card"><span class="tag">ترکیب بدنی</span><h3>Body Composition</h3><p>چربی بدن، توده عضلانی و شاخص‌های ترکیب بدنی.</p></div>
- <div class="content-card"><span class="tag">قدرت</span><h3>ارزیابی قدرت</h3><p>1RM، قدرت نسبی و شاخص‌های مقاومتی.</p></div>
- <div class="content-card"><span class="tag">توان</span><h3>پرش و توان انفجاری</h3><p>CMJ، SJ و تست‌های پرش.</p></div>
- <div class="content-card"><span class="tag">عملکرد</span><h3>سرعت و چابکی</h3><p>اسپرینت، تغییر جهت و آزمون‌های میدانی.</p></div>
-</div></section>
-<section class="section"><div class="container"><div class="dark-panel"><h2>درخواست ارزیابی</h2><p style="color:#abc0d4">فرم رزرو و ثبت نتایج در فاز بعد به دیتابیس متصل می‌شود. ساختار صفحه از حالا آماده است.</p><a class="btn btn-lime" href="contact.html">ارتباط برای ارزیابی</a></div></div></section></main>
-
-<footer class="site-footer">
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>Seven.fitt</h3><p>پلتفرم علمی تمرین، ارزیابی عملکرد و خدمات ورزشی.</p></div>
-   <div><h4>دسترسی سریع</h4><a href="programs.html">برنامه‌های تمرینی</a><a href="assessment.html">ارزیابی علمی</a><a href="shop.html">فروشگاه</a></div>
-   <div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط با ما</a></div>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">PERFORMANCE LAB</div>
+      <h1>ارزیابی برای تصمیم <em>دقیق‌تر</em> در تمرین</h1>
+      <p>تست‌های فیزیولوژی و عملکرد در Seven.fitt به‌صورت درخواست و هماهنگی انجام می‌شوند. پس از انجام آزمون، گزارش نهایی در پرونده خصوصی ورزشکار قرار می‌گیرد.</p>
+      <div class="hero-actions"><a class="btn btn-blue" href="#tests">انتخاب تست</a><a class="btn btn-outline" href="#request">ثبت درخواست</a></div>
+      <div class="trust"><div><b>درخواست آنلاین</b><span>هماهنگی زمان تست</span></div><div><b>گزارش خصوصی</b><span>داخل پروفایل ورزشکار</span></div><div><b>نتیجه PDF</b><span>پس از انتشار نتیجه</span></div></div>
+    </div>
+    <div class="preview">
+      <div class="preview-top"><small>LAB RESULT PREVIEW</small><b>PRIVATE</b></div>
+      <div class="metrics"><div class="metric"><small>VO₂MAX</small><b>— ml/kg/min</b></div><div class="metric"><small>PEAK POWER</small><b>— W</b></div><div class="metric"><small>STATUS</small><b>ANALYSIS</b></div></div>
+      <div class="preview-list">
+        <div class="preview-row"><i>O₂</i><div><b>آنالیز گازهای تنفسی</b><small>VO₂ · Ventilation · Thresholds</small></div><span>LAB</span></div>
+        <div class="preview-row"><i>W</i><div><b>Wingate</b><small>Anaerobic Power</small></div><span>30 SEC</span></div>
+        <div class="preview-row"><i>J</i><div><b>پرش و توان</b><small>Explosive Performance</small></div><span>POWER</span></div>
+      </div>
+    </div>
   </div>
-  <div class="footer-note">© Seven.fitt — نسخه وب اولیه. رنگ‌ها و محتوای نهایی بدون تغییر ساختار قابل ویرایش‌اند.</div>
- </div>
+</section>
+
+<section class="section" id="tests">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">SELECT TEST</div><h2>چه چیزی را می‌خواهی ارزیابی کنی؟</h2></div><p>تست موردنظرت را انتخاب کن؛ همان گزینه به فرم درخواست منتقل می‌شود.</p></div>
+    <div class="test-grid">
+      <div class="test-card test-choice" data-test="VO2_GAS_ANALYSIS"><small>01 / CARDIORESPIRATORY</small><h3>آنالیز گازهای تنفسی / VO₂</h3><p>سنجش شاخص‌های قلبی‌تنفسی و متابولیک.</p><span>انتخاب تست ←</span></div>
+      <div class="test-card test-choice" data-test="WINGATE"><small>02 / ANAEROBIC</small><h3>تست Wingate</h3><p>ارزیابی توان بی‌هوازی و شاخص‌های عملکردی مرتبط.</p><span>انتخاب تست ←</span></div>
+      <div class="test-card test-choice" data-test="BODY_COMPOSITION"><small>03 / BODY</small><h3>ترکیب بدنی</h3><p>هماهنگی ارزیابی ترکیب بدن و دریافت گزارش تخصصی.</p><span>انتخاب تست ←</span></div>
+      <div class="test-card test-choice" data-test="STRENGTH_1RM"><small>04 / STRENGTH</small><h3>قدرت / 1RM</h3><p>هماهنگی تست‌های قدرت و ارزیابی مقاومتی.</p><span>انتخاب تست ←</span></div>
+      <div class="test-card test-choice" data-test="JUMP_POWER"><small>05 / POWER</small><h3>پرش و توان انفجاری</h3><p>ارزیابی شاخص‌های توان و عملکرد انفجاری.</p><span>انتخاب تست ←</span></div>
+      <div class="test-card test-choice" data-test="SPEED_AGILITY"><small>06 / MOVEMENT</small><h3>سرعت و چابکی</h3><p>هماهنگی آزمون‌های اسپرینت، تغییر جهت و چابکی.</p><span>انتخاب تست ←</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="request">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">REQUEST</div><h2>ثبت درخواست ارزیابی</h2></div><p>ارسال فرم به معنی رزرو قطعی نیست؛ زمان و محل انجام تست پس از هماهنگی نهایی می‌شود.</p></div>
+    <div class="request-layout">
+      <aside class="request-info"><small>SEVEN.FITT LAB</small><h3>از درخواست تا دریافت نتیجه</h3><p>فرآیند ارزیابی به‌صورت هماهنگ و خصوصی انجام می‌شود.</p><div class="info-row"><i>1</i><div><b>ثبت درخواست</b><span>انتخاب تست و ارسال اطلاعات</span></div></div><div class="info-row"><i>2</i><div><b>هماهنگی زمان</b><span>تعیین زمان و محل انجام آزمون</span></div></div><div class="info-row"><i>3</i><div><b>نتیجه خصوصی</b><span>انتشار گزارش در پروفایل ورزشکار</span></div></div></aside>
+      <div class="form-shell">
+        <form id="labForm">
+          <div class="form-grid">
+            <div class="field"><label for="name">نام و نام خانوادگی</label><input autocomplete="name" id="name" required></div>
+            <div class="field"><label for="phone">شماره موبایل</label><input autocomplete="tel" id="phone" inputmode="tel" placeholder="0912..." required></div>
+            <div class="field"><label for="testType">نوع تست</label><select id="testType" required><option value="">انتخاب کنید</option><option value="VO2_GAS_ANALYSIS">آنالیز گازهای تنفسی / VO₂</option><option value="WINGATE">Wingate</option><option value="BODY_COMPOSITION">ترکیب بدنی</option><option value="STRENGTH_1RM">قدرت / 1RM</option><option value="JUMP_POWER">پرش و توان انفجاری</option><option value="SPEED_AGILITY">سرعت و چابکی</option><option value="OTHER">سایر</option></select></div>
+            <div class="field"><label for="preferredDate">تاریخ پیشنهادی</label><input id="preferredDate" type="date"></div>
+          </div>
+          <div class="field"><label for="note">توضیحات</label><textarea id="note" placeholder="هدف از تست یا نکته‌ای که برای هماهنگی لازم است"></textarea></div>
+          <div class="form-actions"><button class="btn btn-blue" id="submitBtn" type="submit">ثبت درخواست برای هماهنگی</button><span class="msg" id="msg"></span></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">RESULT FLOW</div><h2>بعد از انجام تست چه اتفاقی می‌افتد؟</h2></div></div>
+    <div class="flow-grid"><div class="flow-card"><span>01</span><h3>انجام تست</h3><p>آزمون در زمان هماهنگ‌شده انجام می‌شود.</p></div><div class="flow-card"><span>02</span><h3>آماده‌سازی گزارش</h3><p>نتیجه نهایی به پرونده خصوصی ورزشکار اضافه می‌شود.</p></div><div class="flow-card"><span>03</span><h3>اعلام آماده‌شدن</h3><p>پس از انتشار، آماده‌شدن نتیجه به ورزشکار اطلاع داده می‌شود.</p></div><div class="flow-card"><span>04</span><h3>مشاهده و PDF</h3><p>ورزشکار گزارش و فایل PDF خصوصی را از حساب خود مشاهده می‌کند.</p></div></div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><a class="footer-brand" href="index.html"><img src="assets/images/sevenfitt-logo-ui.png" alt="Seven.fitt"><span>Seven.fitt</span></a><p>پلتفرم تخصصی تمرین، ارزیابی عملکرد و مربیگری دیجیتال.</p></div>
+      <div><h4>خدمات</h4><a href="programs.html">برنامه تمرینی</a><a href="assessment.html">ارزیابی عملکرد</a><a href="exercises.html">بانک حرکات</a><a href="shop.html">فروشگاه</a></div>
+      <div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط با ما</a></div>
+      <div><h4>ورود</h4><a href="student/login.html">پنل ورزشکار</a><a href="coach/login.html">پنل مربی</a></div>
+    </div>
+    <div class="footer-note"><span>© 2026 SEVEN.FITT</span><span>SCIENCE × TRAINING × PERFORMANCE</span></div>
+  </div>
 </footer>
-<script src="assets/js/site.js"></script>
-</body></html>
+<script src="assets/platform.js"></script>
+<script>
+const form=document.getElementById('labForm'),msg=document.getElementById('msg'),btn=document.getElementById('submitBtn'),select=document.getElementById('testType');
+document.querySelectorAll('.test-choice').forEach(card=>card.addEventListener('click',()=>{document.querySelectorAll('.test-choice').forEach(x=>x.classList.remove('selected'));card.classList.add('selected');select.value=card.dataset.test;document.getElementById('request').scrollIntoView({behavior:'smooth'});}));
+form.addEventListener('submit',async e=>{e.preventDefault();msg.className='msg';msg.textContent='';btn.disabled=true;btn.textContent='در حال ثبت...';try{if(!window.SevenFitt) throw new Error('API_UNREACHABLE');const out=await SevenFitt.api('/lab/requests',{method:'POST',body:{name:document.getElementById('name').value,phone:document.getElementById('phone').value,testType:select.value,preferredDate:document.getElementById('preferredDate').value||null,note:document.getElementById('note').value}});msg.className='msg ok';msg.textContent='درخواست ثبت شد. کد پیگیری: '+out.requestCode+' — برای هماهنگی با شما تماس گرفته می‌شود.';form.reset();document.querySelectorAll('.test-choice').forEach(x=>x.classList.remove('selected'));}catch(err){msg.className='msg bad';msg.textContent=err.message==='API_UNREACHABLE'?'سامانه ثبت درخواست فعلاً در دسترس نیست.':'ثبت درخواست انجام نشد: '+err.message;}finally{btn.disabled=false;btn.textContent='ثبت درخواست برای هماهنگی';}});
+</script>
+</body>
+</html>

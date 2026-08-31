@@ -8,47 +8,129 @@ datasource db {
 }
 
 enum Role {
+  OWNER
+  ADMIN
+  LAB_STAFF
   COACH
   ATHLETE
-  ADMIN
 }
 
+enum AccountStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum AthleteSource {
+  DIRECT
+  COACH_CLIENT
+  MARKETPLACE
+}
+
+enum ProgramStatus {
+  DRAFT
+  PAYMENT_PENDING
+  PUBLISHED
+  ARCHIVED
+}
+
+enum LabTestType {
+  VO2_GAS_ANALYSIS
+  WINGATE
+  BODY_COMPOSITION
+  STRENGTH_1RM
+  JUMP_POWER
+  SPEED_AGILITY
+  OTHER
+}
+
+enum LabRequestStatus {
+  REQUESTED
+  CONTACTED
+  SCHEDULED
+  COMPLETED
+  RESULT_DRAFT
+  RESULT_READY
+  CANCELLED
+}
+
+enum LabResultStatus {
+  DRAFT
+  RELEASED
+}
+
+enum NotificationType {
+  LAB_RESULT_READY
+}
+
+enum NotificationStatus {
+  QUEUED
+  SENT
+  FAILED
+}
 
 model User {
-  id        String   @id @default(uuid())
-  phone     String   @unique
-  firstName String?
-  lastName  String?
-  role      Role
-  createdAt DateTime @default(now())
+  id           String        @id @default(uuid())
+  phone        String        @unique
+  passwordHash String?
+  firstName    String?
+  lastName     String?
+  role         Role
+  status       AccountStatus @default(ACTIVE)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 
   coachProfile   CoachProfile?
   athleteProfile AthleteProfile?
 
-  coachPrograms   Program[] @relation("CoachPrograms")
-  athletePrograms Program[] @relation("AthletePrograms")
+  coachPrograms       Program[]         @relation("CoachPrograms")
+  ownedAthletes       AthleteProfile[]  @relation("CoachAthletes")
+  labRequests         LabTestRequest[]  @relation("LabRequester")
+  releasedLabResults  LabResult[]       @relation("LabResultReleasedBy")
+  notifications       Notification[]
 }
-
 
 model CoachProfile {
-  id     String @id @default(uuid())
-  userId String @unique
+  id        String @id @default(uuid())
+  userId    String @unique
+  title1    String?
+  title2    String?
+  title3    String?
+  whatsapp String?
+  instagram String?
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
-
 
 model AthleteProfile {
-  id     String @id @default(uuid())
-  userId String @unique
+  id           String        @id @default(uuid())
+  userId       String?       @unique
+  ownerCoachId String
+  source       AthleteSource @default(COACH_CLIENT)
 
-  height Float?
-  weight Float?
-  goal   String?
+  name    String
+  age     Int?
+  gender  String?
+  phone   String?
+  sport   String?
+  level   String?
+  goal    String?
+  height  Float?
+  weight  Float?
+  history String?
+  health  String?
+  note    String?
 
-  user User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user        User?            @relation(fields: [userId], references: [id], onDelete: SetNull)
+  ownerCoach  User             @relation("CoachAthletes", fields: [ownerCoachId], references: [id], onDelete: Cascade)
+  programs    Program[]
+  labRequests LabTestRequest[]
+  labResults  LabResult[]
+
+  @@index([ownerCoachId])
 }
-
 
 model Exercise {
   id          String @id @default(uuid())
@@ -59,50 +141,126 @@ model Exercise {
   programExercises ProgramExercise[]
 }
 
-
 model Program {
-  id        String @id @default(uuid())
-
+  id        String        @id @default(uuid())
   coachId   String
   athleteId String
-
   title     String
+  status    ProgramStatus @default(DRAFT)
+  draftData Json?
 
-  createdAt DateTime @default(now())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
 
-  coach   User @relation("CoachPrograms", fields: [coachId], references: [id])
-  athlete User @relation("AthletePrograms", fields: [athleteId], references: [id])
+  coach   User           @relation("CoachPrograms", fields: [coachId], references: [id], onDelete: Cascade)
+  athlete AthleteProfile @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+  days    ProgramDay[]
 
-  days ProgramDay[]
+  @@index([coachId, status])
+  @@index([athleteId])
 }
 
-
 model ProgramDay {
-  id String @id @default(uuid())
-
+  id        String @id @default(uuid())
   programId String
+  title     String
+  order     Int    @default(0)
+  type      String @default("ex")
+  note      String?
+  intensity String?
 
-  title String
-
-  program Program @relation(fields: [programId], references: [id])
-
+  program   Program           @relation(fields: [programId], references: [id], onDelete: Cascade)
   exercises ProgramExercise[]
 }
 
-
 model ProgramExercise {
-  id String @id @default(uuid())
+  id         String @id @default(uuid())
+  dayId      String
+  exerciseId String?
+  order      Int    @default(0)
 
-  dayId String
+  name        String?
+  sets        Int?
+  reps        String?
+  percentages String?
+  weight      Float?
+  restTime    Int?
+  note        String?
+  goal        String?
+  gifKey      String?
+  supersetGroup String?
 
-  exerciseId String
+  day      ProgramDay @relation(fields: [dayId], references: [id], onDelete: Cascade)
+  exercise Exercise?   @relation(fields: [exerciseId], references: [id], onDelete: SetNull)
+}
 
-  day ProgramDay @relation(fields: [dayId], references: [id])
+model LabTestRequest {
+  id              String           @id @default(uuid())
+  requesterUserId String?
+  athleteId       String?
+  requesterName   String
+  phone           String
+  testType        LabTestType
+  preferredDate   DateTime?
+  note            String?
+  status          LabRequestStatus @default(REQUESTED)
+  scheduledAt     DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
 
-  exercise Exercise @relation(fields: [exerciseId], references: [id])
+  requesterUser User?            @relation("LabRequester", fields: [requesterUserId], references: [id], onDelete: SetNull)
+  athlete       AthleteProfile?  @relation(fields: [athleteId], references: [id], onDelete: SetNull)
+  result        LabResult?
 
-  sets Int?
-  reps Int?
-  weight Float?
-  restTime Int?
+  @@index([status, createdAt])
+  @@index([phone])
+  @@index([athleteId])
+}
+
+model LabResult {
+  id              String          @id @default(uuid())
+  requestId       String          @unique
+  athleteId       String
+  title           String
+  summary         String?
+  pdfKey          String
+  pdfOriginalName String?
+  mimeType        String          @default("application/pdf")
+  fileSize        Int?
+  status          LabResultStatus @default(DRAFT)
+  releasedAt      DateTime?
+  releasedById    String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  request      LabTestRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  athlete      AthleteProfile @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+  releasedBy   User?          @relation("LabResultReleasedBy", fields: [releasedById], references: [id], onDelete: SetNull)
+  notifications Notification[]
+
+  @@index([athleteId, status])
+}
+
+model Notification {
+  id                String             @id @default(uuid())
+  userId            String?
+  labResultId       String?
+  phone             String
+  type              NotificationType
+  status            NotificationStatus @default(QUEUED)
+  message           String
+  targetUrl         String?
+  provider          String?
+  providerMessageId String?
+  error             String?
+  createdAt         DateTime           @default(now())
+  sentAt            DateTime?
+
+  user      User?      @relation(fields: [userId], references: [id], onDelete: SetNull)
+  labResult LabResult? @relation(fields: [labResultId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([phone])
 }

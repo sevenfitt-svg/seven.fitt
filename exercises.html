@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>بانک حرکات ورزشی | Seven.fitt</title>
+<style>
+:root{
+  --navy:#081f35;
+  --blue:#2f80ff;
+  --blue2:#2474eb;
+  --ink:#10243b;
+  --muted:#60758c;
+  --line:#dbe8f6;
+  --soft:#f7fbff;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+.container{width:min(1240px,calc(100% - 40px));margin:auto}
+.header{position:sticky;top:0;z-index:20;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.09)}
+.header-row{min-height:82px;display:flex;align-items:center;gap:26px}
+.brand{display:flex;align-items:center;gap:10px;margin-left:auto;color:#fff;font:900 21px Arial}
+.brand img{width:48px;height:48px;border-radius:15px;background:#fff;object-fit:cover}
+.nav{display:flex;gap:24px;align-items:center;color:#fff;font-size:13px;font-weight:800}
+.nav a{padding:29px 0;position:relative;color:#fff}
+.nav a.active{color:#79baff}
+.nav a.active:after{content:"";position:absolute;right:0;left:0;bottom:18px;height:2px;background:#79baff;border-radius:3px}
+.actions{display:flex;gap:10px;align-items:center;margin-right:auto}
+.login{color:#fff;font-weight:800;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:13px;padding:11px 18px;font-weight:900;font-size:13px;border:1px solid transparent;cursor:pointer}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue2)}
+.btn-outline{background:#fff;color:var(--ink);border-color:#cfe0f2}
+.hero{background:#fff;position:relative;overflow:hidden;border-bottom:1px solid #edf4fa;padding:74px 0 62px}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(47,128,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(47,128,255,.045) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font:900 11px Arial;letter-spacing:1.5px;margin-bottom:15px}
+.kicker:before{content:"";width:28px;height:2px;background:var(--blue)}
+h1{font-size:clamp(42px,4.5vw,64px);line-height:1.3;margin:0 0 18px;letter-spacing:-1.6px}
+h1 em{font-style:normal;color:var(--blue)}
+.hero p{font-size:15px;color:var(--muted);max-width:650px;margin:0 0 24px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;border-top:1px solid #e8f0f8}
+.trust b{display:block;font-size:13px;margin-bottom:3px;color:var(--ink)}
+.trust span{font-size:11px;color:#70859a}
+.preview{background:var(--blue);color:#fff;border-radius:26px;padding:24px;box-shadow:0 18px 42px rgba(47,128,255,.18)}
+.preview-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.18)}
+.preview-top small{font:900 10px Arial;letter-spacing:1.4px;color:#ddecff}
+.preview-top b{font-size:14px}
+.fake-search{margin:18px 0;background:#216fdb;border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:13px 15px;color:#eaf4ff;font-size:13px}
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.preview-card{background:#216fdb;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px;min-height:112px}
+.preview-card i{display:block;font:900 11px Arial;color:#ddecff;font-style:normal}
+.preview-card b{display:block;font-size:18px;margin:10px 0 4px}.preview-card span{font-size:11px;color:#eef6ff}
+.section{padding:70px 0;background:#fff}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:28px}
+.section-head h2{font-size:clamp(30px,3vw,44px);line-height:1.4;margin:8px 0 0}
+.section-head p{max-width:530px;color:var(--muted);font-size:13px;margin:0}
+.toolbar{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:25px}
+.search{flex:1;min-width:340px;display:flex;align-items:center;gap:10px;border:1px solid #cfe0f2;background:#fff;border-radius:15px;padding:0 15px}
+.search span{font-size:22px;color:var(--blue)}
+.search input{width:100%;border:0;outline:0;background:transparent;padding:14px 0;font:inherit;color:var(--ink)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{background:#fff;border:1px solid #cfe0f2;color:#29425c;border-radius:999px;padding:9px 14px;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+.filters button.active,.filters button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:34px}
+.category{background:var(--blue);color:#fff;border-radius:21px;padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 28px rgba(47,128,255,.12)}
+.category small{font:900 10px Arial;color:#ddecff;letter-spacing:1px}
+.category h3{font-size:21px;margin:18px 0 8px}.category p{font-size:12px;color:#edf6ff;margin:0}.category span{font-size:12px;font-weight:900;margin-top:20px;color:#fff}
+.library-empty{border:1px dashed #bcd8f4;background:#f8fbff;border-radius:24px;padding:42px 26px;text-align:center}
+.empty-icon{width:58px;height:58px;border-radius:17px;background:var(--blue);color:#fff;display:grid;place-items:center;margin:auto;font:900 18px Arial}
+.library-empty h3{font-size:24px;margin:14px 0 6px}.library-empty p{max-width:720px;margin:0 auto 18px;color:var(--muted);font-size:13px}
+.footer{background:var(--navy);color:#fff;padding:46px 0 24px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.7fr repeat(3,1fr);gap:38px}
+.footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font:900 20px Arial;margin-bottom:12px}.footer-brand img{width:46px;height:46px;border-radius:14px;background:#fff}
+.footer p{color:#b9cbdb;font-size:12px;max-width:350px}.footer h4{font-size:12px;margin:0 0 14px}.footer a{display:block;color:#dce8f3;font-size:11px;margin:8px 0}.footer a:hover{color:#79baff}
+.footer-note{border-top:1px solid rgba(255,255,255,.10);margin-top:32px;padding-top:17px;display:flex;justify-content:space-between;color:#8fa9c0;font:700 9px Arial;letter-spacing:1px}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:repeat(2,1fr)}.nav{display:none}.footer-grid{grid-template-columns:1.5fr 1fr 1fr}.footer-grid>div:last-child{display:none}}
+@media(max-width:680px){.container{width:min(100% - 28px,1240px)}.hero{padding:48px 0}.trust,.category-grid,.footer-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:10px}.search{min-width:100%}.actions .login{display:none}.brand span{display:none}.footer-grid>div{display:block!important}.footer-note{display:block;text-align:center}.footer-note span{display:block;margin:5px 0}}
+</style>
+
+<style id="sevenfitt-final-footer-navy">
+/* FINAL: all public page footers match the navy header */
+footer, .public-footer, .site-footer, .footer {
+  background:#071f35 !important;
+  color:#ffffff !important;
+  border-top:1px solid rgba(255,255,255,.10) !important;
+}
+footer h2, footer h3, footer h4, footer .brand, footer .brand-word, footer .footer-brand,
+.public-footer h2, .public-footer h3, .public-footer h4, .public-footer .brand, .public-footer .brand-word,
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .brand, .site-footer .brand-word,
+.footer h2, .footer h3, .footer h4, .footer .footer-brand {
+  color:#ffffff !important; opacity:1 !important;
+}
+footer p, .public-footer p, .site-footer p, .footer p {color:#b9cbdb !important; opacity:1 !important;}
+footer a:not(.brand), .public-footer a:not(.brand), .site-footer a:not(.brand), .footer a:not(.brand) {color:#dce8f3 !important; opacity:1 !important;}
+footer a:hover, .public-footer a:hover, .site-footer a:hover, .footer a:hover {color:#66b4ff !important;}
+.public-footer-note, .footer-note, .copyright {color:#8eabc3 !important; border-color:rgba(255,255,255,.10) !important; opacity:1 !important;}
+</style>
+
+</head>
+<body>
+<header class="header">
+  <div class="container header-row">
+    <a class="brand" href="index.html"><img src="assets/images/sevenfitt-logo-ui.png" alt="Seven.fitt"><span>Seven.fitt</span></a>
+    <nav class="nav">
+      <a href="index.html">خانه</a><a href="programs.html">برنامه تمرینی</a><a class="active" href="exercises.html">بانک حرکات</a><a href="assessment.html">ارزیابی عملکرد</a><a href="articles.html">مقالات علمی</a><a href="shop.html">فروشگاه</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط</a>
+    </nav>
+    <div class="actions"><a class="login" href="student/login.html">ورود</a><a class="btn btn-blue" href="programs.html">سفارش برنامه</a></div>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">EXERCISE LIBRARY</div>
+      <h1>بانک حرکات <em>Seven.fitt</em></h1>
+      <p>حرکات تمرینی، GIF و اطلاعات اجرایی در یک کتابخانه منظم و قابل جستجو قرار می‌گیرند. این صفحه برای اتصال مستقیم به بانک واقعی حرکات Seven.fitt آماده شده است.</p>
+      <div class="hero-actions"><a class="btn btn-blue" href="#library">مشاهده بانک</a><a class="btn btn-outline" href="programs.html">برنامه تمرینی</a></div>
+      <div class="trust"><div><b>جستجوی سریع</b><span>بر اساس نام حرکت</span></div><div><b>دسته‌بندی</b><span>عضله و نوع تمرین</span></div><div><b>نمایش GIF</b><span>پس از اتصال بانک</span></div></div>
+    </div>
+    <div class="preview">
+      <div class="preview-top"><small>EXERCISE BANK</small><b>Seven.fitt</b></div>
+      <div class="fake-search">جستجوی حرکت...</div>
+      <div class="preview-grid">
+        <div class="preview-card"><i>01</i><b>Strength</b><span>تمرین مقاومتی</span></div>
+        <div class="preview-card"><i>02</i><b>Conditioning</b><span>هوازی و آمادگی</span></div>
+        <div class="preview-card"><i>03</i><b>Mobility</b><span>تحرک و اصلاحی</span></div>
+        <div class="preview-card"><i>04</i><b>SAQ</b><span>سرعت و چابکی</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="library">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">EXERCISE LIBRARY</div><h2>حرکت موردنظرت را پیدا کن</h2></div><p>جستجو و فیلتر آماده است. بعد از اتصال بانک GIFهای Studio، حرکات واقعی در همین قسمت نمایش داده می‌شوند.</p></div>
+    <div class="toolbar"><label class="search"><span>⌕</span><input type="search" placeholder="نام حرکت را جستجو کن..."></label><div class="filters"><button class="active">همه</button><button>مقاومتی</button><button>هوازی</button><button>اینتروال</button><button>تحرک</button><button>سرعت و چابکی</button></div></div>
+    <div class="category-grid">
+      <div class="category"><small>STRENGTH / 01</small><div><h3>حرکات مقاومتی</h3><p>قدرت، هایپرتروفی و تمرین با وزنه</p></div><span>مشاهده دسته ←</span></div>
+      <div class="category"><small>CONDITIONING / 02</small><div><h3>هوازی و آمادگی</h3><p>تمرینات هوازی و توسعه آمادگی جسمانی</p></div><span>مشاهده دسته ←</span></div>
+      <div class="category"><small>MOBILITY / 03</small><div><h3>تحرک و اصلاحی</h3><p>موبیلیتی، دامنه حرکتی و تمرینات اصلاحی</p></div><span>مشاهده دسته ←</span></div>
+      <div class="category"><small>SAQ / 04</small><div><h3>سرعت و چابکی</h3><p>سرعت، شتاب، تغییر جهت و چابکی</p></div><span>مشاهده دسته ←</span></div>
+    </div>
+    <div class="library-empty"><div class="empty-icon">SF</div><h3>بانک حرکات آماده اتصال است</h3><p>بعد از وارد کردن بانک GIFهای واقعی در Studio، نام حرکت، دسته‌بندی، عضله هدف و GIF هر حرکت در این بخش نمایش داده می‌شود.</p><a class="btn btn-blue" href="programs.html">مشاهده برنامه‌های تمرینی</a></div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><a class="footer-brand" href="index.html"><img src="assets/images/sevenfitt-logo-ui.png" alt="Seven.fitt"><span>Seven.fitt</span></a><p>پلتفرم تخصصی تمرین، ارزیابی عملکرد و مربیگری دیجیتال.</p></div>
+      <div><h4>خدمات</h4><a href="programs.html">برنامه تمرینی</a><a href="assessment.html">ارزیابی عملکرد</a><a href="exercises.html">بانک حرکات</a><a href="shop.html">فروشگاه</a></div>
+      <div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط با ما</a></div>
+      <div><h4>ورود</h4><a href="student/login.html">پنل ورزشکار</a><a href="coach/login.html">پنل مربی</a></div>
+    </div>
+    <div class="footer-note"><span>© 2026 SEVEN.FITT</span><span>SCIENCE × TRAINING × PERFORMANCE</span></div>
+  </div>
+</footer>
+</body>
+</html>

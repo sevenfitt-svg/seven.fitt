@@ -1,130 +1,550 @@
-<!doctype html><html lang="fa" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="خانه | Seven.fitt"><title>خانه | Seven.fitt</title>
-<link rel="stylesheet" href="assets/css/site.css"></head><body>
-<div class="topbar"><div class="container"><span>Seven.fitt | تمرین، ارزیابی و سبک زندگی ورزشی</span><span>پلتفرم تحت وب</span></div></div>
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="index.html"><span class="brand-mark">7</span><span>Seven.fitt</span></a>
-    <button class="mobile-toggle" aria-label="منو">☰</button>
-    <nav class="main-nav">
-      <a href="index.html">خانه</a>
-      <a href="programs.html">برنامه تمرینی</a>
-      <a href="assessment.html">ارزیابی</a>
-      <a href="shop.html">فروشگاه</a>
-      <a href="education.html">آموزش</a>
-      <a href="articles.html">مقالات علمی</a>
-      <a href="contact.html">ارتباط با ما</a>
-    </nav>
-    <div class="nav-actions"><a class="btn btn-outline" href="programs.html#my-program">برنامه من</a></div>
-  </div>
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="Seven.fitt | پلتفرم تخصصی برنامه تمرینی، ارزیابی عملکرد و مربیگری دیجیتال" name="description"/>
+<meta content="#061321" name="theme-color"/>
+<title>Seven.fitt | تمرین هوشمند، عملکرد حرفه‌ای</title>
+<link href="assets/css/site.css" rel="stylesheet"/>
+<style id="sevenfitt-phase38-inline">
+/* Seven.fitt Phase 3.8 — CLEAN FINAL THEME
+   White canvas + dark header + filled blue cards + white text inside cards */
+:root{
+  --sf-bg:#ffffff;
+  --sf-bg-soft:#f7fbff;
+  --sf-header:#081f35;
+  --sf-blue:#2f80ff;
+  --sf-blue-hover:#2474eb;
+  --sf-blue-deep:#0e4f9b;
+  --sf-ink:#10243b;
+  --sf-muted:#60758c;
+  --sf-line:#d8e8f7;
+}
+html,body{background:var(--sf-bg)!important;color:var(--sf-ink)!important}
+body{min-height:100vh}
+
+/* PUBLIC + HOME CANVAS */
+body.home-clean,body.public-page,body.shop-page,
+body.home-clean main,body.public-page main,body.shop-page main,
+body.home-clean .home-hero-clean,body.home-clean .home-section-clean,
+body.home-clean .clean-why,body.home-clean .clean-tests,body.home-clean .clean-coach,
+body.home-clean .clean-journey,body.home-clean .clean-journal,body.home-clean .clean-final-cta,
+body.public-page .public-hero,body.public-page .public-section,body.public-page .public-section.white,body.public-page .public-section.dark,
+body.shop-page .public-hero,body.shop-page .public-section,body.shop-page .public-section.white,body.shop-page .public-section.dark{
+  background:#fff!important;color:var(--sf-ink)!important;
+}
+
+/* HEADER */
+body.home-clean .site-header,body.public-page .site-header,body.shop-page .site-header{
+  background:var(--sf-header)!important;border-bottom:1px solid rgba(255,255,255,.10)!important;
+  box-shadow:0 4px 14px rgba(5,25,43,.10)!important;
+}
+body.home-clean .brand-word,body.public-page .brand-word,body.shop-page .brand-word,
+body.home-clean .main-nav a,body.public-page .main-nav a,body.shop-page .main-nav a,
+body.home-clean .header-login,body.public-page .header-login,body.shop-page .header-login,
+body.home-clean .mobile-toggle,body.public-page .mobile-toggle,body.shop-page .mobile-toggle{
+  color:#fff!important;opacity:1!important;
+}
+body.home-clean .main-nav a:hover,body.home-clean .main-nav a.active,
+body.public-page .main-nav a:hover,body.public-page .main-nav a.active,
+body.shop-page .main-nav a:hover,body.shop-page .main-nav a.active{color:#78baff!important}
+body.home-clean .main-nav a:after,body.public-page .main-nav a:after,body.shop-page .main-nav a:after{background:#78baff!important}
+
+/* HERO */
+body.home-clean .home-hero-clean,body.public-page .public-hero,body.shop-page .public-hero{
+  background:#fff!important;color:var(--sf-ink)!important;border-bottom:1px solid #edf4fb!important;
+}
+body.home-clean .home-hero-clean:before,body.public-page .public-hero:before,body.shop-page .public-hero:before{
+  background-image:linear-gradient(rgba(47,128,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(47,128,255,.045) 1px,transparent 1px)!important;
+  opacity:.65!important;
+}
+body.home-clean .home-hero-clean:after,body.public-page .public-hero:after,body.shop-page .public-hero:after{
+  background:radial-gradient(circle,rgba(47,128,255,.10),transparent 68%)!important;
+}
+body.home-clean .clean-hero-copy,body.home-clean .clean-hero-copy h1,
+body.public-page .public-hero h1,body.shop-page .public-hero h1,
+body.public-page .public-hero-copy h1,body.shop-page .public-hero-copy h1,
+body.home-clean .clean-section-head h2,body.home-clean .clean-why-copy h2,body.home-clean .clean-coach-copy h2,
+body.public-page .public-heading h2,body.shop-page .public-heading h2{
+  color:var(--sf-ink)!important;opacity:1!important;text-shadow:none!important;
+}
+body.home-clean .clean-hero-copy p,body.public-page .public-hero-copy>p,body.shop-page .public-hero-copy>p,
+body.home-clean .clean-section-head p,body.home-clean .clean-why-copy p,body.home-clean .clean-coach-copy p,
+body.public-page .public-heading>p,body.shop-page .public-heading>p{color:var(--sf-muted)!important;opacity:1!important}
+body.home-clean .clean-kicker,body.public-page .public-kicker,body.shop-page .public-kicker,
+body.home-clean .section-mini,body.public-page .section-label,body.shop-page .section-label,
+body.public-page .public-hero h1 em,body.shop-page .public-hero h1 em{color:var(--sf-blue)!important}
+
+/* ALL MAIN PUBLIC/HOME CARDS = BLUE */
+body.home-clean .clean-service-card,
+body.home-clean .why-point-card,
+body.home-clean .clean-test-card,
+body.home-clean .clean-journey-card,
+body.home-clean .clean-article-card,
+body.home-clean .clean-article-card.featured,
+body.home-clean .clean-hero-points>div,
+body.home-clean .clean-final-box,
+body.home-clean .coach-panel-shell,
+body.home-clean .visual-shell,
+body.public-page .feature-card,
+body.public-page .catalog-card,
+body.public-page .article-card,
+body.public-page .flow-step,
+body.public-page .form-shell,
+body.public-page .contact-shell,
+body.public-page .contact-side,
+body.public-page .premium-card,
+body.public-page .dark-info-card,
+body.public-page .order-preview,
+body.public-page .order-summary,
+body.public-page .selector-row,
+body.public-page .feature-article,
+body.public-page .test-card,
+body.public-page .content-card,
+body.public-page .product-card,
+body.public-page .exercise-public-card,
+body.public-page .exercise-empty,
+body.public-page .bank-preview-grid>div,
+body.shop-page .catalog-card,
+body.shop-page .shop-visual{
+  background:var(--sf-blue)!important;border:1px solid var(--sf-blue)!important;color:#fff!important;
+  box-shadow:0 10px 26px rgba(47,128,255,.14)!important;
+}
+body.home-clean .clean-service-card:hover,body.home-clean .clean-test-card:hover,body.home-clean .clean-article-card:hover,
+body.public-page .feature-card:hover,body.public-page .catalog-card:hover,body.public-page .article-card:hover,
+body.public-page .test-card:hover,body.public-page .exercise-public-card:hover,body.shop-page .catalog-card:hover{
+  background:var(--sf-blue-hover)!important;border-color:var(--sf-blue-hover)!important;
+}
+/* WHITE TEXT INSIDE BLUE CARDS */
+body.home-clean .clean-service-card *,body.home-clean .why-point-card *,body.home-clean .clean-test-card *,body.home-clean .clean-journey-card *,body.home-clean .clean-article-card *,body.home-clean .clean-hero-points>div *,body.home-clean .clean-final-box *,body.home-clean .coach-panel-shell *,body.home-clean .visual-shell *,
+body.public-page .feature-card *,body.public-page .catalog-card *,body.public-page .article-card *,body.public-page .flow-step *,body.public-page .form-shell>*,body.public-page .contact-shell>*,body.public-page .contact-side *,body.public-page .premium-card *,body.public-page .dark-info-card *,body.public-page .order-preview *,body.public-page .order-summary *,body.public-page .selector-row *,body.public-page .feature-article *,body.public-page .test-card *,body.public-page .content-card *,body.public-page .product-card *,body.public-page .exercise-public-card *,body.public-page .exercise-empty *,body.shop-page .catalog-card *,body.shop-page .shop-visual *{color:#fff!important;opacity:1!important}
+
+/* MEDIA INSIDE CARDS */
+body.home-clean .visual-summary-card,body.home-clean .visual-list-row,body.home-clean .visual-pill,body.home-clean .coach-athlete-item,
+body.public-page .public-visual,body.public-page .feature-article-media,body.public-page .catalog-media,body.public-page .exercise-media,
+body.public-page .visual-row,body.public-page .visual-metric,
+body.shop-page .catalog-media,body.shop-page .shop-visual .visual-row,body.shop-page .shop-visual .visual-metric{
+  background:var(--sf-blue-deep)!important;border-color:rgba(255,255,255,.18)!important;color:#fff!important;
+}
+body.home-clean .visual-summary-card *,body.home-clean .visual-list-row *,body.home-clean .visual-pill *,body.home-clean .coach-athlete-item *,
+body.public-page .public-visual *,body.public-page .feature-article-media *,body.public-page .catalog-media *,body.public-page .exercise-media *,body.public-page .visual-row *,body.public-page .visual-metric *,body.shop-page .catalog-media *,body.shop-page .shop-visual .visual-row *,body.shop-page .shop-visual .visual-metric *{color:#fff!important}
+
+/* FORMS */
+body.public-page .form-shell label,body.public-page .contact-shell label{color:#fff!important}
+body.public-page .field input,body.public-page .field select,body.public-page .field textarea,
+body.public-page .program-login.modern input,body.shop-page .field input,body.shop-page .field select,body.shop-page .field textarea{
+  background:#fff!important;color:var(--sf-ink)!important;border:1px solid #c8def3!important;
+}
+body.public-page .field input::placeholder,body.public-page .field textarea::placeholder,body.public-page .program-login.modern input::placeholder,
+body.shop-page .field input::placeholder,body.shop-page .field textarea::placeholder{color:#8097ad!important}
+body.public-page .field input:focus,body.public-page .field select:focus,body.public-page .field textarea:focus,
+body.public-page .program-login.modern input:focus,body.shop-page .field input:focus,body.shop-page .field select:focus,body.shop-page .field textarea:focus{
+  border-color:#fff!important;box-shadow:0 0 0 3px rgba(255,255,255,.24)!important;
+}
+
+/* BUTTONS / TABS */
+body.home-clean .btn-brand,body.public-page .btn-brand,body.shop-page .btn-brand,
+body.home-clean .btn-primary,body.public-page .btn-primary,body.shop-page .btn-primary,
+body.public-page .exercise-filters button,body.shop-page .exercise-filters button,
+body.public-page .tabs a,body.public-page .tabs button,body.shop-page .tabs a,body.shop-page .tabs button{
+  background:var(--sf-blue)!important;color:#fff!important;border:1px solid var(--sf-blue)!important;box-shadow:none!important;
+}
+body.home-clean .btn-outline-clean,body.home-clean .btn-outline-dark,
+body.public-page .btn-glass,body.shop-page .btn-glass,body.public-page .btn-outline,body.shop-page .btn-outline{
+  background:#fff!important;color:var(--sf-blue)!important;border:1px solid var(--sf-blue)!important;
+}
+body.public-page .exercise-filters button:hover,body.public-page .exercise-filters button.active,
+body.shop-page .exercise-filters button:hover,body.shop-page .exercise-filters button.active,
+body.public-page .tabs a:hover,body.public-page .tabs .active,body.public-page .tabs button:hover,body.public-page .tabs button.active,
+body.shop-page .tabs a:hover,body.shop-page .tabs .active,body.shop-page .tabs button:hover,body.shop-page .tabs button.active,
+body.home-clean .btn-brand:hover,body.public-page .btn-brand:hover,body.shop-page .btn-brand:hover{
+  background:var(--sf-blue-hover)!important;border-color:var(--sf-blue-hover)!important;color:#fff!important;
+}
+
+/* FOOTER: readable */
+body.home-clean .public-footer,body.home-clean .site-footer,body.public-page .public-footer,body.public-page .site-footer,body.shop-page .public-footer,body.shop-page .site-footer{
+  background:#f7fbff!important;border-top:1px solid var(--sf-line)!important;color:var(--sf-muted)!important;margin-top:0!important;
+}
+body.home-clean .public-footer h4,body.home-clean .site-footer h3,body.home-clean .site-footer h4,
+body.public-page .public-footer h4,body.public-page .site-footer h3,body.public-page .site-footer h4,
+body.shop-page .public-footer h4,body.shop-page .site-footer h3,body.shop-page .site-footer h4,
+body.home-clean .public-footer .brand-word,body.public-page .public-footer .brand-word,body.shop-page .public-footer .brand-word{color:var(--sf-ink)!important}
+body.home-clean .public-footer a,body.home-clean .site-footer a,body.public-page .public-footer a,body.public-page .site-footer a,
+body.shop-page .public-footer a,body.shop-page .site-footer a,body.home-clean .public-footer p,body.public-page .public-footer p,body.shop-page .public-footer p,
+body.home-clean .public-footer-note,body.public-page .public-footer-note,body.shop-page .public-footer-note{color:#48627a!important;opacity:1!important}
+
+/* AUTH */
+body.auth-page{background:#fff!important;color:var(--sf-ink)!important}
+body.auth-page .auth-brand-side{background:#fff!important;color:var(--sf-ink)!important;border-left:1px solid var(--sf-line)!important}
+body.auth-page .auth-logo,body.auth-page .auth-copy h1{color:var(--sf-ink)!important}
+body.auth-page .auth-copy p,body.auth-page .auth-points span{color:var(--sf-muted)!important}
+body.auth-page .auth-form-side{background:#fff!important;border-color:var(--sf-line)!important}
+body.auth-page .auth-box{background:var(--sf-blue)!important;border-color:var(--sf-blue)!important;color:#fff!important}
+body.auth-page .auth-box *{color:#fff!important}
+body.auth-page .auth-box input{background:#fff!important;color:var(--sf-ink)!important;border-color:#d5e7f7!important}
+
+/* COACH / ADMIN CUSTOM PAGES */
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page){background:#fff!important;color:var(--sf-ink)!important}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .header,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .head,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .top{
+  background:var(--sf-header)!important;color:#fff!important;border-color:var(--sf-header)!important;
+}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .header *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .head *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .top *{color:#fff!important}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .card,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .box,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .req,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .day,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .exercise,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .item,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .result,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .empty,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .note{
+  background:var(--sf-blue)!important;color:#fff!important;border-color:var(--sf-blue)!important;
+}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .card *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .box *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .req *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .day *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .exercise *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .item *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .result *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .empty *,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .note *{color:#fff!important}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) button,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .btn,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .primary,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .soft,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .save,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .open,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .edit,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .program,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) .logout{
+  background:var(--sf-blue)!important;color:#fff!important;border-color:var(--sf-blue)!important;
+}
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) input,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) select,
+body:not(.home-clean):not(.public-page):not(.shop-page):not(.auth-page) textarea{
+  background:#fff!important;color:var(--sf-ink)!important;border-color:#c8def3!important;
+}
+
+/* STUDENT */
+body:has(.student-head){background:#fff!important;color:var(--sf-ink)!important}
+body:has(.student-head) .student-head{background:var(--sf-header)!important;color:#fff!important;border-bottom:1px solid rgba(255,255,255,.10)!important}
+body:has(.student-head) .student-head *{color:#fff!important}
+body:has(.student-head) .tabs .btn,body:has(.student-head) .result,body:has(.student-head) .empty,body:has(.student-head) .notice{
+  background:var(--sf-blue)!important;color:#fff!important;border-color:var(--sf-blue)!important;
+}
+body:has(.student-head) .result *,body:has(.student-head) .empty *,body:has(.student-head) .notice *{color:#fff!important}
+
+@media(max-width:980px){
+ body.home-clean .main-nav.open,body.public-page .main-nav.open,body.shop-page .main-nav.open{background:var(--sf-header)!important;border:1px solid rgba(255,255,255,.12)!important}
+ body.home-clean .main-nav.open a,body.public-page .main-nav.open a,body.shop-page .main-nav.open a{color:#fff!important}
+}
+
+</style>
+
+<style id="sevenfitt-footer-navy-fix">
+/* Footer: same navy family as the header on every site page */
+.public-footer,.site-footer.home-footer,.footer{
+  background:#071f35!important;
+  color:#fff!important;
+  border-top:1px solid rgba(255,255,255,.10)!important;
+  margin-top:0!important;
+}
+.public-footer h3,.public-footer h4,.site-footer h3,.site-footer h4,.footer h3,.footer h4,
+.public-footer .brand,.public-footer .brand-word,.site-footer .brand,.site-footer .brand-word,
+.footer .footer-brand{color:#fff!important;opacity:1!important}
+.public-footer p,.site-footer p,.footer p{color:#b9cbdb!important;opacity:1!important}
+.public-footer a:not(.brand),.site-footer a:not(.brand),.footer a{color:#dce8f3!important;opacity:1!important}
+.public-footer a:hover,.site-footer a:hover,.footer a:hover{color:#66b4ff!important}
+.public-footer-note,.footer-note,.copyright{color:#8eabc3!important;border-color:rgba(255,255,255,.10)!important;opacity:1!important}
+</style>
+
+
+<style id="sevenfitt-final-footer-navy">
+/* FINAL: all public page footers match the navy header */
+footer, .public-footer, .site-footer, .footer {
+  background:#071f35 !important;
+  color:#ffffff !important;
+  border-top:1px solid rgba(255,255,255,.10) !important;
+}
+footer h2, footer h3, footer h4, footer .brand, footer .brand-word, footer .footer-brand,
+.public-footer h2, .public-footer h3, .public-footer h4, .public-footer .brand, .public-footer .brand-word,
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .brand, .site-footer .brand-word,
+.footer h2, .footer h3, .footer h4, .footer .footer-brand {
+  color:#ffffff !important; opacity:1 !important;
+}
+footer p, .public-footer p, .site-footer p, .footer p {color:#b9cbdb !important; opacity:1 !important;}
+footer a:not(.brand), .public-footer a:not(.brand), .site-footer a:not(.brand), .footer a:not(.brand) {color:#dce8f3 !important; opacity:1 !important;}
+footer a:hover, .public-footer a:hover, .site-footer a:hover, .footer a:hover {color:#66b4ff !important;}
+.public-footer-note, .footer-note, .copyright {color:#8eabc3 !important; border-color:rgba(255,255,255,.10) !important; opacity:1 !important;}
+</style>
+
+
+<style id="sevenfitt-hard-footer-lock">
+/* Hard lock: Home/Shop footer must match header navy */
+body > footer.public-footer,
+body > footer.site-footer.home-footer.public-footer {
+  background:#071f35 !important;
+  background-color:#071f35 !important;
+  color:#ffffff !important;
+}
+body > footer.public-footer .container,
+body > footer.site-footer.home-footer.public-footer .container,
+body > footer.public-footer .public-footer-grid,
+body > footer.site-footer.home-footer.public-footer .public-footer-grid {
+  background:transparent !important;
+  background-color:transparent !important;
+}
+body > footer.public-footer h3, body > footer.public-footer h4,
+body > footer.site-footer.home-footer.public-footer h3, body > footer.site-footer.home-footer.public-footer h4,
+body > footer.public-footer .brand-word, body > footer.site-footer.home-footer.public-footer .brand-word {color:#ffffff !important;}
+body > footer.public-footer p, body > footer.site-footer.home-footer.public-footer p {color:#b9cbdb !important;}
+body > footer.public-footer a:not(.brand), body > footer.site-footer.home-footer.public-footer a:not(.brand) {color:#dce8f3 !important;}
+body > footer.public-footer .public-footer-note, body > footer.site-footer.home-footer.public-footer .public-footer-note {color:#8eabc3 !important;border-color:rgba(255,255,255,.10) !important;}
+</style>
+</head>
+<body class="home home-clean">
+<header class="site-header home-header">
+<div class="container header-row">
+<a aria-label="Seven.fitt" class="brand home-brand" href="index.html">
+<img alt="لوگوی Seven.fitt" class="brand-logo" src="assets/images/sevenfitt-logo-ui.png"/>
+<span class="brand-word"><strong>Seven</strong><i>.</i><b>Fitt</b></span>
+</a>
+<button aria-expanded="false" aria-label="باز کردن منو" class="mobile-toggle">☰</button>
+<nav aria-label="منوی اصلی" class="main-nav">
+<a class="active" href="index.html">خانه</a>
+<a href="programs.html">برنامه تمرینی</a><a href="exercises.html">بانک حرکات</a>
+<a href="assessment.html">ارزیابی عملکرد</a>
+<a href="articles.html">مقالات علمی</a>
+<a href="shop.html">فروشگاه</a>
+<a href="contact.html">ارتباط با ما</a>
+</nav>
+<div class="nav-actions home-nav-actions">
+<a class="header-login" href="student/login.html">ورود</a>
+<a class="btn btn-brand btn-sm" href="programs.html">سفارش برنامه</a>
+</div>
+</div>
 </header>
-
 <main>
-<section class="hero"><div class="container hero-grid">
- <div class="hero-copy">
-  <div class="eyebrow">پلتفرم ورزشی Seven.fitt</div>
-  <h1>Seven.fitt | پلتفرم حرفه‌ای تمرین، ارزیابی عملکرد و مربیگری دیجیتال</h1>
-  <p>مربی، ورزشکار و علم تمرین در یک محیط یکپارچه؛ از ارزیابی اولیه تا اجرای برنامه اختصاصی.</p>
-  <div class="hero-cta"><a class="btn btn-primary" href="programs.html">برنامه تمرینی</a><a class="btn btn-outline" href="assessment.html">ارزیابی عملکرد</a></div>
-  <div class="hero-points"><span>● طراحی علمی تمرین</span><span>● دسترسی تحت وب</span><span>● مسیر توسعه به PWA</span></div>
- </div>
- <div class="hero-visual">
-  <div><span class="status">● برنامه تمرینی فعال</span><h2 style="margin-top:10px">پنل تمرین</h2><p style="color:#a9bfd4">نمای تیره و اپ‌مانند برای تمرین و اجرای برنامه.</p></div>
-  <div class="training-window">
-    <div class="window-head"><strong>تمرین امروز</strong><span class="status">در حال اجرا</span></div>
-    <div class="workout-item"><div class="exercise-icon">🏋️</div><div><b>تمرین مقاومتی</b><br><small>ست، تکرار، شدت و استراحت</small></div><div class="timer">90s</div></div>
-    <div class="workout-item"><div class="exercise-icon">⚡</div><div><b>توان و سرعت</b><br><small>ثبت عملکرد و بازخورد</small></div><div>→</div></div>
-  </div>
- </div>
-</div></section>
-
-<section class="section"><div class="container">
- <div class="section-head"><div><div class="eyebrow">هسته Seven.fitt</div><h2>از ارزیابی تا اجرای برنامه</h2></div><p>سایت عمومی روشن و علمی؛ بخش تمرین و پنل‌ها تیره و متمرکز.</p></div>
- <div class="cards-3">
-  <a class="card" href="programs.html"><div class="icon">▤</div><h3>برنامه تمرینی</h3><p>برنامه‌های اختصاصی و دسترسی مستقیم شاگرد به فایل HTML تمرین.</p></a>
-  <a class="card" href="assessment.html"><div class="icon">⌁</div><h3>ارزیابی علمی</h3><p>Wingate، آنالیز گازهای تنفسی، ترکیب بدنی و تست‌های عملکرد.</p></a>
-  <a class="card" href="shop.html"><div class="icon">□</div><h3>فروشگاه ورزشی</h3><p>تجهیزات ورزشی، مکمل و لباس ورزشی در سه دسته مستقل.</p></a>
- </div>
-</div></section>
-
-<section class="section dark-section"><div class="container">
- <div class="section-head"><div><div class="eyebrow">ارزیابی عملکرد</div><h2>داده واقعی برای تصمیم تمرینی بهتر</h2></div><p>بخش ارزیابی Seven.fitt بر تست‌های آزمایشگاهی و میدانی قابل ارائه استوار است.</p></div>
- <div class="assessment-grid">
-  <div class="assess"><span>01</span><h3>Wingate</h3><p>توان اوج، توان میانگین و شاخص خستگی.</p></div>
-  <div class="assess"><span>02</span><h3>Gas Analysis</h3><p>آنالیز گازهای تنفسی، VO₂ و پاسخ قلبی‌تنفسی.</p></div>
-  <div class="assess"><span>03</span><h3>Body Composition</h3><p>چربی بدن، توده عضلانی و شاخص‌های ترکیب بدنی.</p></div>
-  <div class="assess"><span>04</span><h3>قدرت</h3><p>1RM، قدرت نسبی و تست‌های مقاومتی.</p></div>
-  <div class="assess"><span>05</span><h3>توان و پرش</h3><p>CMJ، SJ و آزمون‌های توان انفجاری.</p></div>
-  <div class="assess"><span>06</span><h3>سرعت و چابکی</h3><p>اسپرینت و تست‌های تغییر جهت.</p></div>
- </div>
-</div></section>
-
-<section class="section"><div class="container">
- <div class="section-head"><div><div class="eyebrow">فروشگاه</div><h2>سه دسته اصلی فروشگاه Seven.fitt</h2></div><a class="btn btn-outline" href="shop.html">مشاهده فروشگاه</a></div>
- <div class="cards-3">
-  <a class="card shop-cat equipment" href="shop.html#equipment"><h3>تجهیزات ورزشی</h3><p>ابزار تمرین، چابکی، قدرت و ریکاوری.</p></a>
-  <a class="card shop-cat supplement" href="shop.html#supplements"><h3>مکمل ورزشی</h3><p>مکمل‌های ورزشی و عملکردی.</p></a>
-  <a class="card shop-cat apparel" href="shop.html#apparel"><h3>لباس ورزشی</h3><p>پوشاک تمرین و محصولات برند.</p></a>
- </div>
-</div></section>
-
-<section class="section"><div class="container">
- <div class="section-head"><div><div class="eyebrow">بخش علمی</div><h2>علمی، کاربردی و قابل فهم</h2></div><a class="btn btn-outline" href="articles.html">همه مقالات</a></div>
- <div class="science-layout">
-  <div class="feature-article"><span class="tag">فیزیولوژی ورزش</span><h2 style="margin-top:20px">از داده آزمایشگاهی تا تصمیم تمرینی</h2><p style="color:var(--muted)">این بخش برای انتشار مطالب علمی، تحلیل تمرین، مکمل‌ها، ریکاوری و فیزیولوژی ورزش طراحی شده است.</p><a class="btn btn-dark" href="articles.html">ورود به بخش علمی</a></div>
-  <div class="article-list"><div class="article-mini"><span class="tag">تمرین</span><h3>اصول برنامه‌ریزی تمرین مقاومتی</h3></div><div class="article-mini"><span class="tag">ریکاوری</span><h3>مدیریت خستگی و بازگشت به تمرین</h3></div><div class="article-mini"><span class="tag">مکمل</span><h3>مکمل‌ها و عملکرد ورزشی</h3></div></div>
- </div>
-</div></section>
-
-<section class="section"><div class="container"><div class="cta-band"><div><h2>برنامه اختصاصی خودت را از Seven.fitt باز کن</h2><p>شاگرد با لینک یا کد اختصاصی وارد برنامه HTML خودش می‌شود.</p></div><a class="btn btn-lime" href="programs.html#my-program">ورود به برنامه من</a></div></div></section>
-
-<section class="section">
-<div class="container">
-<div class="section-head">
-<div>
-<div class="eyebrow">Seven.fitt Ecosystem</div>
-<h2>یک مسیر کامل برای ورزشکار</h2>
+<section class="home-hero-clean">
+<div class="container clean-hero-grid">
+<div class="clean-hero-copy">
+<span class="clean-kicker">SEVEN.FITT PLATFORM</span>
+<h1>تمرین هوشمند،<br/>عملکرد بهتر</h1>
+<p>برنامه تمرینی تخصصی، ارزیابی عملکرد و ابزارهای علمی در یک مسیر منظم و قابل‌فهم؛ برای ورزشکاری که می‌خواهد دقیق‌تر تمرین کند و حرفه‌ای‌تر پیشرفت کند.</p>
+<div class="clean-hero-actions">
+<a class="btn btn-brand btn-lg" href="programs.html">سفارش برنامه</a>
+<a class="btn btn-outline-clean btn-lg" href="assessment.html">ارزیابی عملکرد</a>
 </div>
-<p>از شروع ارزیابی تا اجرای برنامه، یادگیری و خرید تجهیزات ورزشی.</p>
+<div class="clean-hero-points">
+<div><b>برنامه اختصاصی</b><span>متناسب با هدف، سابقه و سطح ورزشکار</span></div>
+<div><b>ارزیابی علمی</b><span>برای تصمیم‌گیری دقیق‌تر در تمرین</span></div>
+<div><b>پیگیری مداوم</b><span>از طراحی برنامه تا اجرای روزانه</span></div>
 </div>
-
-<div class="cards-4">
-<div class="card"><div class="icon">01</div><h3>ارزیابی اولیه</h3><p>شناخت وضعیت بدنی و عملکردی ورزشکار.</p></div>
-<div class="card"><div class="icon">02</div><h3>طراحی تمرین</h3><p>برنامه‌ریزی متناسب با هدف و سطح فرد.</p></div>
-<div class="card"><div class="icon">03</div><h3>پیگیری پیشرفت</h3><p>ثبت تمرین و بررسی روند تغییرات.</p></div>
-<div class="card"><div class="icon">04</div><h3>ارتقای عملکرد</h3><p>ترکیب علم، تمرین و تجهیزات مناسب.</p></div>
+</div>
+<div aria-label="نمایی از پلتفرم Seven.fitt" class="clean-hero-visual">
+<div class="visual-shell">
+<div class="visual-top">
+<div class="visual-dots"><span></span><span></span><span></span></div>
+<div class="visual-top-title"><small>SEVEN.FITT</small><strong>Performance Dashboard</strong></div>
+</div>
+<div class="visual-summary-row">
+<div class="visual-summary-card"><small>شدت</small><b>82%</b></div>
+<div class="visual-summary-card"><small>حجم</small><b>24</b></div>
+<div class="visual-summary-card"><small>آمادگی</small><b>High</b></div>
+</div>
+<div class="visual-list">
+<div class="visual-list-row"><span>01</span><div><b>تمرین مقاومتی</b><small>ست، تکرار و شدت</small></div><u>4 × 6</u></div>
+<div class="visual-list-row"><span>02</span><div><b>توان و سرعت</b><small>کنترل کیفیت اجرا</small></div><u>3 × 5</u></div>
+<div class="visual-list-row"><span>03</span><div><b>ریکاوری جلسه</b><small>خستگی و آمادگی</small></div><u>90s</u></div>
+</div>
+<div class="visual-footer-row">
+<div class="visual-pill"><i></i> VO₂ / Wingate / 1RM</div>
+<div class="visual-pill light">Auto-save &amp; Recovery Safe</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-
-<section class="section dark-section">
+<section class="home-section-clean clean-services">
 <div class="container">
-<div class="section-head">
+<div class="clean-section-head">
 <div>
-<div class="eyebrow">Coach Platform</div>
-<h2>برنامه‌سازی حرفه‌ای از داخل Seven.fitt</h2>
+<span class="section-mini">خدمات اصلی</span>
+<h2>همه چیز در یک مسیر منسجم</h2>
 </div>
-<p>فایل HTML فعلی برنامه‌ساز شما تبدیل به بخش داخلی پلتفرم می‌شود؛ هر ورزشکار برنامه اختصاصی خود را از سایت دریافت می‌کند.</p>
+<p>Seven.fitt تمرین، ارزیابی، آموزش و پیگیری را از چند ابزار پراکنده به یک تجربه واحد تبدیل می‌کند.</p>
 </div>
-<div class="cards-3">
-<div class="assess"><span>01</span><h3>پنل مربی</h3><p>ساخت برنامه، انتخاب حرکات، شدت، ست، تکرار و استراحت.</p></div>
-<div class="assess"><span>02</span><h3>پنل ورزشکار</h3><p>مشاهده برنامه، اجرای تمرین، ثبت عملکرد و پیشرفت.</p></div>
-<div class="assess"><span>03</span><h3>برنامه اختصاصی</h3><p>هر شاگرد یک لینک اختصاصی از دامنه Seven.fitt دریافت می‌کند.</p></div>
+<div class="clean-service-grid">
+<a class="clean-service-card" href="programs.html">
+<i>01</i>
+<h3>برنامه تمرینی اختصاصی</h3>
+<p>طراحی برنامه متناسب با هدف، سابقه، سطح آمادگی و نیاز واقعی ورزشکار.</p>
+<span>مشاهده برنامه‌ها ←</span>
+</a>
+<a class="clean-service-card" href="assessment.html">
+<i>02</i>
+<h3>ارزیابی عملکرد</h3>
+<p>هماهنگی تست‌های عملکرد و فیزیولوژی برای تصمیم‌گیری دقیق‌تر در تمرین.</p>
+<span>رزرو ارزیابی ←</span>
+</a>
+<a class="clean-service-card" href="articles.html">
+<i>03</i>
+<h3>مقالات علمی</h3>
+<p>محتوای کاربردی درباره علم تمرین، ریکاوری، فیزیولوژی و عملکرد ورزشی.</p>
+<span>مطالعه مقالات ←</span>
+</a>
+<a class="clean-service-card" href="shop.html">
+<i>04</i>
+<h3>فروشگاه</h3>
+<p>دسترسی به تجهیزات، پوشاک و محصولات مکمل در یک مسیر ساده و یکپارچه.</p>
+<span>ورود به فروشگاه ←</span>
+</a>
+</div>
+</div>
+</section>
+<section class="home-section-clean clean-why">
+<div class="container clean-why-grid">
+<div class="clean-why-copy">
+<span class="section-mini">چرا Seven.fitt</span>
+<h2>تمرین بر اساس داده، نه حدس</h2>
+<p>در Seven.fitt برنامه تمرینی فقط یک فایل ساده نیست. اطلاعات ورزشکار، ارزیابی‌های عملکردی و پیگیری اجرا کنار هم قرار می‌گیرند تا تصمیم‌های تمرینی دقیق‌تر شوند.</p>
+<a class="text-link dark-link" href="assessment.html">مشاهده ارزیابی‌های عملکرد <span>←</span></a>
+</div>
+<div class="clean-why-points">
+<div class="why-point-card"><span>01</span><b>ارزیابی علمی</b><small>شناخت وضعیت واقعی ورزشکار قبل از تصمیم‌گیری</small></div>
+<div class="why-point-card"><span>02</span><b>طراحی اختصاصی</b><small>برنامه متناسب با هدف، رشته و سطح فرد</small></div>
+<div class="why-point-card"><span>03</span><b>پیگیری مستمر</b><small>ثبت روند پیشرفت و اجرای روزانه برنامه</small></div>
+</div>
+</div>
+</section>
+<section class="home-section-clean clean-tests">
+<div class="container">
+<div class="clean-section-head compact-head">
+<div>
+<span class="section-mini">Performance Lab</span>
+<h2>ارزیابی‌هایی که به تمرین معنا می‌دهند</h2>
+</div>
+<a class="text-link dark-link" href="assessment.html">همه تست‌ها <span>←</span></a>
+</div>
+<div class="clean-test-grid">
+<a class="clean-test-card" href="assessment.html"><b>VO₂</b><small>آنالیز گازهای تنفسی</small></a>
+<a class="clean-test-card" href="assessment.html"><b>Wingate</b><small>توان بی‌هوازی</small></a>
+<a class="clean-test-card" href="assessment.html"><b>Body Comp</b><small>ترکیب بدنی</small></a>
+<a class="clean-test-card" href="assessment.html"><b>1RM</b><small>قدرت بیشینه</small></a>
+<a class="clean-test-card" href="assessment.html"><b>Jump</b><small>توان انفجاری</small></a>
+<a class="clean-test-card" href="assessment.html"><b>SAQ</b><small>سرعت و چابکی</small></a>
+</div>
+</div>
+</section>
+<section class="home-section-clean clean-coach">
+<div class="container clean-coach-grid">
+<div class="clean-coach-panel">
+<div class="coach-panel-shell">
+<div class="coach-panel-top">
+<div><small>COACH DASHBOARD</small><strong>ورزشکاران من</strong></div>
+<span>+ برنامه جدید</span>
+</div>
+<div class="coach-athlete-item"><i>AS</i><div><b>ورزشکار مستقیم</b><small>Strength · 4 sessions</small></div><u>فعال</u></div>
+<div class="coach-athlete-item"><i>MK</i><div><b>برنامه در حال طراحی</b><small>Conditioning · Draft</small></div><u class="draft">Draft</u></div>
+<div class="coach-athlete-item"><i>NR</i><div><b>ارزیابی تکمیل شده</b><small>VO₂ + Wingate</small></div><u>آماده</u></div>
+</div>
+</div>
+<div class="clean-coach-copy">
+<span class="section-mini on-dark">Seven.fitt Coach</span>
+<h2>ابزار حرفه‌ای برای مربی حرفه‌ای</h2>
+<p>ساخت برنامه، مدیریت ورزشکار، ذخیره Draft، انتشار برنامه و پیگیری روند شاگرد؛ در یک پلتفرم واقعی و متصل به سایت.</p>
+<div class="clean-coach-actions">
+<a class="btn btn-brand" href="coach/login.html">ورود مربی</a>
+<a class="btn btn-outline-dark" href="coach/index.html">مشاهده پنل</a>
+</div>
+</div>
+</div>
+</section>
+<section class="home-section-clean clean-journey">
+<div class="container">
+<div class="clean-section-head centered-head">
+<div>
+<span class="section-mini">مسیر Seven.fitt</span>
+<h2>از شروع تا پیشرفت</h2>
+</div>
+<p>یک مسیر ساده و قابل‌فهم برای تبدیل اطلاعات ورزشکار به برنامه و اجرای روزانه.</p>
+</div>
+<div class="clean-journey-grid">
+<div class="clean-journey-card"><span>01</span><h3>شناخت هدف</h3><p>هدف، سابقه، شرایط و نیازهای ورزشکار مشخص می‌شود.</p></div>
+<div class="clean-journey-card"><span>02</span><h3>ارزیابی</h3><p>در صورت نیاز، تست‌های عملکرد و فیزیولوژی هماهنگ می‌شوند.</p></div>
+<div class="clean-journey-card"><span>03</span><h3>طراحی برنامه</h3><p>برنامه اختصاصی در محیط Seven.fitt آماده و به ورزشکار متصل می‌شود.</p></div>
+<div class="clean-journey-card"><span>04</span><h3>اجرا و پیگیری</h3><p>ورزشکار برنامه را اجرا می‌کند و روند پیشرفت قابل پیگیری است.</p></div>
+</div>
+</div>
+</section>
+<section class="home-section-clean clean-journal">
+<div class="container">
+<div class="clean-section-head compact-head">
+<div>
+<span class="section-mini">Seven.fitt Journal</span>
+<h2>علم تمرین، قابل استفاده</h2>
+</div>
+<a class="text-link dark-link" href="articles.html">همه مقالات <span>←</span></a>
+</div>
+<div class="clean-journal-grid">
+<a class="clean-article-card featured" href="articles.html">
+<small>فیزیولوژی ورزش</small>
+<h3>از داده آزمایشگاهی تا تصمیم تمرینی بهتر</h3>
+<p>چطور اطلاعات عملکردی می‌تواند مسیر برنامه‌ریزی را دقیق‌تر کند.</p>
+<span>مطالعه مقاله ←</span>
+</a>
+<a class="clean-article-card" href="articles.html">
+<small>تمرین مقاومتی</small>
+<h3>اصول تنظیم حجم، شدت و ریکاوری</h3>
+<p>راهنمایی کاربردی برای طراحی بهتر هفته‌های تمرینی.</p>
+<span>مطالعه مقاله ←</span>
+</a>
+<a class="clean-article-card" href="articles.html">
+<small>ریکاوری</small>
+<h3>مدیریت خستگی در هفته‌های پرفشار</h3>
+<p>چطور ریکاوری هدفمند می‌تواند کیفیت تمرین را بالا نگه دارد.</p>
+<span>مطالعه مقاله ←</span>
+</a>
+</div>
+</div>
+</section>
+<section class="home-section-clean clean-final-cta">
+<div class="container">
+<div class="clean-final-box">
+<div>
+<span class="section-mini on-dark">READY TO START?</span>
+<h2>برای تمرین هوشمندتر آماده‌ای؟</h2>
+<p>شروع مسیر با برنامه اختصاصی یا ارزیابی عملکرد، از همین‌جا.</p>
+</div>
+<div class="clean-final-actions">
+<a class="btn btn-brand btn-lg" href="programs.html">سفارش برنامه</a>
+<a class="btn btn-outline-dark btn-lg" href="assessment.html">رزرو ارزیابی</a>
+</div>
 </div>
 </div>
 </section>
 </main>
-
-<footer class="site-footer">
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>Seven.fitt</h3><p>پلتفرم علمی تمرین، ارزیابی عملکرد و خدمات ورزشی.</p></div>
-   <div><h4>دسترسی سریع</h4><a href="programs.html">برنامه‌های تمرینی</a><a href="assessment.html">ارزیابی علمی</a><a href="shop.html">فروشگاه</a></div>
-   <div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط با ما</a></div>
-  </div>
-  <div class="footer-note">© Seven.fitt — نسخه وب اولیه. رنگ‌ها و محتوای نهایی بدون تغییر ساختار قابل ویرایش‌اند.</div>
- </div>
+<footer class="site-footer home-footer public-footer" style="background:#071f35 !important;color:#ffffff !important;border-top:1px solid rgba(255,255,255,.10) !important;">
+<div class="container">
+<div class="public-footer-grid">
+<div class="footer-brand-block">
+<a class="brand home-brand footer-brand" href="index.html"><img alt="Seven.fitt" class="brand-logo" src="assets/images/sevenfitt-logo-ui.png"/><span class="brand-word"><strong>Seven</strong><i>.</i><b>Fitt</b></span></a>
+<p>پلتفرم تخصصی تمرین، ارزیابی عملکرد و مربیگری دیجیتال.</p>
+</div>
+<div><h4>خدمات</h4><a href="programs.html">برنامه تمرینی</a><a href="assessment.html">ارزیابی عملکرد</a><a href="exercises.html">بانک حرکات</a><a href="shop.html">فروشگاه</a></div>
+<div><h4>محتوا</h4><a href="articles.html">مقالات علمی</a><a href="education.html">آموزش</a><a href="contact.html">ارتباط با ما</a></div>
+<div><h4>ورود</h4><a href="student/login.html">پنل ورزشکار</a><a href="coach/login.html">پنل مربی</a><a href="studio/index.html">Studio</a></div>
+</div>
+<div class="public-footer-note"><span>© Seven.fitt</span><span>SCIENCE · TRAINING · PERFORMANCE</span></div>
+</div>
 </footer>
 <script src="assets/js/site.js"></script>
-</body></html>
+</body>
+</html>

@@ -10,3 +10,6 @@ body{margin:0;font-family:tahoma,Arial;direction:rtl;background:#f7f8fb;color:#1
 .item{padding:20px;border-radius:18px;background:#edf2f7}
 .title{font-size:34px;font-weight:bold}
 @media(max-width:700px){.grid{grid-template-columns:1fr}}
+
+/* Phase 3.6 legacy pages: white canvas + filled sky-blue tiles */
+body,.dark{background:#fff!important;color:#10243b!important}.header{background:#fff!important;color:#10243b!important;border-bottom:1px solid #d7e8f8!important}.nav a{color:#10243b!important}.card,.darkcard,.item{background:#5faeff!important;color:#fff!important;border:1px solid #5faeff!important;box-shadow:0 10px 26px rgba(42,126,205,.14)!important}.card h1,.card h2,.card h3,.card p,.darkcard h1,.darkcard h2,.darkcard h3,.darkcard p,.item h1,.item h2,.item h3,.item p{color:#fff!important}
